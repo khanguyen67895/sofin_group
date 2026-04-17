@@ -78,8 +78,8 @@ export default function EcosystemSection() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section className="bg-neutral-950">
-      <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+    <section className="y-20 md:py-28 bg-neutral-950">
+      <div className="mx-auto px-20 md:px-30">
         {/* Heading */}
         <div className="mb-14">
           <span className="text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase">

@@ -23,15 +23,6 @@ const experts: Expert[] = [
     image: img01,
   },
   {
-    name: "Trần Minh Khoa",
-    title: "CTO / Co-Founder",
-    quote:
-      '"Đổi mới sáng tạo bền vững đến từ việc đặt con người vào trung tâm của mọi giải pháp công nghệ."',
-    description:
-      "Ông Trần Minh Khoa là kiến trúc sư công nghệ của SOFIN, người định hình nền tảng kỹ thuật vững chắc cho toàn bộ hệ sinh thái sản phẩm và dịch vụ của tập đoàn.",
-    image: img02,
-  },
-  {
     name: "Lê Thanh Hương",
     title: "COO / Director",
     quote:
@@ -39,6 +30,15 @@ const experts: Expert[] = [
     description:
       "Bà Lê Thanh Hương phụ trách điều hành toàn bộ hoạt động của tập đoàn, đảm bảo các quy trình hoạt động trơn tru và mục tiêu chiến lược được thực hiện đúng tiến độ.",
     image: img03,
+  },
+  {
+    name: "Trần Minh Khoa",
+    title: "CTO / Co-Founder",
+    quote:
+      '"Đổi mới sáng tạo bền vững đến từ việc đặt con người vào trung tâm của mọi giải pháp công nghệ."',
+    description:
+      "Ông Trần Minh Khoa là kiến trúc sư công nghệ của SOFIN, người định hình nền tảng kỹ thuật vững chắc cho toàn bộ hệ sinh thái sản phẩm và dịch vụ của tập đoàn.",
+    image: img02,
   },
   {
     name: "Phạm Đức Anh",
@@ -56,9 +56,8 @@ export default function ExpertSection() {
   const e = experts[cur];
 
   return (
-    <section className="bg-neutral-950">
-      <div className="max-w-screen-xl mx-auto pl-6 md:pl-10 py-20 md:py-28">
-
+    <section className="py-20 md:py-28 bg-neutral-950">
+      <div className="mx-auto px-20 md:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-10 pr-6 md:pr-100">
           <div>
@@ -73,12 +72,12 @@ export default function ExpertSection() {
             </h2>
           </div>
 
-          <div className="flex absolute right-20  items-center gap-2">
+          <div className="flex absolute right-20 z-100 mb-20 items-center gap-2">
             <button
               onClick={() =>
                 setCur((p) => (p === 0 ? experts.length - 1 : p - 1))
               }
-              className="w-9 h-9 flex items-center justify-center border border-neutral-700 text-neutral-400 hover:border-primary-500 hover:text-primary-500 transition-colors"
+              className="w-9 h-9 flex items-center justify-center border border-neutral-700 text-white hover:border-primary-500 hover:text-primary-500 transition-colors"
             >
               ←
             </button>
@@ -89,7 +88,7 @@ export default function ExpertSection() {
               onClick={() =>
                 setCur((p) => (p === experts.length - 1 ? 0 : p + 1))
               }
-              className="w-9 h-9 flex items-center justify-center border border-neutral-700 text-neutral-400 hover:border-primary-500 hover:text-primary-500 transition-colors"
+              className="w-9 h-9 flex items-center justify-center border border-neutral-700 text-white hover:border-primary-500 hover:text-primary-500 transition-colors"
             >
               →
             </button>

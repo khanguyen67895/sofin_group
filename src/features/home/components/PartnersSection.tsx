@@ -1,46 +1,68 @@
 import Button from '@/components/ui/Button'
+import vpbank from '@/assets/images/VPBank.png'
+import hipt from '@/assets/images/HiPT.png'
+import gianty from '@/assets/images/GIANTY.png'
+import seabank from '@/assets/images/SeABank.png'
+import fiin from '@/assets/images/Fiin.png'
 
-const partners = ['VPBank', 'hipt', 'GIANTY', 'SeABank', 'Fiin']
+const partners = [
+  { name: 'VPBank', logo: vpbank },
+  { name: 'HiPT', logo: hipt },
+  { name: 'GIANTY', logo: gianty },
+  { name: 'SeABank', logo: seabank },
+  { name: 'Fiin', logo: fiin },
+]
 
 export default function PartnersSection() {
   return (
-    <section className="py-20 md:py-28 bg-neutral-800/30 border-t border-neutral-800">
-      <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+    <section className="py-20 md:py-28 bg-neutral-950">
+      <div className="mx-auto px-20 md:px-30">
 
-        <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <span className="block text-[11px] font-heading font-bold text-primary-500 tracking-[0.2em] uppercase mb-3">
-              THÀNH LẬP BỞI TẬP ĐOÀN
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          {/* Header cell — spans 2 cols */}
+          <div className="col-span-2 flex flex-col justify-center pr-10 pb-4">
+            <span className="text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase mb-2">
+              /MẠNG LƯỚI ĐỐI TÁC
             </span>
-            <h2 className="font-heading font-bold text-neutral-0"
+            <h2
+              className="font-heading font-bold text-primary-500 mb-4"
               style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Đối tác &amp; Khách hàng
             </h2>
+            <p className="text-white text-[16px] leading-[1.75] max-w-lm">
+              Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng trí tuệ nhân
+              tạo và công nghệ tiên tiến để kiến tạo giá trị bền vững cho xã hội và doanh nghiệp.
+            </p>
           </div>
-          <p className="text-neutral-500 text-[14px] leading-[1.75] max-w-xs">
-            Chúng tôi tự hào đồng hành cùng những đối tác chiến lược hàng đầu, tạo nên sức mạnh
-            cộng hưởng của hệ sinh thái SOFIN.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {partners.map((name) => (
+          {/* Partner logos — first row (2 items) */}
+          {partners.slice(0, 2).map((p) => (
             <div
-              key={name}
-              className="bg-neutral-800 border border-neutral-700/50 rounded-xl h-28 flex items-center justify-center cursor-pointer group hover:border-neutral-600 transition-colors"
+              key={p.name}
+              className="border border-neutral-300/30 h-60 flex items-center justify-center cursor-pointer group hover:border-neutral-600 transition-colors"
             >
-              <span className="font-heading font-bold text-xl text-neutral-600 group-hover:text-neutral-200 transition-colors">
-                {name}
-              </span>
+              <img src={p.logo} alt={p.name} className="h-8 object-contain opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
             </div>
           ))}
 
-          <div className="bg-neutral-800 border border-neutral-700/50 rounded-xl h-28 flex flex-col items-center justify-center gap-3 px-5 hover:border-primary-500/30 transition-colors">
-            <p className="text-center text-[12px] text-neutral-500 leading-relaxed">
-              Cùng trở thành đối tác hàng đầu<br />Đông Nam Á
+          {/* Partner logos — second row (3 items) */}
+          {partners.slice(2).map((p) => (
+            <div
+              key={p.name}
+              className="border border-neutral-300/30 h-60 flex items-center justify-center cursor-pointer group hover:border-neutral-600 transition-colors"
+            >
+              <img src={p.logo} alt={p.name} className="h-8 object-contain opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+            </div>
+          ))}
+
+          {/* CTA cell */}
+          <div className="border border-neutral-300/30 h-60 flex flex-col items-center justify-center gap-3 px-5">
+            <p className="text-center text-[16px] text-white leading-relaxed">
+              Cùng trở thành đối tác tiếp theo của<br />chúng tôi
             </p>
-            <Button variant="primary" size="xs">
+            <Button variant="primary" size="sm">
               HỢP TÁC
             </Button>
           </div>
