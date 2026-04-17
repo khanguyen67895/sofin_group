@@ -20,7 +20,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // ─── Style Maps ──────────────────────────────────────────────────────────────
 
 const baseStyles = [
-  'relative inline-flex items-center justify-center gap-1.5',
+  'relative inline-flex items-center justify-center gap-1.5 w-full md:w-auto',
   'font-semibold transition-all duration-150 select-none',
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
   'disabled:pointer-events-none',

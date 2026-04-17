@@ -36,7 +36,7 @@ export default function ActivitySection() {
       <div className="mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-10 px-20 md:px-30">
+        <div className="flex items-start justify-between mb-10 px-5 sm:px-10 md:px-20 lg:px-30">
           <div>
             <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
               SANDBOX ĐÀ NẴNG
@@ -49,7 +49,8 @@ export default function ActivitySection() {
             </h2>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-2">
             <button
               onClick={() => scrollTo('left')}
               className="w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity"
@@ -72,13 +73,13 @@ export default function ActivitySection() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto pb-4"
-          style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingInline: '5rem' }}
+          className="flex gap-4 overflow-x-auto pb-4 px-5 sm:px-10 md:px-20 lg:px-30"
+          style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}
         >
           {slides.map((slide) => (
             <div
               key={slide.label}
-              className="relative shrink-0 w-150 h-80 overflow-hidden cursor-pointer group"
+              className="relative shrink-0 w-[85vw] sm:w-[70vw] md:w-150 h-60 md:h-80 overflow-hidden cursor-pointer group"
               style={{ scrollSnapAlign: 'center' }}
             >
               <img
@@ -89,6 +90,25 @@ export default function ActivitySection() {
               <div className="absolute inset-0 bg-linear-to-t from-neutral-900/70 via-transparent to-transparent" />
             </div>
           ))}
+        </div>
+
+        {/* Mobile nav — bottom left */}
+        <div className="flex md:hidden items-center gap-2 mt-4 px-5 sm:px-10">
+          <button
+            onClick={() => scrollTo('left')}
+            className="w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity"
+          >
+            <img src={icLeft} alt="Previous" className="w-9 h-9 object-contain" />
+          </button>
+          <span className="text-sm text-neutral-500 tabular-nums w-9 text-center">
+            {current + 1}/{slides.length}
+          </span>
+          <button
+            onClick={() => scrollTo('right')}
+            className="w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity"
+          >
+            <img src={icRight} alt="Next" className="w-9 h-9 object-contain" />
+          </button>
         </div>
       </div>
     </section>

@@ -8,6 +8,7 @@ import icSystem3 from "@/assets/images/ic_system3.png";
 import icSystem3x2 from "@/assets/images/ic_system3@2x.png";
 import icSystem4 from "@/assets/images/ic_system4.png";
 import icSystem4x2 from "@/assets/images/ic_system4@2x.png";
+import icArrowWhite from "@/assets/images/ic_arrow_white.png";
 
 interface Item {
   number: string;
@@ -82,7 +83,7 @@ export default function EcosystemSection() {
     <section className="y-10 md:py-10 bg-neutral-950">
       <div>
         {/* Heading */}
-        <div className=" mb-10 mx-auto pl-20 md:px-30">
+        <div className=" mb-10 mx-auto pl-5 sm:pl-10 md:pl-20 lg:px-30">
           <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase">
             NỀN TẢNG TỔ CHỨC
           </span>
@@ -119,7 +120,7 @@ export default function EcosystemSection() {
               </div>
 
               {/* Row text */}
-              <div className={`relative ml-20 md:pl-10 z-10 flex items-center gap-6 py-10 transition-all duration-300 ${active === idx ? 'pr-20' : 'pr-4'}`}>
+              <div className={`relative ml-5 sm:ml-10 md:ml-20 md:pl-10 z-10 flex items-center gap-4 md:gap-6 py-6 md:py-10 transition-all duration-300 ${active === idx ? 'pr-5 md:pr-20' : 'pr-4'}`}>
                 <span
                   className={`font-heading text-sm font-bold w-8 shrink-0 transition-colors duration-200 text-neutral-100`}
                 >
@@ -133,7 +134,12 @@ export default function EcosystemSection() {
                 >
                   {it.title}
                 </span>
-                <span className={`shrink-0 w-12 h-12 flex items-center justify-center overflow-hidden transition-opacity duration-300 ${active === idx ? 'opacity-100' : 'opacity-0'}`}>
+                {/* Mobile: always show arrow */}
+                <span className="md:hidden shrink-0 w-6 h-6 flex items-center justify-center">
+                  <img src={icArrowWhite} alt="" className="w-5 h-5 object-contain" />
+                </span>
+                {/* Desktop: show on hover */}
+                <span className={`hidden md:flex shrink-0 w-12 h-12 items-center justify-center overflow-hidden transition-opacity duration-300 ${active === idx ? 'opacity-100' : 'opacity-0'}`}>
                   <img
                     src={icRight}
                     alt=""
@@ -146,7 +152,7 @@ export default function EcosystemSection() {
               {/* Popup card */}
               {active === idx && (
                 <div
-                  className="absolute right-60 top-10 z-30 w-80"
+                  className="absolute left-5 right-5 md:left-auto md:right-60 top-full md:top-10 z-30 md:w-80"
                   style={{
                     background: 'rgba(13,13,13,0.6)',
                     backdropFilter: 'blur(16px)',

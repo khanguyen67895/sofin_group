@@ -26,7 +26,7 @@ export default function VisionSection() {
 
   return (
     <section className="py-20 md:py-20 bg-neutral-900">
-      <div className="mx-auto px-20 md:px-30">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         {/* Divider line */}
         <div className="relative mb-14">
@@ -48,7 +48,7 @@ export default function VisionSection() {
         </div>
 
         {/* Cards — active card expands width, others shrink */}
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           {cards.map((card, idx) => {
             const isActive = activeIndex === idx
             return (

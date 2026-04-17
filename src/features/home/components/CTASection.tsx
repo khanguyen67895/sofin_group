@@ -1,18 +1,20 @@
 import bgFormHopTac from '@/assets/images/bg-form-hop-tac.png'
+import bgFormHopTacMb from '@/assets/images/bg-form-hop-tac-mb.png'
 import Button from '@/components/ui/Button'
 import icStars from '@/assets/images/ic_stars.png'
 
 export default function CTASection() {
   return (
     <section className="py-10 md:py-10 bg-neutral-900 relative overflow-hidden">
+        {/* Desktop background */}
         <img
           src={bgFormHopTac}
           alt=""
-          className="absolute right-0 top-0 h-full w-full object-cover object-center"
+          className="hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-neutral-900 via-neutral-900/70 to-transparent" />
+        <div className="hidden md:block absolute inset-0 bg-linear-to-r from-neutral-900 via-neutral-900/70 to-transparent" />
 
-      <div className="relative mx-auto px-20 md:px-30">
+      <div className="relative mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
 
           {/* Left — form */}
@@ -60,6 +62,13 @@ export default function CTASection() {
           </div>
 
         </div>
+
+        {/* Mobile background image — below form */}
+        <img
+          src={bgFormHopTacMb}
+          alt=""
+          className="md:hidden w-full object-cover"
+        />
       </div>
     </section>
   )

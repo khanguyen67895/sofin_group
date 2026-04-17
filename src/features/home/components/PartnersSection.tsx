@@ -16,9 +16,10 @@ const partners = [
 export default function PartnersSection() {
   return (
     <section className="py-15 md:py-15 bg-neutral-950">
-      <div className="mx-auto px-20 md:px-30">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* ── Desktop: original grid layout ── */}
+        <div className="hidden md:grid grid-cols-4 gap-4">
 
           {/* Header cell — spans 2 cols */}
           <div className="col-span-2 flex flex-col justify-center pr-10 pb-4">
@@ -61,6 +62,51 @@ export default function PartnersSection() {
           <div className="border border-neutral-300/30 h-60 flex flex-col items-center justify-center gap-3 px-5">
             <p className="text-center text-[16px] text-white leading-relaxed">
               Cùng trở thành đối tác tiếp theo của<br />chúng tôi
+            </p>
+            <Button variant="primary" size="sm">
+              HỢP TÁC
+            </Button>
+          </div>
+        </div>
+
+        {/* ── Mobile layout ── */}
+        <div className="md:hidden">
+          {/* Header */}
+          <div className="flex flex-col justify-center pb-4">
+            <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
+              MẠNG LƯỚI ĐỐI TÁC
+            </span>
+            <h2
+              className="font-heading font-bold text-primary-500 mb-4"
+              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+            >
+              Đối tác &amp; Khách hàng
+            </h2>
+            <p className="text-white text-[16px] leading-[1.75]">
+              Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng trí tuệ nhân
+              tạo và công nghệ tiên tiến để kiến tạo giá trị bền vững cho xã hội và doanh nghiệp.
+            </p>
+          </div>
+
+          {/* Horizontal scroll logos carousel */}
+          <div
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory mt-4 pb-2"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {partners.map((p) => (
+              <div
+                key={p.name}
+                className="border border-neutral-300/30 h-20 min-w-35 shrink-0 snap-start flex items-center justify-center cursor-pointer group hover:border-neutral-600 transition-colors"
+              >
+                <img src={p.logo} alt={p.name} className="h-6 object-contain opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-col items-center justify-center gap-3 px-5 py-8">
+            <p className="text-center text-[16px] text-white leading-relaxed">
+              Cùng trở thành đối tác tiếp theo của chúng tôi
             </p>
             <Button variant="primary" size="sm">
               HỢP TÁC

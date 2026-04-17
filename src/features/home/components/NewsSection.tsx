@@ -34,7 +34,7 @@ const newsItems = [
 export default function NewsSection() {
   return (
     <section className="py-10 md:py-10 bg-neutral-950">
-      <div className="mx-auto px-20 md:px-30">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         <div className="mb-10">
           <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
@@ -48,11 +48,14 @@ export default function NewsSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          className="flex gap-5 overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:mr-0"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {newsItems.map((news) => (
             <article
               key={news.id}
-              className="relative cursor-pointer group overflow-hidden"
+              className="relative cursor-pointer group overflow-hidden shrink-0 w-[80vw] md:w-auto md:shrink"
               style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}
             >
               {/* Image */}

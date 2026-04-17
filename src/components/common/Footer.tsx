@@ -38,7 +38,7 @@ function NavCol({ title, links }: { title: string; links: { label: string; href:
           <li key={l.href}>
             <Link
               to={l.href}
-              className="text-sm text-neutral-300 hover:text-white transition-colors"
+              className="text-sm text-neutral-white hover:text-300 transition-colors"
             >
               {l.label}
             </Link>
@@ -61,9 +61,9 @@ export default function Footer() {
     <footer className="bg-neutral-950">
 
       {/* ── Top: Logo + Socials ── */}
-      <div className="mx-auto px-20 md:px-30 pt-16 pb-10">
-        <div className="flex items-center justify-between">
-          <img src={logo} alt="SOFIN GROUP" className="h-6 w-auto object-contain" />
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 pt-16 pb-10">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+          <img src={logo} alt="SOFIN GROUP" className="h-10 md:h-6 w-auto object-contain" />
           <div className="flex gap-3">
             {socials.map(({ name, href, icon }) => (
               <a
@@ -82,7 +82,7 @@ export default function Footer() {
       </div>
 
       {/* ── Contact + Nav columns ── */}
-      <div className="mx-auto px-20 md:px-30 pb-16">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
 
           {/* Contact info */}
@@ -127,8 +127,8 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="border-t border-b border-neutral-800">
-        <div className="mx-auto px-20 md:px-30 py-5 flex items-center justify-between">
-          <p className="text-xs text-neutral-600">
+        <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 py-5 flex items-center justify-between">
+          <p className="text-xs text-neutral-0">
             © 2026 SOFIN GROUP all rights reserved.
           </p>
           <button
@@ -141,7 +141,7 @@ export default function Footer() {
       </div>
 
       {/* ── Giant brand logo ── */}
-      <div className="overflow-hidden flex justify-center px-20 md:px-30 pb-10 mt-20">
+      <div className="overflow-hidden flex justify-center px-5 sm:px-10 md:px-20 lg:px-30 pb-10 mt-20">
         <img src={logoFooter} alt="SOFIN GROUP" className="w-full object-contain select-none brightness-0 invert" />
       </div>
     </footer>

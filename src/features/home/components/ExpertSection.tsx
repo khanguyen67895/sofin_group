@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import img01 from "@/assets/images/chuyen-gia-01.png";
 import img02 from "@/assets/images/chuyen-gia-02.png";
 import img03 from "@/assets/images/chuyen-gia-03.png";
@@ -56,12 +56,23 @@ const experts: Expert[] = [
 export default function ExpertSection() {
   const [cur, setCur] = useState(0);
   const e = experts[cur];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const goTo = useCallback((idx: number) => {
+    setCur(idx);
+    const container = scrollRef.current;
+    if (!container) return;
+    const child = container.children[idx] as HTMLElement | undefined;
+    if (child) {
+      child.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, []);
 
   return (
     <section className="py-15 md:py-15 bg-neutral-950">
-      <div className="mx-auto px-20 md:px-30">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
-        <div className="flex items-end justify-between mb-10 pr-6 md:pr-100">
+        <div className="flex items-end justify-between mb-10 pr-6 md:pr-20 lg:pr-100">
           <div>
             <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.2em] uppercase mb-2">
               HỘI ĐỒNG CỐ VẤN KHOA HỌC
@@ -74,10 +85,10 @@ export default function ExpertSection() {
             </h2>
           </div>
 
-          <div className="flex absolute right-20 z-100 mb-20 items-center gap-2">
+          <div className="hidden md:flex absolute right-5 md:right-20 z-100 mb-20 items-center gap-2">
             <button
               onClick={() =>
-                setCur((p) => (p === 0 ? experts.length - 1 : p - 1))
+                goTo(cur === 0 ? experts.length - 1 : cur - 1)
               }
               className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
             >
@@ -88,7 +99,7 @@ export default function ExpertSection() {
             </span>
             <button
               onClick={() =>
-                setCur((p) => (p === experts.length - 1 ? 0 : p + 1))
+                goTo(cur === experts.length - 1 ? 0 : cur + 1)
               }
               className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
             >
@@ -122,7 +133,8 @@ export default function ExpertSection() {
 
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
           <div
-            className="flex gap-3 items-end overflow-x-auto pb-1 -mt-60 md:-mt-60 -mr-6 md:-mr-20"
+            ref={scrollRef}
+            className="flex gap-3 items-end overflow-x-auto pb-1 mt-6 lg:-mt-60 -mr-5 md:-mr-20"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {experts.map((ex, idx) => {
@@ -148,6 +160,29 @@ export default function ExpertSection() {
             })}
           </div>
 
+        </div>
+
+        {/* ── Mobile nav: bottom-left ── */}
+        <div className="flex md:hidden items-center gap-2 mt-6">
+          <button
+            onClick={() =>
+              goTo(cur === 0 ? experts.length - 1 : cur - 1)
+            }
+            className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
+          >
+            <img src={icLeft} alt="Previous" className="w-12 h-12 object-contain" />
+          </button>
+          <span className="text-lm text-neutral-500 tabular-nums w-12 text-center">
+            {cur + 1}/{experts.length}
+          </span>
+          <button
+            onClick={() =>
+              goTo(cur === experts.length - 1 ? 0 : cur + 1)
+            }
+            className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
+          >
+            <img src={icRight} alt="Next" className="w-12 h-12 object-contain" />
+          </button>
         </div>
       </div>
     </section>
