@@ -4,6 +4,7 @@ import AuthLayout from '@/layouts/AuthLayout'
 import LoginPage from '@/features/auth/pages/LoginPage'
 import RegisterPage from '@/features/auth/pages/RegisterPage'
 import HomePage from '@/pages/HomePage'
+import AboutPage from '@/pages/AboutPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 
 export const router = createBrowserRouter([
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 've-chung-toi', element: <AboutPage /> },
     ],
   },
   {
