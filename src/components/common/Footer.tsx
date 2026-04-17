@@ -31,7 +31,7 @@ function NavCol({ title, links }: { title: string; links: { label: string; href:
   return (
     <div className="flex flex-col gap-4">
       <h4 className="text-[10px] font-heading font-bold text-neutral-500 tracking-[0.15em] uppercase">
-        /{title}
+        {title}
       </h4>
       <ul className="flex flex-col gap-3">
         {links.map((l) => (
@@ -91,7 +91,7 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icPhone} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">/ĐIỆN THOẠI</span>
+                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">ĐIỆN THOẠI</span>
                 <a href="tel:0335456789" className="text-white font-heading font-bold text-lg hover:text-primary-500 transition-colors">
                   0335 456 789
                 </a>
@@ -101,7 +101,7 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icEmail} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">/EMAIL</span>
+                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">EMAIL</span>
                 <a href="mailto:hello@sofingroup.com" className="text-white font-heading font-bold text-lg hover:text-primary-500 transition-colors">
                   hello@sofingroup.com
                 </a>
@@ -111,7 +111,7 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icLocation} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">/TRỤ SỞ CHÍNH</span>
+                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">TRỤ SỞ CHÍNH</span>
                 <p className="text-white font-heading font-bold text-lg leading-snug">
                   216 - 218 Trần Hưng Đạo, P. An Hải,<br />TP. Đà Nẵng
                 </p>
@@ -133,7 +133,7 @@ export default function Footer() {
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-xs text-neutral-600 hover:text-neutral-300 transition-colors"
+            className="text-xs text-neutral-0 hover:text-neutral-300 transition-colors"
           >
             Lên đầu trang ↑
           </button>

@@ -15,15 +15,15 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section className="py-20 md:py-28 bg-neutral-950">
+    <section className="py-15 md:py-15 bg-neutral-950">
       <div className="mx-auto px-20 md:px-30">
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 
           {/* Header cell — spans 2 cols */}
           <div className="col-span-2 flex flex-col justify-center pr-10 pb-4">
-            <span className="text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase mb-2">
-              /MẠNG LƯỚI ĐỐI TÁC
+            <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
+              MẠNG LƯỚI ĐỐI TÁC
             </span>
             <h2
               className="font-heading font-bold text-primary-500 mb-4"

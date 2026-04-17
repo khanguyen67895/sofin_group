@@ -1,4 +1,5 @@
 import { useState } from "react";
+import icRight from "@/assets/images/ic_right.png";
 import icSystem1 from "@/assets/images/ic_system1.png";
 import icSystem1x2 from "@/assets/images/ic_system1@2x.png";
 import icSystem2 from "@/assets/images/ic_system2.png";
@@ -78,12 +79,12 @@ export default function EcosystemSection() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section className="y-20 md:py-28 bg-neutral-950">
-      <div className="mx-auto px-20 md:px-30">
+    <section className="y-10 md:py-10 bg-neutral-950">
+      <div>
         {/* Heading */}
-        <div className="mb-14">
-          <span className="text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase">
-            /NỀN TẢNG TỔ CHỨC
+        <div className=" mb-10 mx-auto pl-20 md:px-30">
+          <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase">
+            NỀN TẢNG TỔ CHỨC
           </span>
           <h2
             className="font-heading font-bold text-primary-500"
@@ -94,11 +95,11 @@ export default function EcosystemSection() {
         </div>
 
         {/* List */}
-        <div>
+        <div className="mb-10 mx-auto">
           {items.map((it, idx) => (
             <div
               key={it.number}
-              className="relative"
+              className={`relative ${idx === 1 || idx === 3 ? 'bg-neutral-800/30' : ''}`}
               onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
             >
@@ -118,7 +119,7 @@ export default function EcosystemSection() {
               </div>
 
               {/* Row text */}
-              <div className="relative z-10 flex items-center gap-6 py-7 pr-4">
+              <div className={`relative ml-20 md:pl-10 z-10 flex items-center gap-6 py-10 transition-all duration-300 ${active === idx ? 'pr-20' : 'pr-4'}`}>
                 <span
                   className={`font-heading text-sm font-bold w-8 shrink-0 transition-colors duration-200 text-neutral-100`}
                 >
@@ -132,25 +133,25 @@ export default function EcosystemSection() {
                 >
                   {it.title}
                 </span>
-                {active === idx && (
-                  <span
-                    className="shrink-0 w-7 h-7 flex items-center justify-center border border-neutral-600 text-white text-sm"
-                    style={{ lineHeight: 1 }}
-                  >
-                    →
-                  </span>
-                )}
+                <span className={`shrink-0 w-12 h-12 flex items-center justify-center overflow-hidden transition-opacity duration-300 ${active === idx ? 'opacity-100' : 'opacity-0'}`}>
+                  <img
+                    src={icRight}
+                    alt=""
+                    className="w-12 h-12 object-contain"
+                    style={active === idx ? { animation: 'slideFromRight 0.4s ease-out' } : undefined}
+                  />
+                </span>
               </div>
 
               {/* Popup card */}
               {active === idx && (
                 <div
-                  className="absolute right-30 top-35 z-30 w-80"
+                  className="absolute right-60 top-10 z-30 w-80"
                   style={{
-                    transform: 'translateY(-50%)',
                     background: 'rgba(13,13,13,0.6)',
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
+                    animation: 'slideDown 0.35s ease-out',
                   }}
                 >
                   {/* gradient top border: đỏ từ phải → đen sang trái */}

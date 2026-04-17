@@ -25,7 +25,7 @@ export default function VisionSection() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className="py-20 md:py-28 bg-neutral-900">
+    <section className="py-20 md:py-20 bg-neutral-900">
       <div className="mx-auto px-20 md:px-30">
 
         {/* Divider line */}
@@ -36,8 +36,8 @@ export default function VisionSection() {
 
         {/* Section header */}
         <div className="mb-14">
-          <span className="text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase">
-            /NỀN TẢNG TỔ CHỨC
+          <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase">
+            NỀN TẢNG TỔ CHỨC
           </span>
           <h2
             className="font-heading font-bold text-primary-500 mt-3"

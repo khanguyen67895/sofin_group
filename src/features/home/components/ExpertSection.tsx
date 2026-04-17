@@ -3,6 +3,8 @@ import img01 from "@/assets/images/chuyen-gia-01.png";
 import img02 from "@/assets/images/chuyen-gia-02.png";
 import img03 from "@/assets/images/chuyen-gia-03.png";
 import img04 from "@/assets/images/chuyen-gia-04.png";
+import icLeft from "@/assets/images/ic_left.png";
+import icRight from "@/assets/images/ic_right.png";
 
 interface Expert {
   name: string;
@@ -29,7 +31,7 @@ const experts: Expert[] = [
       '"Hiệu quả vận hành là nền tảng để mọi chiến lược lớn có thể được thực thi và tạo ra giá trị thực."',
     description:
       "Bà Lê Thanh Hương phụ trách điều hành toàn bộ hoạt động của tập đoàn, đảm bảo các quy trình hoạt động trơn tru và mục tiêu chiến lược được thực hiện đúng tiến độ.",
-    image: img03,
+    image: img02,
   },
   {
     name: "Trần Minh Khoa",
@@ -38,7 +40,7 @@ const experts: Expert[] = [
       '"Đổi mới sáng tạo bền vững đến từ việc đặt con người vào trung tâm của mọi giải pháp công nghệ."',
     description:
       "Ông Trần Minh Khoa là kiến trúc sư công nghệ của SOFIN, người định hình nền tảng kỹ thuật vững chắc cho toàn bộ hệ sinh thái sản phẩm và dịch vụ của tập đoàn.",
-    image: img02,
+    image: img03,
   },
   {
     name: "Phạm Đức Anh",
@@ -56,13 +58,13 @@ export default function ExpertSection() {
   const e = experts[cur];
 
   return (
-    <section className="py-20 md:py-28 bg-neutral-950">
+    <section className="py-15 md:py-15 bg-neutral-950">
       <div className="mx-auto px-20 md:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-10 pr-6 md:pr-100">
           <div>
-            <span className="block text-[10px] font-heading text-neutral-400 tracking-[0.2em] uppercase mb-2">
-              /HỘI ĐỒNG CỐ VẤN KHOA HỌC
+            <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.2em] uppercase mb-2">
+              HỘI ĐỒNG CỐ VẤN KHOA HỌC
             </span>
             <h2
               className="font-heading font-bold text-primary-500"
@@ -77,20 +79,20 @@ export default function ExpertSection() {
               onClick={() =>
                 setCur((p) => (p === 0 ? experts.length - 1 : p - 1))
               }
-              className="w-9 h-9 flex items-center justify-center border border-neutral-700 text-white hover:border-primary-500 hover:text-primary-500 transition-colors"
+              className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
             >
-              ←
+              <img src={icLeft} alt="Previous" className="w-12 h-12 object-contain" />
             </button>
-            <span className="text-sm text-neutral-500 tabular-nums w-9 text-center">
+            <span className="text-lm text-neutral-500 tabular-nums w-12 text-center">
               {cur + 1}/{experts.length}
             </span>
             <button
               onClick={() =>
                 setCur((p) => (p === experts.length - 1 ? 0 : p + 1))
               }
-              className="w-9 h-9 flex items-center justify-center border border-neutral-700 text-white hover:border-primary-500 hover:text-primary-500 transition-colors"
+              className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
             >
-              →
+              <img src={icRight} alt="Next" className="w-12 h-12 object-contain" />
             </button>
           </div>
         </div>

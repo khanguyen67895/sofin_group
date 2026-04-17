@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react'
+import icLeft from '@/assets/images/ic_left.png'
+import icRight from '@/assets/images/ic_right.png'
 import img1 from '@/assets/images/image_action1.jpg'
 import img2 from '@/assets/images/image_action2.png'
 import img3 from '@/assets/images/image_action3.png'
@@ -17,8 +19,9 @@ export default function ActivitySection() {
 
   const scrollTo = (dir: 'left' | 'right') => {
     if (!scrollRef.current) return
-    const target = dir === 'left' ? 0 : scrollRef.current.scrollWidth
-    scrollRef.current.scrollTo({ left: target, behavior: 'smooth' })
+    const card = scrollRef.current.children[0] as HTMLElement
+    const scrollAmount = (card?.clientWidth ?? 400) + 16
+    scrollRef.current.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' })
   }
 
   const handleScroll = () => {
@@ -29,14 +32,14 @@ export default function ActivitySection() {
   }
 
   return (
-    <section className="py-20 md:py-28 bg-neutral-950">
+    <section className="py-10 md:py-10 bg-neutral-950">
       <div className="mx-auto">
 
         {/* Header */}
         <div className="flex items-start justify-between mb-10 px-20 md:px-30">
           <div>
-            <span className="block text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase mb-2">
-              /SANDBOX ĐÀ NẴNG
+            <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
+              SANDBOX ĐÀ NẴNG
             </span>
             <h2
               className="font-heading font-bold text-primary-500"
@@ -46,21 +49,21 @@ export default function ActivitySection() {
             </h2>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => scrollTo('left')}
-              className="w-10 h-10 border border-neutral-700 flex items-center justify-center text-neutral-400 hover:border-primary-500 hover:text-primary-500 transition-colors"
+              className="w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity"
             >
-              ←
+              <img src={icLeft} alt="Previous" className="w-9 h-9 object-contain" />
             </button>
-            <span className="text-sm text-neutral-500 tabular-nums">
+            <span className="text-sm text-neutral-500 tabular-nums w-9 text-center">
               {current + 1}/{slides.length}
             </span>
             <button
               onClick={() => scrollTo('right')}
-              className="w-10 h-10 border border-neutral-700 flex items-center justify-center text-neutral-400 hover:border-primary-500 hover:text-primary-500 transition-colors"
+              className="w-9 h-9 flex items-center justify-center hover:opacity-70 transition-opacity"
             >
-              →
+              <img src={icRight} alt="Next" className="w-9 h-9 object-contain" />
             </button>
           </div>
         </div>

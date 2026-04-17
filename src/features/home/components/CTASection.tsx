@@ -4,7 +4,7 @@ import icStars from '@/assets/images/ic_stars.png'
 
 export default function CTASection() {
   return (
-    <section className="py-20 md:py-30 bg-neutral-900 relative overflow-hidden">
+    <section className="py-10 md:py-10 bg-neutral-900 relative overflow-hidden">
         <img
           src={bgFormHopTac}
           alt=""
@@ -18,8 +18,8 @@ export default function CTASection() {
           {/* Left — form */}
           <div className="flex flex-col gap-6">
             <div>
-              <span className="text-[10px] font-heading text-neutral-100 tracking-[0.15em] uppercase block mb-2">
-                /KẾT NỐI VỚI CHÚNG TÔI
+              <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-2">
+                KẾT NỐI VỚI CHÚNG TÔI
               </span>
               <h2
                 className="font-heading font-bold text-primary-500"
