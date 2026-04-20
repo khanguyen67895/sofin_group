@@ -5,6 +5,7 @@ import img03 from "@/assets/images/chuyen-gia-03.png";
 import img04 from "@/assets/images/chuyen-gia-04.png";
 import icLeft from "@/assets/images/ic_left.png";
 import icRight from "@/assets/images/ic_right.png";
+import icRec from '@/assets/images/ic_rec.png'
 
 interface Expert {
   name: string;
@@ -111,22 +112,27 @@ export default function ExpertSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
           {/* ── LEFT: content ── */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-5">
             {/* Quote */}
-            <blockquote className="text-base md:text-lg text-neutral-200 leading-[1.8] italic font-light">
+            <blockquote className="text-base md:text-2xl text-neutral-200 leading-[1.8] italic font-light">
               {e.quote}
             </blockquote>
 
+            <div className="relative mt-14">
+              <div className="h-0.5 bg-neutral-700/50" />
+              <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
+            </div>
+
             {/* Name + title */}
             <div>
-              <p className="font-heading font-bold text-base text-primary-500">
+              <p className="text-neutral-500 text-sm">{e.title}</p>
+              <p className="font-heading font-bold text-2xl text-white mt-1">
                 {e.name}
               </p>
-              <p className="text-neutral-500 text-sm mt-1">{e.title}</p>
             </div>
 
             {/* Description */}
-            <p className="text-neutral-400 text-[13px] leading-relaxed">
+            <p className="text-neutral-300 text-[14px] leading-relaxed">
               {e.description}
             </p>
           </div>

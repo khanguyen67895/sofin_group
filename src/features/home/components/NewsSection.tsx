@@ -2,6 +2,7 @@ import Button from '@/components/ui/Button'
 import icInfo1 from '@/assets/images/ic_info1.png'
 import icInfo2 from '@/assets/images/ic_info2.png'
 import icInfo3 from '@/assets/images/ic_info3.png'
+import icRec from '@/assets/images/ic_rec.png'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
 
 const newsItems = [
@@ -36,6 +37,11 @@ export default function NewsSection() {
     <section className="py-10 md:py-10 bg-neutral-950">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
+      {/* Divider line */}
+        <div className="relative mb-14">
+          <div className="h-0.5 bg-neutral-700/50" />
+          <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
+        </div>
         <div className="mb-10">
           <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
             CẬP NHẬT MỚI NHẤT
@@ -96,6 +102,11 @@ export default function NewsSection() {
           <Button variant="primary" size="md">
             XEM TẤT CẢ
           </Button>
+        </div>
+
+        <div className="relative mt-14">
+          <div className="h-0.5 bg-neutral-700/50" />
+          <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
         </div>
       </div>
     </section>

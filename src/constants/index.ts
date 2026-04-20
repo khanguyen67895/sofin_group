@@ -40,6 +40,10 @@ export const QUERY_KEYS = {
     LIST: ['products'],
     DETAIL: (id: string) => ['products', id],
   },
+  NEWS: {
+    LIST: ['news'],
+    DETAIL: (id: string) => ['news', id],
+  },
 } as const
 
 export const PAGINATION = {

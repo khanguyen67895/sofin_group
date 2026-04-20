@@ -31,7 +31,7 @@ export default function VisionSection() {
         {/* Divider line */}
         <div className="relative mb-14">
           <div className="h-0.5 bg-neutral-700/50" />
-          <img src={icRec} alt="" className="absolute left-0 -top-1 -translate-y-1/2 h-3" />
+          <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
         </div>
 
         {/* Section header */}

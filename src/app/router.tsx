@@ -5,6 +5,8 @@ import LoginPage from '@/features/auth/pages/LoginPage'
 import RegisterPage from '@/features/auth/pages/RegisterPage'
 import HomePage from '@/pages/HomePage'
 import AboutPage from '@/pages/AboutPage'
+import NewsPage from '@/pages/NewsPage'
+import NewsDetailPage from '@/pages/NewsDetailPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 
 export const router = createBrowserRouter([
@@ -14,6 +16,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 've-chung-toi', element: <AboutPage /> },
+      { path: 'tin-tuc', element: <NewsPage /> },
+      { path: 'tin-tuc/:id', element: <NewsDetailPage /> },
     ],
   },
   {
