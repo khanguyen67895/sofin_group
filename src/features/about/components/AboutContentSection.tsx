@@ -18,7 +18,7 @@ export default function AboutContentSection() {
           {/* Right — image */}
           <div className="flex flex-col gap-8">
             <div>
-              <p className="text-neutral-200 text-[14px] leading-[1.85]">
+              <p className="text-neutral-200 text-[16px] leading-[1.85]">
                 Thương hiệu bắt nguồn từ một ý tưởng táo bạo. Năm 2021, với mong muốn mang đến nhiều
                 sản phẩm công nghệ thông minh và đáng tin cậy, chúng tôi đã ra mắt SOFIN Group - Tập đoàn
                 công nghệ tiên phong trong việc ứng dụng AI tại Việt Nam. Sự phát triển của SOFIN Group
@@ -27,36 +27,39 @@ export default function AboutContentSection() {
             </div>
 
             <div>
-              <h3 className="font-heading font-bold text-primary-500 text-lg mb-3">Sứ mệnh</h3>
-              <p className="text-neutral-200 text-[14px] leading-[1.85] mb-4">
+              <h3 className="text-[16px] font-bold text-white text-lg leading-[1.85]">Sứ mệnh</h3>
+              <p className="text-neutral-200 text-[16px]">
                 Kết nối tri thức — công nghệ — con người, thúc đẩy chuyển đổi số toàn diện, phát triển nguồn
                 nhân lực chất lượng cao và xây dựng hệ sinh thái đổi mới sáng tạo tại Việt Nam.
               </p>
             </div>
 
             <div>
-              <h3 className="font-heading font-bold text-primary-500 text-lg mb-3">Tầm nhìn</h3>
-              <ul className="flex flex-col gap-2 text-neutral-200 text-[14px] leading-[1.85]">
+              <ul className="flex flex-col gap-2 text-neutral-200 text-[16px] leading-[1.85]">
                 <li className="flex items-start gap-2">
-                  <span className="text-primary-500 mt-1">•</span>
+                  <span className="text-white mt-1">•</span>
+                  Tiên phong
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-white mt-1">•</span>
                   Liêm chính
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary-500 mt-1">•</span>
+                  <span className="text-white mt-1">•</span>
                   Trách nhiệm xã hội
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary-500 mt-1">•</span>
+                  <span className="text-white mt-1">•</span>
                   Hợp tác
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-primary-500 mt-1">•</span>
+                  <span className="text-white mt-1">•</span>
                   Đổi mới sáng tạo
                 </li>
               </ul>
             </div>
 
-            <p className="text-neutral-200 text-[14px] leading-[1.85]">
+            <p className="text-neutral-200 text-[16px] leading-[1.85]">
               Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng trí tuệ nhân tạo và
               công nghệ tiên tiến để kiến tạo giá trị bền vững cho xã hội và doanh nghiệp, kiến tạo giá trị bền
               vững thông qua đổi mới sáng tạo và ứng dụng trí tuệ nhân tạo.

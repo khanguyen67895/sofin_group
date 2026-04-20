@@ -4,8 +4,7 @@ export default function AboutVisionQuote() {
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <blockquote className="text-center max-w-3xl mx-auto">
           <p
-            className="font-heading text-white italic leading-[1.6]"
-            style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
+            className="font-heading text-neutral-100 italic leading-[1.6]"
           >
             "Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng
             AI và công nghệ tiên tiến để tạo giá trị bền vững, đồng thời kết nối tri thức,
