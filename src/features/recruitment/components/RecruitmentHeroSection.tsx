@@ -1,0 +1,24 @@
+import icRecruitment from '@/assets/images/bg_recruitment.png'
+
+export default function RecruitmentHeroSection() {
+  return (
+    <section className="relative h-60 md:h-80 overflow-hidden">
+      <img
+        src={icRecruitment}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+      <div className="relative w-full h-full flex flex-col items-center justify-center text-center px-5">
+        <h1
+          className="font-heading font-bold text-white italic"
+          style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+        >
+          Tuyển dụng
+        </h1>
+        <p className="text-neutral-300 text-sm md:text-base mt-1">
+          Ứng tuyển để trở thành viên của SOFIN GROUP
+        </p>
+      </div>
+    </section>
+  )
+}

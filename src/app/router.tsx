@@ -7,6 +7,8 @@ import HomePage from '@/pages/HomePage'
 import AboutPage from '@/pages/AboutPage'
 import NewsPage from '@/pages/NewsPage'
 import NewsDetailPage from '@/pages/NewsDetailPage'
+import RecruitmentPage from '@/pages/RecruitmentPage'
+import JobDetailPage from '@/pages/JobDetailPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 
 export const router = createBrowserRouter([
@@ -18,6 +20,8 @@ export const router = createBrowserRouter([
       { path: 've-chung-toi', element: <AboutPage /> },
       { path: 'tin-tuc', element: <NewsPage /> },
       { path: 'tin-tuc/:id', element: <NewsDetailPage /> },
+      { path: 'tuyen-dung', element: <RecruitmentPage /> },
+      { path: 'tuyen-dung/:id', element: <JobDetailPage /> },
     ],
   },
   {
