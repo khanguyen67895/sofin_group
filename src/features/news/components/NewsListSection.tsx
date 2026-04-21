@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import Pagination from '@/components/ui/Pagination'
-import { useNewsList } from '../hooks/useNews'
+import { NewsCardSkeleton } from '@/components/ui/Skeleton'
+import { useCmsNewsList } from '../hooks/useCmsNews'
 import { mockNews } from '../data/mockNews'
 import NewsCard from './NewsCard'
 
@@ -8,7 +9,7 @@ const PAGE_SIZE = 9
 
 export default function NewsListSection() {
   const [page, setPage] = useState(1)
-  const { data, isLoading, isError } = useNewsList(page, PAGE_SIZE)
+  const { data, isLoading, isError } = useCmsNewsList(page, PAGE_SIZE)
 
   const fallback = useMemo(() => {
     const start = (page - 1) * PAGE_SIZE
@@ -20,7 +21,7 @@ export default function NewsListSection() {
 
   const useFallback = isError || !data?.items?.length
   const pageItems = useFallback ? fallback.items : data!.items
-  const totalPages = useFallback ? fallback.totalPages : data!.meta.totalPages
+  const totalPages = useFallback ? fallback.totalPages : data!.meta.pageCount
 
   const handlePageChange = (next: number) => {
     setPage(next)
@@ -30,11 +31,13 @@ export default function NewsListSection() {
   return (
     <section className="bg-neutral-950">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
-        {isLoading && !data && (
-          <div className="py-20 text-center text-neutral-400">Đang tải tin tức...</div>
-        )}
-
-        {(!isLoading || data) && (
+        {isLoading && !data ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {Array.from({ length: PAGE_SIZE }).map((_, i) => (
+              <NewsCardSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
               {pageItems.map((item) => (

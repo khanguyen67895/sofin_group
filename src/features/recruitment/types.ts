@@ -5,12 +5,16 @@ export interface JobDescriptionBlock {
 
 export interface Job {
   id: string
+  documentId?: string
   title: string
   location: string
   salary: string
   updatedAt: string
   description?: JobDescriptionBlock[]
   requirements?: string[]
+  descriptionText?: string
+  requirementsText?: string
+  benefitsText?: string
 }
 
 export interface CoreValue {

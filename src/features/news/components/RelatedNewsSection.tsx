@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useNewsList } from '../hooks/useNews'
+import { useCmsNewsList } from '../hooks/useCmsNews'
 import { mockNews } from '../data/mockNews'
 import type { NewsItem } from '../types'
 import NewsCard from './NewsCard'
@@ -14,7 +14,7 @@ export default function RelatedNewsSection({
   excludeId,
   limit = 3,
 }: RelatedNewsSectionProps) {
-  const { data, isError } = useNewsList(1, limit + 1)
+  const { data, isError } = useCmsNewsList(1, limit + 1)
 
   const items: NewsItem[] = useMemo(() => {
     const source = isError || !data?.items?.length ? mockNews : data.items

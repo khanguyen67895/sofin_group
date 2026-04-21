@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { useNewsDetail } from '@/features/news/hooks/useNews'
+import { useCmsNewsDetail } from '@/features/news/hooks/useCmsNews'
+import { NewsDetailSkeleton } from '@/components/ui/Skeleton'
 import { mockNews } from '@/features/news/data/mockNews'
 import NewsDetailSection from '@/features/news/components/NewsDetailSection'
 import RelatedNewsSection from '@/features/news/components/RelatedNewsSection'
@@ -8,7 +9,7 @@ import type { NewsDetail } from '@/features/news/types'
 
 export default function NewsDetailPage() {
   const { id } = useParams<{ id: string }>()
-  const { data, isLoading, isError } = useNewsDetail(id)
+  const { data, isLoading, isError } = useCmsNewsDetail(id)
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
@@ -22,13 +23,7 @@ export default function NewsDetailPage() {
     : undefined
   const item = isError || !data ? fallback : data
 
-  if (isLoading && !item) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center bg-neutral-950 text-neutral-400">
-        Đang tải...
-      </div>
-    )
-  }
+  if (isLoading && !item) return <NewsDetailSkeleton />
 
   if (!item) {
     return (

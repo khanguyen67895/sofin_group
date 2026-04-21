@@ -9,6 +9,7 @@ import icSystem3x2 from "@/assets/images/ic_system3@2x.png";
 import icSystem4 from "@/assets/images/ic_system4.png";
 import icSystem4x2 from "@/assets/images/ic_system4@2x.png";
 import icArrowWhite from "@/assets/images/ic_arrow_white.png";
+import { useEcosystemList } from "../hooks/useEcosystem";
 
 interface Item {
   number: string;
@@ -19,7 +20,14 @@ interface Item {
   icon2x: string;
 }
 
-const items: Item[] = [
+const fallbackIcons = [
+  { icon: icSystem1, icon2x: icSystem1x2 },
+  { icon: icSystem2, icon2x: icSystem2x2 },
+  { icon: icSystem3, icon2x: icSystem3x2 },
+  { icon: icSystem4, icon2x: icSystem4x2 },
+];
+
+const staticItems: Item[] = [
   {
     number: "01",
     title: "Khoa học công nghệ",
@@ -27,13 +35,7 @@ const items: Item[] = [
     icon2x: icSystem1x2,
     description:
       "Nghiên cứu và phát triển các giải pháp công nghệ đột phá, ứng dụng AI vào thực tiễn doanh nghiệp và y tế, khai thác tài nguyên thông minh.",
-    tags: [
-      "Trí Tuệ Nhân Tạo",
-      "Giải Pháp Doanh Nghiệp",
-      "Y Tế Thông Minh",
-      "Khai Khoáng",
-      "Blockchain",
-    ],
+    tags: ["Trí Tuệ Nhân Tạo", "Giải Pháp Doanh Nghiệp", "Y Tế Thông Minh", "Khai Khoáng", "Blockchain"],
   },
   {
     number: "02",
@@ -42,13 +44,7 @@ const items: Item[] = [
     icon2x: icSystem2x2,
     description:
       "Quản lý danh mục đầu tư vào các startup công nghệ tiềm năng, bất động sản thông minh và các tài sản kỹ thuật số thế hệ mới.",
-    tags: [
-      "Venture Capital",
-      "PropTech",
-      "Digital Assets",
-      "M&A",
-      "Blockchain",
-    ],
+    tags: ["Venture Capital", "PropTech", "Digital Assets", "M&A", "Blockchain"],
   },
   {
     number: "03",
@@ -57,13 +53,7 @@ const items: Item[] = [
     icon2x: icSystem3x2,
     description:
       "Xây dựng hệ sinh thái truyền thông số đa nền tảng, sản xuất nội dung chất lượng cao kết hợp công nghệ AI sáng tạo.",
-    tags: [
-      "Digital Media",
-      "Content AI",
-      "Streaming",
-      "Entertainment Tech",
-      "Blockchain",
-    ],
+    tags: ["Digital Media", "Content AI", "Streaming", "Entertainment Tech", "Blockchain"],
   },
   {
     number: "04",
@@ -78,6 +68,21 @@ const items: Item[] = [
 
 export default function EcosystemSection() {
   const [active, setActive] = useState<number | null>(null);
+  const { data: cmsItems } = useEcosystemList();
+
+  const items: Item[] = cmsItems && cmsItems.length > 0
+    ? cmsItems.map((ci, idx) => {
+        const fallback = fallbackIcons[idx % fallbackIcons.length];
+        return {
+          number: ci.number,
+          title: ci.title,
+          description: ci.description,
+          tags: ci.tags,
+          icon: ci.bannerUrl || fallback.icon,
+          icon2x: ci.bannerUrl || fallback.icon2x,
+        };
+      })
+    : staticItems;
 
   return (
     <section className="y-10 md:py-10 bg-neutral-950">
@@ -104,7 +109,7 @@ export default function EcosystemSection() {
               onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
             >
-              {/* Row background photo — clipped to row, does NOT overflow */}
+              {/* Row background photo */}
               <div
                 className={`absolute inset-0 overflow-hidden transition-opacity duration-300 ${
                   active === idx ? "opacity-100" : "opacity-0"
@@ -121,9 +126,7 @@ export default function EcosystemSection() {
 
               {/* Row text */}
               <div className={`relative ml-5 sm:ml-10 md:ml-20 md:pl-10 z-10 flex items-center gap-4 md:gap-6 py-6 md:py-10 transition-all duration-300 ${active === idx ? 'pr-5 md:pr-20' : 'pr-4'}`}>
-                <span
-                  className={`font-heading text-sm font-bold w-8 shrink-0 transition-colors duration-200 text-neutral-100`}
-                >
+                <span className="font-heading text-sm font-bold w-8 shrink-0 transition-colors duration-200 text-neutral-100">
                   {it.number}
                 </span>
                 <span
@@ -134,11 +137,9 @@ export default function EcosystemSection() {
                 >
                   {it.title}
                 </span>
-                {/* Mobile: always show arrow */}
                 <span className="md:hidden shrink-0 w-6 h-6 flex items-center justify-center">
                   <img src={icArrowWhite} alt="" className="w-5 h-5 object-contain" />
                 </span>
-                {/* Desktop: show on hover */}
                 <span className={`hidden md:flex shrink-0 w-12 h-12 items-center justify-center overflow-hidden transition-opacity duration-300 ${active === idx ? 'opacity-100' : 'opacity-0'}`}>
                   <img
                     src={icRight}
@@ -160,28 +161,21 @@ export default function EcosystemSection() {
                     animation: 'slideDown 0.35s ease-out',
                   }}
                 >
-                  {/* gradient top border: đỏ từ phải → đen sang trái */}
                   <div style={{ height: '1px', background: 'linear-gradient(to left, #e5421e 0%, #1a1a1a 100%)' }} />
-                  {/* gradient right border: đỏ từ trên → đen xuống dưới */}
                   <div style={{ position: 'absolute', top: 0, right: 0, width: '1px', height: '100%', background: 'linear-gradient(to bottom, #e5421e 0%, #1a1a1a 100%)' }} />
-                  {/* left border: xám */}
                   <div style={{ position: 'absolute', top: 0, left: 0, width: '1px', height: '100%', background: '#3a3a3a' }} />
-                  {/* bottom border: xám */}
                   <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', background: '#3a3a3a' }} />
 
-                  {/* card header */}
                   <div className="flex items-center justify-between px-5 pt-4 pb-3">
                     <h3 className="font-heading font-bold text-white text-base leading-snug">
                       {it.title}
-                    </h3> 
+                    </h3>
                   </div>
 
-                  {/* description */}
                   <p className="px-5 pb-4 text-neutral-400 text-[12px] leading-relaxed">
                     {it.description}
                   </p>
 
-                  {/* tags */}
                   <div className="px-5 pb-5 flex flex-wrap gap-2">
                     {it.tags.map((tag) => (
                       <span
