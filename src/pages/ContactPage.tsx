@@ -6,7 +6,6 @@ import icLocation from '@/assets/images/ic_location.png'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
 import icItemContact from '@/assets/images/ic_item_contact.png'
 import bgContact from '@/assets/images/bg_contact.png'
-import bgFormHopTac from '@/assets/images/bg-form-hop-tac.png'
 import bgFormHopTacMB from '@/assets/images/bg-form-hop-tac-mb.png'
 
 const contactInfo = [
@@ -57,7 +56,7 @@ export default function ContactPage() {
           >
             Liên hệ hợp tác
           </h1>
-          <p className="mt-4 text-neutral-400 text-sm md:text-base mx-auto">
+          <p className="mt-4 text-neutral-400 text-sm md:text-base mx-8 md:mx-auto">
             Chọn mục đích liên hệ — chúng tôi sẽ kết nối đúng người, đúng lúc
           </p>
         </div>
@@ -97,11 +96,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="flex bg-neutral-950 relative overflow-hidden justify-between">
-        <div className="relative py-16 md:py-20 pl-30">
-          <div className="w-4xl">
-            
-            <p className="text-white text-[24px] leading-[1.85] mb-8">
+      <section className="flex flex-col md:flex-row bg-neutral-950 relative overflow-hidden md:justify-between">
+        <div className="relative py-16 md:py-20 px-5 sm:px-10 md:pl-30 md:pr-0 flex justify-center md:justify-start">
+          <div className="w-full max-w-lg md:w-4xl">
+
+            <p className="text-white text-[18px] md:text-3xl leading-[1.85] mb-8">
               Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng doanh nghiệp của bạn
             </p>
 
@@ -164,16 +163,12 @@ export default function ContactPage() {
             )}
           </div>
         </div>
+        {/* Mobile image — below form */}
         <img
-            src={bgFormHopTac}
-            alt=""
-            className="md:hidden w-full object-cover mt-10"
-          />
-          <img
-            src={bgFormHopTacMB}
-            alt=""
-            className="-mb-50 mt-10 h-full w-1/2"
-          />
+          src={bgFormHopTacMB}
+          alt=""
+          className="md:-mb-50 w-full object-cover"
+        />
       </section>
     </>
   )
