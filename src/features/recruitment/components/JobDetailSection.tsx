@@ -123,7 +123,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
           {/* Application form */}
           <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-24">
-            <ApplicationForm />
+            <ApplicationForm jobTitle={job.title} />
           </div>
 
           {/* Other jobs */}
