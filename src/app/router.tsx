@@ -9,6 +9,7 @@ import NewsPage from '@/pages/NewsPage'
 import NewsDetailPage from '@/pages/NewsDetailPage'
 import RecruitmentPage from '@/pages/RecruitmentPage'
 import JobDetailPage from '@/pages/JobDetailPage'
+import ContactPage from '@/pages/ContactPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 
 export const router = createBrowserRouter([
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: 'tin-tuc/:id', element: <NewsDetailPage /> },
       { path: 'tuyen-dung', element: <RecruitmentPage /> },
       { path: 'tuyen-dung/:id', element: <JobDetailPage /> },
+      { path: 'lien-he', element: <ContactPage /> },
     ],
   },
   {

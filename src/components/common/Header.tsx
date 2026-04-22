@@ -62,9 +62,11 @@ export default function Header() {
 
         {/* CTA */}
         <div>
-          <Button variant="secondary" size="sm">
-            LIÊN HỆ
-          </Button>
+          <Link to="/lien-he">
+            <Button variant="secondary" size="sm">
+              LIÊN HỆ
+            </Button>
+          </Link>
         </div>
       </div>
 

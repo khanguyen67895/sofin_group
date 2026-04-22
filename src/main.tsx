@@ -3,7 +3,10 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import Providers from './app/providers'
 import { router } from './app/router'
+import { startCmsKeepAlive } from './lib/cmsAxios'
 import './styles/globals.css'
+
+startCmsKeepAlive()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

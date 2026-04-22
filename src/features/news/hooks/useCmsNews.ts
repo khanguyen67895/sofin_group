@@ -7,6 +7,8 @@ export function useCmsNewsList(page = 1, pageSize = 9) {
     queryFn: () => cmsNewsApi.list({ page, pageSize }),
     staleTime: 5 * 60 * 1000,
     placeholderData: keepPreviousData,
+    retry: 2,
+    retryDelay: 3000,
   })
 }
 
@@ -16,6 +18,8 @@ export function useCmsNewsDetail(documentId: string | undefined) {
     queryFn: () => cmsNewsApi.detail(documentId!),
     enabled: !!documentId,
     staleTime: 5 * 60 * 1000,
+    retry: 2,
+    retryDelay: 3000,
   })
 }
 
