@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
 import Pagination from '@/components/ui/Pagination'
 import { NewsCardSkeleton } from '@/components/ui/Skeleton'
 import { useCmsNewsList } from '../hooks/useCmsNews'
@@ -39,11 +40,17 @@ export default function NewsListSection() {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            <motion.div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               {pageItems.map((item) => (
                 <NewsCard key={`${page}-${item.id}`} item={item} />
               ))}
-            </div>
+            </motion.div>
 
             <div className="mt-12 md:mt-16">
               <Pagination

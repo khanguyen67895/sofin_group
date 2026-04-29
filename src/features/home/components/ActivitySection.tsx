@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import icLeft from '@/assets/images/ic_left.png'
 import icRight from '@/assets/images/ic_right.png'
 import img1 from '@/assets/images/image_action1.jpg'
@@ -36,7 +37,13 @@ export default function ActivitySection() {
       <div className="mx-auto">
 
         {/* Header */}
-        <div className="flex items-start justify-between mb-10 px-5 sm:px-10 md:px-20 lg:px-30">
+        <motion.div
+          className="flex items-start justify-between mb-10 px-5 sm:px-10 md:px-20 lg:px-30"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div>
             <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
               SANDBOX ĐÀ NẴNG
@@ -67,9 +74,15 @@ export default function ActivitySection() {
               <img src={icRight} alt="Next" className="w-9 h-9 object-contain" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Scrollable images */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+        >
         <div
           ref={scrollRef}
           onScroll={handleScroll}
@@ -91,6 +104,7 @@ export default function ActivitySection() {
             </div>
           ))}
         </div>
+        </motion.div>
 
         {/* Mobile nav — bottom left */}
         <div className="flex md:hidden items-center gap-2 mt-4 px-5 sm:px-10">

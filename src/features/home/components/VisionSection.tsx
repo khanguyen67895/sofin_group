@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import imgLogo from '@/assets/images/img-logo.png'
 import icRec from '@/assets/images/ic_rec.png'
 import './VisionSection.css'
@@ -35,7 +36,13 @@ export default function VisionSection() {
         </div>
 
         {/* Section header */}
-        <div className="mb-14">
+        <motion.div
+          className="mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase">
             NỀN TẢNG TỔ CHỨC
           </span>
@@ -45,15 +52,19 @@ export default function VisionSection() {
           >
             Tầm nhìn &amp; Sứ mệnh
           </h2>
-        </div>
+        </motion.div>
 
         {/* Cards — active card expands width, others shrink */}
         <div className="flex flex-col md:flex-row gap-4">
           {cards.map((card, idx) => {
             const isActive = activeIndex === idx
             return (
-              <div
+              <motion.div
                 key={card.value}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
                 onClick={() => setActiveIndex(idx)}
                 className={`
                   vision-card group relative cursor-pointer transition-all duration-500 overflow-hidden flex flex-col justify-end
@@ -97,7 +108,7 @@ export default function VisionSection() {
                 </div>
                 <div className="vision-border-left" />
                 <div className="vision-glow" />
-              </div>
+              </motion.div>
             )
           })}
         </div>

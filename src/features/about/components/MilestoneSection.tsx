@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import icRecStart from '@/assets/images/ic_rec_start.png'
 
 const milestones = [
@@ -35,7 +36,14 @@ export default function MilestoneSection() {
 
             <div className="flex flex-col gap-1">
               {milestones.map((m, i) => (
-                <div key={m.year} className="flex flex-col items-start text-left lg:items-end lg:text-right">
+                <motion.div
+                  key={m.year}
+                  className="flex flex-col items-start text-left lg:items-end lg:text-right"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
                   <div className="flex items-center gap-4 flex-row-reverse lg:flex-row">
                     <span
                       className="font-heading font-bold text-white"
@@ -57,13 +65,19 @@ export default function MilestoneSection() {
                     ))}
                   </div>
                   {i === milestones.length - 1 ? <></> : <div className="h-12 lg:h-24 -mt-4 ml-2.75 lg:ml-0 lg:mr-1.75 w-0.5 bg-neutral-700/50" />}
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Right — heading */}
-          <div className="order-first lg:order-last lg:sticky lg:top-24 lg:self-start">
+          <motion.div
+            className="order-first lg:order-last lg:sticky lg:top-24 lg:self-start"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-2">
               HOW WE START
             </span>
@@ -73,7 +87,7 @@ export default function MilestoneSection() {
             >
               Cột mốc<br />của SOFIN Group
             </h2>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

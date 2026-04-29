@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import icRight from "@/assets/images/ic_right.png";
 import icSystem1 from "@/assets/images/ic_system1.png";
 import icSystem1x2 from "@/assets/images/ic_system1@2x.png";
@@ -88,7 +89,13 @@ export default function EcosystemSection() {
     <section className="y-10 md:py-10 bg-neutral-950">
       <div>
         {/* Heading */}
-        <div className=" mb-10 mx-auto pl-5 sm:pl-10 md:pl-20 lg:px-30">
+        <motion.div
+          className=" mb-10 mx-auto pl-5 sm:pl-10 md:pl-20 lg:px-30"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase">
             NỀN TẢNG TỔ CHỨC
           </span>
@@ -98,13 +105,17 @@ export default function EcosystemSection() {
           >
             Hệ sinh thái SOFIN Group
           </h2>
-        </div>
+        </motion.div>
 
         {/* List */}
         <div className="mb-10 mx-auto">
           {items.map((it, idx) => (
-            <div
+            <motion.div
               key={it.number}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
               className={`relative ${idx === 1 || idx === 3 ? 'bg-neutral-800/30' : ''}`}
               onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
@@ -188,7 +199,7 @@ export default function EcosystemSection() {
                   </div>
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

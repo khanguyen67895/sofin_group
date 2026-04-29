@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button'
+import { motion } from 'framer-motion'
 import vpbank from '@/assets/images/VPBank.png'
 import hipt from '@/assets/images/HiPT.png'
 import gianty from '@/assets/images/GIANTY.png'
@@ -22,7 +23,13 @@ export default function PartnersSection() {
         <div className="hidden md:grid grid-cols-4 gap-4">
 
           {/* Header cell — spans 2 cols */}
-          <div className="col-span-2 flex flex-col justify-center pr-10 pb-4">
+          <motion.div
+            className="col-span-2 flex flex-col justify-center pr-10 pb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
               MẠNG LƯỚI ĐỐI TÁC
             </span>
@@ -36,26 +43,34 @@ export default function PartnersSection() {
               Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng trí tuệ nhân
               tạo và công nghệ tiên tiến để kiến tạo giá trị bền vững cho xã hội và doanh nghiệp.
             </p>
-          </div>
+          </motion.div>
 
           {/* Partner logos — first row (2 items) */}
-          {partners.slice(0, 2).map((p) => (
-            <div
+          {partners.slice(0, 2).map((p, i) => (
+            <motion.div
               key={p.name}
               className="border border-neutral-300/30 h-60 flex items-center justify-center cursor-pointer group hover:border-neutral-600 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.1, ease: 'easeOut' }}
             >
               <img src={p.logo} alt={p.name} className="h-8 object-contain opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
-            </div>
+            </motion.div>
           ))}
 
           {/* Partner logos — second row (3 items) */}
-          {partners.slice(2).map((p) => (
-            <div
+          {partners.slice(2).map((p, i) => (
+            <motion.div
               key={p.name}
               className="border border-neutral-300/30 h-60 flex items-center justify-center cursor-pointer group hover:border-neutral-600 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 + i * 0.1, ease: 'easeOut' }}
             >
               <img src={p.logo} alt={p.name} className="h-8 object-contain opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
-            </div>
+            </motion.div>
           ))}
 
           {/* CTA cell */}

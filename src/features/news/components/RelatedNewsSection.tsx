@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { motion } from 'framer-motion'
 import { useCmsNewsList } from '../hooks/useCmsNews'
 import { mockNews } from '../data/mockNews'
 import type { NewsItem } from '../types'
@@ -31,7 +32,13 @@ export default function RelatedNewsSection({
           <div className="h-0.5 bg-neutral-700/50" />
           <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
         </div>
-        <div className="mb-8 md:mb-10">
+        <motion.div
+          className="mb-8 md:mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
             TIN LIÊN QUAN
           </span>
@@ -41,9 +48,15 @@ export default function RelatedNewsSection({
           >
             Có thể bạn quan tâm
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           {items.map((item) => (
             <NewsCard
               key={item.id}
@@ -51,7 +64,7 @@ export default function RelatedNewsSection({
               heightClass="h-80 md:h-110 lg:h-125"
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

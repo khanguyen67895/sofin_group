@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import type { Job } from '../types'
 
@@ -7,6 +8,12 @@ export interface JobCardProps {
 
 export default function JobCard({ job }: JobCardProps) {
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+    >
     <Link
       to={`/tuyen-dung/${job.id}`}
       className="relative bg-neutral-800 hover:bg-neutral-600 transition-colors cursor-pointer p-5 md:p-6 block"
@@ -34,5 +41,6 @@ export default function JobCard({ job }: JobCardProps) {
         </div>
       </div>
     </Link>
+    </motion.div>
   )
 }

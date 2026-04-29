@@ -2,6 +2,7 @@ import heroBanner from '@/assets/images/heroBanner.png'
 import heroBannerMb from '@/assets/images/heroBanner-mb.png'
 import icStars from '@/assets/images/ic_stars.png'
 import Button from '@/components/ui/Button'
+import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
@@ -32,25 +33,38 @@ export default function HeroSection() {
         <div className="flex-1 flex flex-col justify-center max-w-200">
 
           {/* H1 */}
-          <h1 className="font-heading font-bold leading-[1.1] mb-6 text-[2rem] md:text-[3rem] lg:text-[3.75rem]">
-            <span className="block text-neutral-0">Tập đoàn</span>
-            <span className="block text-neutral-0">Công nghệ</span>
-            <span className="block text-neutral-0">kiến tạo</span>
-          </h1>
+          <motion.h1
+            className="font-heading font-bold leading-[1.1] mb-6 text-[2rem] md:text-[3rem] lg:text-[3.75rem]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <span className="block text-neutral-0">Công Nghệ Thực</span>
+            <span className="block text-neutral-0">Giá Trị Thực</span>
+          </motion.h1>
 
           {/* Description — hidden on mobile */}
-          <p className="hidden md:block text-neutral-0 text-[14px] md:text-[15px] leading-[1.85] mb-8">
+          <motion.p
+            className="hidden md:block text-neutral-0 text-[14px] md:text-[15px] leading-[1.85] mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
+          >
             Chúng tôi không chỉ theo kịp tương lai, chúng tôi chủ động định hình và kiến tạo
             nó. Bằng việc tiên<br />phong ứng dụng công nghệ AI, kết nối tri thức và con người,
             nhằm tạo ra những giá trị bền vững cho<br />doanh nghiệp và xã hội.
-          </p>
+          </motion.p>
 
           {/* CTA */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
+          >
             <Button variant="primary" size="sm" className="w-auto md:h-10! md:px-10! md:text-[13px]!" rightIcon={<img src={icStars} alt="" className="size-4" />}>
               TÌM HIỂU THÊM
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

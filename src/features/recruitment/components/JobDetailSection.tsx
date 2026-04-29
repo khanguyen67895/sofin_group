@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import type { Job } from '../types'
 import { useJobList } from '../hooks/useRecruitment'
 import ApplicationForm from './ApplicationForm'
@@ -30,7 +31,13 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="flex flex-col lg:grid lg:grid-cols-[2fr_1fr] gap-10 lg:gap-16 lg:items-start">
           {/* Content */}
-          <div className="lg:col-start-1 lg:row-start-1">
+          <motion.div
+            className="lg:col-start-1 lg:row-start-1"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h1
               className="font-heading font-bold text-white leading-tight"
               style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
@@ -119,12 +126,18 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
                 </ul>
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Application form */}
-          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-24">
+          <motion.div
+            className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-24"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <ApplicationForm jobTitle={job.title} />
-          </div>
+          </motion.div>
 
           {/* Other jobs */}
           {otherJobs.length > 0 && (

@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
 import img01 from "@/assets/images/chuyen-gia-01.png";
 import img02 from "@/assets/images/chuyen-gia-02.png";
 import img03 from "@/assets/images/chuyen-gia-03.png";
@@ -74,7 +75,12 @@ export default function ExpertSection() {
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-10 pr-6 md:pr-20 lg:pr-100">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.2em] uppercase mb-2">
               HỘI ĐỒNG CỐ VẤN KHOA HỌC
             </span>
@@ -84,7 +90,7 @@ export default function ExpertSection() {
             >
               Đội ngũ chuyên gia
             </h2>
-          </div>
+          </motion.div>
 
           <div className="hidden md:flex absolute right-5 md:right-20 z-100 mb-20 items-center gap-2">
             <button
@@ -112,7 +118,13 @@ export default function ExpertSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
           {/* ── LEFT: content ── */}
-          <div className="flex flex-col gap-5">
+          <motion.div
+            className="flex flex-col gap-5"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             {/* Quote */}
             <blockquote className="text-base md:text-2xl text-neutral-200 leading-[1.8] italic font-light">
               {e.quote}
@@ -135,7 +147,7 @@ export default function ExpertSection() {
             <p className="text-neutral-300 text-[14px] leading-relaxed">
               {e.description}
             </p>
-          </div>
+          </motion.div>
 
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
           <div

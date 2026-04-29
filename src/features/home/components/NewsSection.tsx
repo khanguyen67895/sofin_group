@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button'
+import { motion } from 'framer-motion'
 import icInfo1 from '@/assets/images/ic_info1.png'
 import icInfo2 from '@/assets/images/ic_info2.png'
 import icInfo3 from '@/assets/images/ic_info3.png'
@@ -42,7 +43,13 @@ export default function NewsSection() {
           <div className="h-0.5 bg-neutral-700/50" />
           <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
         </div>
-        <div className="mb-10">
+        <motion.div
+          className="mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
             CẬP NHẬT MỚI NHẤT
           </span>
@@ -52,16 +59,20 @@ export default function NewsSection() {
           >
             Thông tin và Sự kiện
           </h2>
-        </div>
+        </motion.div>
 
         <div
           className="flex gap-5 overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:mr-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {newsItems.map((news) => (
-            <article
+          {newsItems.map((news, i) => (
+            <motion.article
               key={news.id}
               className="relative cursor-pointer group overflow-hidden shrink-0 w-[80vw] md:w-auto md:shrink"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
               style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}
             >
               {/* Image */}
@@ -94,7 +105,7 @@ export default function NewsSection() {
                   </p>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
 

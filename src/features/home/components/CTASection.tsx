@@ -2,6 +2,7 @@ import bgFormHopTac from '@/assets/images/bg-form-hop-tac.png'
 import bgFormHopTacMb from '@/assets/images/bg-form-hop-tac-mb.png'
 import Button from '@/components/ui/Button'
 import icStars from '@/assets/images/ic_stars.png'
+import { motion } from 'framer-motion'
 
 export default function CTASection() {
   return (
@@ -18,7 +19,13 @@ export default function CTASection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
 
           {/* Left — form */}
-          <div className="flex flex-col gap-6">
+          <motion.div
+            className="flex flex-col gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
             <div>
               <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-2">
                 KẾT NỐI VỚI CHÚNG TÔI
@@ -59,7 +66,7 @@ export default function CTASection() {
                 GỬI YÊU CẦU
               </Button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

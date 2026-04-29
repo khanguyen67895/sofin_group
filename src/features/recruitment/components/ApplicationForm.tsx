@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useRef, useState, type ChangeEvent } from 'react'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
 import cmsAxios from '@/lib/cmsAxios'
@@ -92,7 +93,14 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-6"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       {jobTitle && (
         <label className="flex flex-col gap-1">
           <span className="text-neutral-500 text-xs">Vị trí ứng tuyển</span>
@@ -181,6 +189,6 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
           <img src={icArrowDetail} alt="" className="w-3.5 h-3.5 filter-[brightness(0)_invert(1)]" />
         )}
       </button>
-    </form>
+    </motion.form>
   )
 }

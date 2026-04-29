@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
 import type { NewsItem } from '../types'
@@ -12,6 +13,12 @@ export default function NewsCard({
   heightClass = 'h-80 sm:h-150 md:h-150 lg:h-150 xl:h-200',
 }: NewsCardProps) {
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
     <Link
       to={`/tin-tuc/${item.id}`}
       className="relative cursor-pointer group overflow-hidden block"
@@ -50,5 +57,6 @@ export default function NewsCard({
         </div>
       </div>
     </Link>
+    </motion.div>
   )
 }

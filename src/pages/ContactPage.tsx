@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import icPhone from '@/assets/images/ic_phone.png'
 import icEmail from '@/assets/images/ic_email.png'
@@ -49,7 +50,12 @@ export default function ContactPage() {
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
 
-        <div className="relative mx-auto px-5 sm:px-10 md:px-20 lg:px-30 text-center">
+        <motion.div
+          className="relative mx-auto px-5 sm:px-10 md:px-20 lg:px-30 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
           <h1
             className="font-heading font-bold text-white"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
@@ -59,20 +65,24 @@ export default function ContactPage() {
           <p className="mt-4 text-neutral-400 text-sm md:text-base mx-8 md:mx-auto">
             Chọn mục đích liên hệ — chúng tôi sẽ kết nối đúng người, đúng lúc
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Contact info cards */}
       <section className="bg-neutral-950 mt-20">
         <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {contactInfo.map((item) => (
-              <a
+            {contactInfo.map((item, index) => (
+              <motion.a
                 key={item.label}
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
                 className="group relative transition-colors px-8 py-8 flex items-start gap-4 border-2 border-neutral-800"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {/* Corner decoration */}
                 <img
@@ -90,14 +100,20 @@ export default function ContactPage() {
                     {item.value}
                   </span>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
       </section>
 
       <section className="flex flex-col md:flex-row bg-neutral-950 relative overflow-hidden md:justify-between">
-        <div className="relative py-16 md:py-20 px-5 sm:px-10 md:pl-30 md:pr-0 flex justify-center md:justify-start">
+        <motion.div
+          className="relative py-16 md:py-20 px-5 sm:px-10 md:pl-30 md:pr-0 flex justify-center md:justify-start"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="w-full max-w-lg md:w-4xl">
 
             <p className="text-white text-[18px] md:text-3xl leading-[1.85] mb-8">
@@ -162,7 +178,7 @@ export default function ContactPage() {
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
         {/* Mobile image — below form */}
         <img
           src={bgFormHopTacMB}

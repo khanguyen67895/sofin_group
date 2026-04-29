@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import icAboutAI from '@/assets/images/ic_about_ai.png'
 
 export default function AboutContentSection() {
@@ -7,16 +8,28 @@ export default function AboutContentSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
           {/* Left — text content */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <img
               src={icAboutAI}
               alt="SOFIN Group"
               className="w-full h-auto object-cover"
             />
-          </div>
+          </motion.div>
 
           {/* Right — image */}
-          <div className="flex flex-col gap-8">
+          <motion.div
+            className="flex flex-col gap-8"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
             <div>
               <p className="text-neutral-200 text-[16px] leading-[1.85]">
                 Thương hiệu bắt nguồn từ một ý tưởng táo bạo. Năm 2021, với mong muốn mang đến nhiều
@@ -64,7 +77,7 @@ export default function AboutContentSection() {
               công nghệ tiên tiến để kiến tạo giá trị bền vững cho xã hội và doanh nghiệp, kiến tạo giá trị bền
               vững thông qua đổi mới sáng tạo và ứng dụng trí tuệ nhân tạo.
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </div>

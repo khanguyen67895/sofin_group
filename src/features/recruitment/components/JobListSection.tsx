@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { benefits } from '../data/jobs'
 import { useJobList } from '../hooks/useRecruitment'
 import { JobCardSkeleton } from '@/components/ui/Skeleton'
@@ -25,7 +26,13 @@ export default function JobListSection() {
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left — jobs list */}
-          <div className="flex flex-col gap-4">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-4"
+          >
             {isLoading ? (
               Array.from({ length: 4 }).map((_, i) => <JobCardSkeleton key={i} />)
             ) : jobs.length === 0 ? (
@@ -33,10 +40,16 @@ export default function JobListSection() {
             ) : (
               jobs.map((job) => <JobCard key={job.id} job={job} />)
             )}
-          </div>
+          </motion.div>
 
           {/* Right — panel */}
-          <div className="order-first lg:order-last lg:sticky lg:top-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="order-first lg:order-last lg:sticky lg:top-24"
+          >
             <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
               CÁC VỊ TRÍ ĐANG MỞ
             </span>
@@ -55,7 +68,7 @@ export default function JobListSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

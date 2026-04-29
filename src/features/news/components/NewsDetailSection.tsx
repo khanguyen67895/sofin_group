@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import type { NewsDetail } from '../types'
 
 export interface NewsDetailSectionProps {
@@ -17,12 +18,16 @@ export default function NewsDetailSection({ item }: NewsDetailSectionProps) {
   return (
     <section className="bg-neutral-950 pt-24 md:pt-28">
       <div className="mx-auto px-5 max-w-5xl">
-        <h1
+        <motion.h1
           className="font-heading font-bold text-white leading-tight"
           style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
           {item.title}
-        </h1>
+        </motion.h1>
 
         <div className="mt-4 mb-8 text-neutral-400 text-sm flex items-center gap-3">
           <span>{item.date}</span>
@@ -51,38 +56,45 @@ export default function NewsDetailSection({ item }: NewsDetailSectionProps) {
         )}
 
         {/* Richtext từ CMS */}
-        {item.content ? (
-          <div
-            className="cms-content"
-            dangerouslySetInnerHTML={{ __html: item.content }}
-          />
-        ) : (
-          <div className="flex flex-col gap-5">
-            {paragraphs.map((p, idx) => (
-              <p
-                key={idx}
-                className="text-neutral-300 text-sm md:text-base leading-relaxed"
-              >
-                {p}
-              </p>
-            ))}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          {item.content ? (
+            <div
+              className="cms-content"
+              dangerouslySetInnerHTML={{ __html: item.content }}
+            />
+          ) : (
+            <div className="flex flex-col gap-5">
+              {paragraphs.map((p, idx) => (
+                <p
+                  key={idx}
+                  className="text-neutral-300 text-sm md:text-base leading-relaxed"
+                >
+                  {p}
+                </p>
+              ))}
 
-            {extraImages.map((src, idx) => (
-              <figure key={src} className="my-4">
-                <img
-                  src={src}
-                  alt=""
-                  className="w-full h-auto object-cover rounded-sm"
-                />
-                {paragraphs[idx + Math.ceil(paragraphs.length / 2)] && (
-                  <p className="text-neutral-300 text-sm md:text-base leading-relaxed mt-5">
-                    {paragraphs[idx + Math.ceil(paragraphs.length / 2)]}
-                  </p>
-                )}
-              </figure>
-            ))}
-          </div>
-        )}
+              {extraImages.map((src, idx) => (
+                <figure key={src} className="my-4">
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-auto object-cover rounded-sm"
+                  />
+                  {paragraphs[idx + Math.ceil(paragraphs.length / 2)] && (
+                    <p className="text-neutral-300 text-sm md:text-base leading-relaxed mt-5">
+                      {paragraphs[idx + Math.ceil(paragraphs.length / 2)]}
+                    </p>
+                  )}
+                </figure>
+              ))}
+            </div>
+          )}
+        </motion.div>
 
         {item.tags && item.tags.length > 0 && (
           <div className="mt-10 flex flex-wrap gap-2">
