@@ -80,7 +80,7 @@
   --color-informative-900: #002052;
 
   /* Font families */
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-body:    'Mona Sans', system-ui, sans-serif;
   --font-heading: 'Unbounded', sans-serif;
 }
 
@@ -94,6 +94,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-size: 16px;
   background-color: var(--color-neutral-900);
   color: var(--color-neutral-100);
   min-height: 100dvh;
@@ -125,7 +126,7 @@ body {
 /* CMS richtext content */
 .cms-content { color: var(--color-neutral-300); line-height: 1.75; }
 .cms-content p { margin-bottom: 1rem; font-size: 0.9375rem; }
-.cms-content h1, .cms-content h2 { font-family: var(--font-heading); font-weight: 700; font-style: italic; color: var(--color-primary-500); margin: 2rem 0 0.75rem; }
+.cms-content h1, .cms-content h2 { font-family: var(--font-heading); font-weight: 700; color: var(--color-primary-500); margin: 2rem 0 0.75rem; }
 .cms-content h3, .cms-content h4 { font-family: var(--font-heading); font-weight: 700; color: #fff; margin: 1.5rem 0 0.5rem; }
 .cms-content h1 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .cms-content h2 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
@@ -139,4 +140,4 @@ body {
 .cms-content a { color: var(--color-primary-400); text-decoration: none; }
 .cms-content a:hover { text-decoration: underline; }
 .cms-content img { width: 100%; height: auto; border-radius: 2px; margin: 1rem 0; object-fit: cover; }
-.cms-content blockquote { border-left: 3px solid var(--color-primary-500); padding-left: 1rem; color: var(--color-neutral-400); font-style: italic; margin: 1.5rem 0; }
+.cms-content blockquote { border-left: 3px solid var(--color-primary-500); padding-left: 1rem; color: var(--color-neutral-400); margin: 1.5rem 0; }

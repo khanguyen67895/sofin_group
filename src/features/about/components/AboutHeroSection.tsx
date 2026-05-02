@@ -16,10 +16,10 @@ export default function AboutHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="font-heading font-bold text-white italic"
+            className="font-heading font-bold text-white"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
           >
-            V&#7873; ch&uacute;ng t&ocirc;i
+            Về Chúng Tôi
           </h1>
           <p className="text-neutral-300 text-sm md:text-base mt-1">
             SOFIN Group chuy&ecirc;n cung c&#7845;p gi&#7843;i ph&aacute;p c&ocirc;ng ngh&#7879; AI, v&#7899;i nh&#7919;ng c&#7853;p nh&#7853;t xu h&#432;&#7899;ng m&#7899;i nh&#7845;t

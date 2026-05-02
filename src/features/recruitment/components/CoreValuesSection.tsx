@@ -18,7 +18,7 @@ export default function CoreValuesSection() {
               TUYỂN DỤNG
             </span>
             <h2
-              className="font-heading font-bold italic text-primary-500"
+              className="font-heading font-bold text-primary-500"
               style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Giá trị cốt lõi<br />của SOFIN

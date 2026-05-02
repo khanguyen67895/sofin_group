@@ -54,7 +54,7 @@ export default function JobListSection() {
               CÁC VỊ TRÍ ĐANG MỞ
             </span>
             <h2
-              className="font-heading font-bold italic text-primary-500 mb-6"
+              className="font-heading font-bold text-primary-500 mb-6"
               style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Chúng tôi cần bạn!

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-110 md:h-screen bg-neutral-900 overflow-hidden">
+    <section className="relative w-full h-90 md:h-screen bg-neutral-900 overflow-hidden">
 
       {/* ═══ Background: heroBanner ═══ */}
       <img
@@ -39,13 +39,15 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <span className="block text-neutral-0">Công Nghệ Thực</span>
+            <span className="block text-neutral-0 md:hidden">Công Nghệ</span>
+            <span className="block text-neutral-0 md:hidden">Thực</span>
+            <span className="hidden md:block text-neutral-0">Công Nghệ Thực</span>
             <span className="block text-neutral-0">Giá Trị Thực</span>
           </motion.h1>
 
           {/* Description — hidden on mobile */}
           <motion.p
-            className="hidden md:block text-neutral-0 text-[14px] md:text-[15px] leading-[1.85] mb-8"
+            className="hidden md:block text-neutral-100 text-[16px] md:text-[16px] leading-[1.85] mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
@@ -61,7 +63,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
           >
-            <Button variant="primary" size="sm" className="w-auto md:h-10! md:px-10! md:text-[13px]!" rightIcon={<img src={icStars} alt="" className="size-4" />}>
+            <Button variant="primary" size="sm" className="w-auto md:h-16! md:px-9.5! py-4.5 md:text-[18px]!" rightIcon={<img src={icStars} alt="" className="size-5" />}>
               TÌM HIỂU THÊM
             </Button>
           </motion.div>

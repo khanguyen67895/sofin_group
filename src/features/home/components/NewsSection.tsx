@@ -35,7 +35,7 @@ const newsItems = [
 
 export default function NewsSection() {
   return (
-    <section className="py-10 md:py-10 bg-neutral-950">
+    <section className="pt-10 md:pt-10 bg-neutral-950">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
       {/* Divider line */}

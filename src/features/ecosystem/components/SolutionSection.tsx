@@ -19,7 +19,7 @@ const features = [
 
 export function SolutionHeading() {
   return (
-    <section className="pb-0 bg-neutral-950">
+    <section className="pb-0 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <motion.div
           className="flex flex-col text-center items-center"
@@ -28,11 +28,11 @@ export function SolutionHeading() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <span className="text-primary-500 text-[13px] font-heading font-semibold tracking-widest uppercase">
+          <span className="text-primary-500 text-[28px] font-semibold tracking-widest uppercase">
             Giải pháp doanh nghiệp
           </span>
           <h2
-            className="font-body font-bold text-white mt-3 leading-[1.15]"
+            className="font-heading font-semibold text-neutral-100 mt-3 leading-[1.15]"
             style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
           >
             Hệ thống vận hành riêng cho bạn<br />
@@ -46,11 +46,11 @@ export function SolutionHeading() {
 
 export default function SolutionSection() {
   return (
-    <section className="bg-neutral-950">
+    <section className="bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         {/* Content: text left + image right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-80 items-center">
 
           {/* Left */}
           <motion.div
@@ -97,7 +97,7 @@ export default function SolutionSection() {
             <img
               src={imgAction}
               alt=""
-              className="w-full h-72 md:h-120 object-cover object-center"
+              className="w-115.25 h-72 md:h-125 object-cover object-center"
               style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}
             />
           </motion.div>

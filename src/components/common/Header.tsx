@@ -17,7 +17,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-4 right-4 md:left-20 md:right-20 z-50">
+    <header className="fixed top-0 left-0 right-0 md:left-20 md:right-20 z-50 bg-black lg:bg-transparent px-4 md:px-0">
       <div className="mx-auto md:px-10 flex items-center justify-between h-18">
 
         {/* Left: menu icon (mobile) */}
@@ -42,18 +42,18 @@ export default function Header() {
               to={item.href}
               end={item.href === '/'}
               className={({ isActive }) =>
-                `relative text-[13px] font-medium transition-colors duration-200 ${
+                `relative text-[16px] font-body transition-colors duration-200 ${
                   isActive
                     ? 'text-primary-500'
-                    : 'text-neutral-200'
+                    : 'text-[#F5F0E8]'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  {isActive && <span className="text-primary-500 text-[14px] mr-1">✦</span>}
+                  {isActive && <span className="text-primary-500 text-[16px] mr-1">✦</span>}
                   {item.label}
-                  {isActive && <span className="text-primary-500 text-[14px] ml-1">✦</span>}
+                  {isActive && <span className="text-primary-500 text-[16px] ml-1">✦</span>}
                 </>
               )}
             </NavLink>
@@ -80,7 +80,7 @@ export default function Header() {
               end={item.href === '/'}
               onClick={() => setMobileOpen(false)}
               className={({ isActive }) =>
-                `flex items-center gap-2 font-heading font-medium text-lg transition-colors ${
+                `flex items-center gap-2 font-medium text-lg transition-colors ${
                   isActive ? 'text-primary-500' : 'text-neutral-0 hover:text-white'
                 }`
               }

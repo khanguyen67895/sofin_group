@@ -16,7 +16,7 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section className="py-15 md:py-15 bg-neutral-950">
+    <section className="py-15 md:py-15 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         {/* ── Desktop: original grid layout ── */}
@@ -76,7 +76,7 @@ export default function PartnersSection() {
           {/* CTA cell */}
           <div className="border border-neutral-300/30 h-60 flex flex-col items-center justify-center gap-3 px-5">
             <p className="text-center text-[16px] text-white leading-relaxed">
-              Cùng trở thành đối tác tiếp theo của<br />chúng tôi
+              Cùng trở thành đối tác tiếp theo của chúng tôi
             </p>
             <Button variant="primary" size="sm">
               HỢP TÁC

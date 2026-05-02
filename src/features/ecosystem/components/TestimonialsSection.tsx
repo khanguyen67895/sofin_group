@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
                 className="shrink-0 w-[85vw] flex flex-col justify-between gap-8 border-t border-l border-neutral-700 px-6 py-6"
                 style={{ scrollSnapAlign: 'center' }}
               >
-                <p className="text-neutral-300 text-[13px] leading-[1.85]">{t.text}</p>
+                <p className="text-white text-[16px] leading-[1.85]">{t.text}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover object-top shrink-0" />
                   <div>
@@ -128,7 +128,7 @@ export default function TestimonialsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
               >
-                <p className="text-neutral-300 text-[13px] leading-[1.85] flex-1">{t.text}</p>
+                <p className="text-white text-[16px] leading-[1.85] flex-1">{t.text}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover object-top shrink-0" />
                   <div>

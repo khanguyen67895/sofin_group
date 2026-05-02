@@ -12,7 +12,7 @@ export default function EcosystemQuote() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <p
-            className="font-heading text-neutral-100 italic leading-[1.7]"
+            className="font-heading text-neutral-100 leading-[1.7]"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
           >
             "Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng

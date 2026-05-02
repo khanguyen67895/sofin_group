@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import imgLogo from '@/assets/images/img-logo.png'
+import icBgVision from '@/assets/images/ic_bg_vision.png'
 import icRec from '@/assets/images/ic_rec.png'
 import './VisionSection.css'
 
@@ -26,11 +27,11 @@ export default function VisionSection() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className="py-20 md:py-20 bg-neutral-900">
+    <section className="md:py-20 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         {/* Divider line */}
-        <div className="relative mb-14">
+        <div className="relative mb-3 md:mb-14">
           <div className="h-0.5 bg-neutral-700/50" />
           <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
         </div>
@@ -67,10 +68,10 @@ export default function VisionSection() {
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
                 onClick={() => setActiveIndex(idx)}
                 className={`
-                  vision-card group relative cursor-pointer transition-all duration-500 overflow-hidden flex flex-col justify-end
+                  vision-card group relative cursor-pointer transition-all duration-500 overflow-hidden flex flex-col justify-end bg-neutral-900
                   ${isActive
-                    ? 'flex-2 bg-neutral-800'
-                    : 'flex-1 bg-neutral-800/40'
+                    ? 'flex-2'
+                    : 'flex-1'
                   }
                 `}
               >
@@ -106,7 +107,16 @@ export default function VisionSection() {
                     {card.label}
                   </p>
                 </div>
+                {/* Background vision icon */}
+                <img
+                  src={icBgVision}
+                  alt=""
+                  aria-hidden
+                  className="absolute top-0 left-0 w-48 h-48 object-contain opacity-10 pointer-events-none select-none vision-bg-icon"
+                />
                 <div className="vision-border-left" />
+                <div className="vision-border-top" />
+                <div className="vision-border-right" />
                 <div className="vision-glow" />
               </motion.div>
             )

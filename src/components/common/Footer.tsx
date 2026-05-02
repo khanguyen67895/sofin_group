@@ -58,7 +58,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950">
+    <footer className="bg-[#050505]" style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}>
 
       {/* ── Top: Logo + Socials ── */}
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 pt-16 pb-10">
@@ -91,8 +91,8 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icPhone} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">ĐIỆN THOẠI</span>
-                <a href="tel:0335456789" className="text-white font-heading font-bold text-lg hover:text-primary-500 transition-colors">
+                <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase block mb-1">ĐIỆN THOẠI</span>
+                <a href="tel:0335456789" className="text-white font-bold text-lg hover:text-primary-500 transition-colors">
                   0335 456 789
                 </a>
               </div>
@@ -101,8 +101,8 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icEmail} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">EMAIL</span>
-                <a href="mailto:hello@sofingroup.com" className="text-white font-heading font-bold text-lg hover:text-primary-500 transition-colors">
+                <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase block mb-1">EMAIL</span>
+                <a href="mailto:hello@sofingroup.com" className="text-white font-bold text-lg hover:text-primary-500 transition-colors">
                   hello@sofingroup.com
                 </a>
               </div>
@@ -111,9 +111,9 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icLocation} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-1">TRỤ SỞ CHÍNH</span>
-                <p className="text-white font-heading font-bold text-lg leading-snug">
-                  216 - 218 Trần Hưng Đạo, P. An Hải,<br />TP. Đà Nẵng
+                <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase block mb-1">TRỤ SỞ CHÍNH</span>
+                <p className="text-white font-bold text-lg leading-snug">
+                  216 - 218 Trần Hưng Đạo, P. An Hải, TP. Đà Nẵng
                 </p>
               </div>
             </div>

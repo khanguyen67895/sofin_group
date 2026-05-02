@@ -22,12 +22,12 @@ export default function StatsSection() {
               transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
             >
               <p
-                className="font-body font-bold text-primary-500 leading-none"
+                className="font-heading font-semibold text-primary-500 leading-none"
                 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
               >
                 {s.value}
               </p>
-              <p className="text-neutral-400 text-[10px] tracking-widest mt-2 uppercase">
+              <p className="text-neutral-100 text-[10px] tracking-widest mt-2 uppercase">
                 {s.label}
               </p>
             </motion.div>

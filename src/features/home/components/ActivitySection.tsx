@@ -33,7 +33,10 @@ export default function ActivitySection() {
   }
 
   return (
-    <section className="py-10 md:py-10 bg-neutral-950">
+    <section
+      className="py-10 md:py-10 bg-[#050505]"
+      style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}
+    >
       <div className="mx-auto">
 
         {/* Header */}

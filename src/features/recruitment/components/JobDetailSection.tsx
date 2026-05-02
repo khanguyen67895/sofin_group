@@ -57,7 +57,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {job.descriptionText && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold italic text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                   Mô tả công việc
                 </h2>
                 <RichLines
@@ -69,7 +69,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {job.requirementsText && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold italic text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                   Yêu cầu công việc
                 </h2>
                 <RichLines
@@ -81,7 +81,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {job.benefitsText && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold italic text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                   Quyền lợi
                 </h2>
                 <RichLines
@@ -94,7 +94,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
             {/* Fallback: block-based description (static data) */}
             {!job.descriptionText && job.description && job.description.length > 0 && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold italic text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                   Mô tả công việc
                 </h2>
                 <div className="flex flex-col gap-5">
@@ -116,7 +116,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {!job.requirementsText && job.requirements && job.requirements.length > 0 && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold italic text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                   Yêu cầu công việc
                 </h2>
                 <ul className="flex flex-col gap-1 text-neutral-300 text-sm md:text-[15px] leading-relaxed">
@@ -142,7 +142,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
           {/* Other jobs */}
           {otherJobs.length > 0 && (
             <div className="lg:col-start-1 lg:row-start-2">
-              <h2 className="font-heading font-bold italic text-primary-500 text-xl md:text-2xl mb-4">
+              <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                 Các vị trí khác
               </h2>
               <div className="flex flex-col gap-4">

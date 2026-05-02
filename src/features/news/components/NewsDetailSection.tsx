@@ -110,7 +110,7 @@ export default function NewsDetailSection({ item }: NewsDetailSectionProps) {
         )}
 
         {item.source && (
-          <p className="mt-8 text-neutral-500 text-xs italic">
+          <p className="mt-8 text-neutral-500 text-xs">
             Nguồn: {item.source}
           </p>
         )}

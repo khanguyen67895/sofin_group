@@ -115,18 +115,18 @@ export default function ExpertSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
 
           {/* ── LEFT: content ── */}
           <motion.div
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-5 w-full lg:w-142"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             {/* Quote */}
-            <blockquote className="text-base md:text-2xl text-neutral-200 leading-[1.8] italic font-light">
+            <blockquote className="text-base md:text-2xl text-neutral-100 leading-[1.8] font-light">
               {e.quote}
             </blockquote>
 
@@ -138,13 +138,13 @@ export default function ExpertSection() {
             {/* Name + title */}
             <div>
               <p className="text-neutral-500 text-sm">{e.title}</p>
-              <p className="font-heading font-bold text-2xl text-white mt-1">
+              <p className="font-heading font-bold text-2xl text-neutral-100 mt-1">
                 {e.name}
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-neutral-300 text-[14px] leading-relaxed">
+            <p className="text-neutral-100 text-[14px] leading-relaxed">
               {e.description}
             </p>
           </motion.div>
@@ -152,7 +152,7 @@ export default function ExpertSection() {
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
           <div
             ref={scrollRef}
-            className="flex gap-3 items-end overflow-x-auto pb-1 mt-6 lg:-mt-60 -mr-5 md:-mr-20"
+            className="flex gap-3 items-end overflow-x-auto pb-1 mt-6 lg:-mt-60 mx-1 sm:-mx-10 md:-ml-40"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {experts.map((ex, idx) => {
@@ -163,8 +163,8 @@ export default function ExpertSection() {
                   onClick={() => setCur(idx)}
                   className="relative shrink-0 overflow-hidden transition-all duration-300"
                   style={{
-                    width: isActive ? 240 : 160,
-                    height: isActive ? 400 : 240,
+                    width: isActive ? 'min(330px, 55vw)' : 'min(200px, 33vw)',
+                    height: isActive ? 'min(591px, 75vw)' : 'min(297px, 38vw)',
                   }}
                 >
                   <img

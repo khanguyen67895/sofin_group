@@ -6,16 +6,17 @@ import { motion } from 'framer-motion'
 
 export default function CTASection() {
   return (
-    <section className="py-10 md:py-10 bg-neutral-900 relative overflow-hidden">
+    <section className="bg-black relative overflow-hidden">
         {/* Desktop background */}
         <img
           src={bgFormHopTac}
           alt=""
           className="hidden md:block absolute right-0 top-0 h-full w-full object-cover object-center"
         />
-        <div className="hidden md:block absolute inset-0 bg-linear-to-r from-neutral-900 via-neutral-900/70 to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-2/3 bg-linear-to-t from-neutral-900 to-transparent" />
+        <div className="hidden md:block absolute top-0 -left-220 bottom-0 w-4/5 bg-linear-to-r from-[#0C0C0C] via-[#0C0C0C]/80 to-transparent" />
 
-      <div className="relative mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
+      <div className="relative mx-auto px-5 sm:px-10 md:px-20 lg:px-30 mt-8 md:mb-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
 
           {/* Left — form */}
@@ -71,11 +72,11 @@ export default function CTASection() {
         </div>
 
         {/* Mobile background image — below form */}
-        <img
-          src={bgFormHopTacMb}
-          alt=""
-          className="md:hidden w-full object-cover"
-        />
+          <img
+            src={bgFormHopTacMb}
+            alt=""
+            className="md:hidden w-full object-cover"
+          />
       </div>
     </section>
   )

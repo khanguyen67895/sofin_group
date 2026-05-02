@@ -16,7 +16,7 @@ export default function RecruitmentHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="font-heading font-bold text-white italic"
+            className="font-heading font-bold text-white"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
           >
             Tuyển dụng

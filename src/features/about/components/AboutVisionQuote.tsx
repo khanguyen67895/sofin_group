@@ -12,7 +12,7 @@ export default function AboutVisionQuote() {
           transition={{ duration: 0.7 }}
         >
           <p
-            className="font-heading text-neutral-100 italic leading-[1.6]"
+            className="font-heading text-neutral-100 leading-[1.6]"
           >
             "Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng
             AI và công nghệ tiên tiến để tạo giá trị bền vững, đồng thời kết nối tri thức,

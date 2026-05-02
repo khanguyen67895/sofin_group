@@ -164,7 +164,7 @@ export default function EcosystemSection() {
               {/* Popup card */}
               {active === idx && (
                 <div
-                  className="absolute left-5 right-5 md:left-auto md:right-60 top-full md:top-10 z-30 md:w-80"
+                  className="absolute left-5 right-5 md:left-auto md:right-60 top-full md:top-10 z-30 md:w-120"
                   style={{
                     background: 'rgba(13,13,13,0.6)',
                     backdropFilter: 'blur(16px)',
@@ -178,12 +178,12 @@ export default function EcosystemSection() {
                   <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', background: '#3a3a3a' }} />
 
                   <div className="flex items-center justify-between px-5 pt-4 pb-3">
-                    <h3 className="font-heading font-bold text-white text-base leading-snug">
+                    <h3 className="font-heading font-bold text-[32px] text-white text-base leading-snug">
                       {it.title}
                     </h3>
                   </div>
 
-                  <p className="px-5 pb-4 text-neutral-400 text-[12px] leading-relaxed">
+                  <p className="px-5 pb-4 text-neutral-100 text-[16px] leading-relaxed">
                     {it.description}
                   </p>
 

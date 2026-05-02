@@ -1,5 +1,5 @@
 export const fontFamily = {
-  body:    'Inter',
+  body:    'Mona Sans',
   heading: 'Unbounded',
 } as const
 
