@@ -16,10 +16,10 @@ const col1 = [
   { label: 'Liên hệ',      href: '/lien-he' },
 ]
 const col2 = [
-  { label: 'Khoa học công nghệ',     href: '/he-sinh-thai/cong-nghe' },
-  { label: 'Đầu tư chiến lược',      href: '/he-sinh-thai/dau-tu' },
-  { label: 'Truyền thông giải trí',   href: '/he-sinh-thai/truyen-thong' },
-  { label: 'Giáo dục đào tạo',       href: '/he-sinh-thai/giao-duc' },
+  { label: 'Khoa học công nghệ',     href: '/he-sinh-thai' },
+  { label: 'Đầu tư chiến lược',      href: '/he-sinh-thai' },
+  { label: 'Truyền thông giải trí',   href: '/he-sinh-thai' },
+  { label: 'Giáo dục đào tạo',       href: '/he-sinh-thai' },
 ]
 const col3 = [
   { label: 'Chính sách bảo mật', href: '/chinh-sach-bao-mat' },
