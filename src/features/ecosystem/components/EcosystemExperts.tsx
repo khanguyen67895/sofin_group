@@ -45,7 +45,7 @@ export default function EcosystemExperts() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary-500 text-[13px] font-heading font-semibold tracking-widest uppercase">
+          <span className="text-primary-500 text-[28px] font-semibold tracking-widest uppercase">
             Đội ngũ chuyên gia
           </span>
         </motion.div>
@@ -72,8 +72,8 @@ export default function EcosystemExperts() {
                   />
                 </div>
                 <div>
-                  <p className="text-white font-heading font-bold text-[14px]">{e.name}</p>
-                  <p className="text-neutral-500 text-[11px] tracking-widest uppercase mt-0.5">{e.title}</p>
+                  <p className="text-white font-heading font-bold text-[16px]">{e.name}</p>
+                  <p className="text-neutral-500 text-[10px] tracking-widest uppercase mt-0.5">{e.title}</p>
                 </div>
               </div>
             ))}
@@ -119,8 +119,8 @@ export default function EcosystemExperts() {
                   />
                 </div>
                 <div>
-                  <p className="text-white font-heading font-bold text-[14px]">{e.name}</p>
-                  <p className="text-neutral-500 text-[11px] tracking-widest uppercase mt-0.5">{e.title}</p>
+                  <p className="text-white font-heading font-bold text-[16px]">{e.name}</p>
+                  <p className="text-neutral-500 text-[10px] tracking-widest uppercase mt-0.5">{e.title}</p>
                 </div>
               </motion.div>
             ))}

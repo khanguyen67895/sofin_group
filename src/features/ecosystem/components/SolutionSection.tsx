@@ -59,7 +59,7 @@ export default function SolutionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <p className="text-neutral-100 text-[15px] leading-[1.85] mb-10">
+            <p className="text-neutral-100 text-[16px] leading-[1.85] mb-10">
               Giải pháp doanh nghiệp của SOFIN Group cung cấp hệ sinh thái công cụ và
               dữ liệu toàn diện, giúp tối ưu vận hành, phân tích thị trường, quản trị rủi ro và ra
               quyết định chiến lược. Đồng thời hỗ trợ tự động hóa quy trình, nâng cao hiệu
@@ -76,10 +76,10 @@ export default function SolutionSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08, ease: 'easeOut' }}
                 >
-                  <div className="mt-1 shrink-0 w-0.5 h-10 bg-neutral-600" />
+                  <div className="mt-1 shrink-0 w-0.5 h-18 bg-neutral-600" />
                   <div>
-                    <p className="text-primary-500 font-semibold text-[14px]">{f.title}</p>
-                    <p className="text-neutral-100 text-[13px] leading-relaxed mt-0.5">{f.desc}</p>
+                    <p className="text-primary-500 font-semibold text-[16px]">{f.title}</p>
+                    <p className="text-neutral-100 text-[16px] leading-relaxed mt-0.5">{f.desc}</p>
                   </div>
                 </motion.div>
               ))}

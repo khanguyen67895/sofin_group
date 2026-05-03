@@ -28,7 +28,7 @@ export default function ClientsMarquee() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="text-primary-500 text-[13px] font-heading font-semibold tracking-widest uppercase">
+        <span className="text-primary-500 text-[28px] font-semibold tracking-widest uppercase">
           Khách hàng nổi bật
         </span>
       </motion.div>

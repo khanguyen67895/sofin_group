@@ -5,7 +5,7 @@ import icPhone from '@/assets/images/ic_phone.png'
 import icEmail from '@/assets/images/ic_email.png'
 import icLocation from '@/assets/images/ic_location.png'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
-import icItemContact from '@/assets/images/ic_item_contact.png'
+import icItemContact from '@/assets/images/ic_bg_vision.png'
 import bgContact from '@/assets/images/bg_contact.png'
 import bgFormHopTacMB from '@/assets/images/bg-form-hop-tac-mb.png'
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 overflow-hidden">
+      <section className="relative bg-neutral-900 pt-28 overflow-hidden">
           <img
             src={bgContact}
             alt=""
@@ -69,7 +69,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact info cards */}
-      <section className="bg-neutral-950 mt-20">
+      <section className="bg-neutral-900 mt-20">
         <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {contactInfo.map((item, index) => (
@@ -88,7 +88,13 @@ export default function ContactPage() {
                 <img
                   src={icItemContact}
                   alt=""
-                  className="absolute top-0 left-0 w-full opacity-8 h-auto object-contain pointer-events-none select-none"
+                  className="absolute top-0 left-0 w-50 h-50 opacity-10 pointer-events-none select-none"
+                  style={{
+                    WebkitMaskImage:
+                      'radial-gradient(ellipse at top left, black 20%, transparent 75%)',
+                    maskImage:
+                      'radial-gradient(ellipse at top left, black 20%, transparent 75%)',
+                  }}
                 />
 
                 <img src={item.icon} alt="" className="w-10 h-10 shrink-0 mt-1 object-contain" />
@@ -106,7 +112,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row bg-neutral-950 relative overflow-hidden md:justify-between">
+      <section className="flex flex-col md:flex-row bg-neutral-900 relative overflow-hidden md:justify-between">
         <motion.div
           className="relative py-16 md:py-20 px-5 sm:px-10 md:pl-30 md:pr-0 flex justify-center md:justify-start"
           initial={{ opacity: 0, x: -20 }}
@@ -116,7 +122,7 @@ export default function ContactPage() {
         >
           <div className="w-full max-w-lg md:w-4xl">
 
-            <p className="text-white text-[18px] md:text-3xl leading-[1.85] mb-8">
+            <p className="text-white text-[18px] md:text-[28px] mb-8">
               Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng doanh nghiệp của bạn
             </p>
 

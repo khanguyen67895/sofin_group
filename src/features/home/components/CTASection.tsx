@@ -39,7 +39,7 @@ export default function CTASection() {
               </h2>
             </div>
 
-            <p className="text-neutral-300 text-[14px] leading-[1.85] max-w-md">
+            <p className="text-neutral-100 text-[28px] max-w-md">
               Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng doanh nghiệp của bạn
             </p>
 

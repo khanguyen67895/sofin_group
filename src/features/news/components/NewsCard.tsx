@@ -5,12 +5,12 @@ import type { NewsItem } from '../types'
 
 export interface NewsCardProps {
   item: NewsItem
-  heightClass?: string
+  aspectClass?: string
 }
 
 export default function NewsCard({
   item,
-  heightClass = 'h-80 sm:h-150 md:h-150 lg:h-150 xl:h-200',
+  aspectClass = 'aspect-[464/640]',
 }: NewsCardProps) {
   return (
     <motion.div
@@ -21,7 +21,7 @@ export default function NewsCard({
     >
     <Link
       to={`/tin-tuc/${item.id}`}
-      className="relative cursor-pointer group overflow-hidden block"
+      className={`relative cursor-pointer group overflow-hidden block w-full ${aspectClass}`}
       style={{
         clipPath:
           'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)',
@@ -30,8 +30,10 @@ export default function NewsCard({
       <img
         src={item.image}
         alt=""
-        className={`w-full ${heightClass} object-cover transition-all duration-500 group-hover:blur-[2px] group-hover:brightness-75 group-hover:scale-105`}
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:blur-[2px] group-hover:brightness-75 group-hover:scale-105"
       />
+
+      <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/40 to-black/80 pointer-events-none" />
 
       <div className="absolute inset-0 flex flex-col justify-between p-6">
         <div>

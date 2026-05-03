@@ -144,7 +144,7 @@ export default function ExpertSection() {
             </div>
 
             {/* Description */}
-            <p className="text-neutral-100 text-[14px] leading-relaxed">
+            <p className="text-neutral-100 text-[16px] leading-relaxed">
               {e.description}
             </p>
           </motion.div>

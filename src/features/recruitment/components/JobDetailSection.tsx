@@ -62,7 +62,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
                 </h2>
                 <RichLines
                   text={job.descriptionText}
-                  className="text-neutral-300 text-sm md:text-[15px] leading-relaxed"
+                  className="text-neutral-300 text-sm md:text-[16px] leading-relaxed"
                 />
               </div>
             )}
@@ -74,7 +74,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
                 </h2>
                 <RichLines
                   text={job.requirementsText}
-                  className="text-neutral-300 text-sm md:text-[15px] leading-relaxed"
+                  className="text-neutral-300 text-sm md:text-[16px] leading-relaxed"
                 />
               </div>
             )}
@@ -86,7 +86,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
                 </h2>
                 <RichLines
                   text={job.benefitsText}
-                  className="text-neutral-300 text-sm md:text-[15px] leading-relaxed"
+                  className="text-neutral-300 text-sm md:text-[16px] leading-relaxed"
                 />
               </div>
             )}
@@ -103,7 +103,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
                       <h3 className="font-heading font-bold text-white text-base md:text-lg mb-2">
                         {block.heading}
                       </h3>
-                      <ul className="flex flex-col gap-1 text-neutral-300 text-sm md:text-[15px] leading-relaxed">
+                      <ul className="flex flex-col gap-1 text-neutral-300 text-sm md:text-[16px] leading-relaxed">
                         {block.items.map((item, idx) => (
                           <li key={idx}>- {item}</li>
                         ))}
@@ -119,7 +119,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
                 <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
                   Yêu cầu công việc
                 </h2>
-                <ul className="flex flex-col gap-1 text-neutral-300 text-sm md:text-[15px] leading-relaxed">
+                <ul className="flex flex-col gap-1 text-neutral-300 text-sm md:text-[16px] leading-relaxed">
                   {job.requirements.map((req, idx) => (
                     <li key={idx}>- {req}</li>
                   ))}
