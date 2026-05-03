@@ -61,7 +61,7 @@ export default function RelatedNewsSection({
             <NewsCard
               key={item.id}
               item={item}
-              heightClass="h-80 md:h-110 lg:h-125"
+              aspectClass="aspect-[464/640]"
             />
           ))}
         </motion.div>
