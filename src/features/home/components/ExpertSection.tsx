@@ -152,8 +152,8 @@ export default function ExpertSection() {
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
           <div
             ref={scrollRef}
-            className="flex gap-3 items-end overflow-x-auto pb-1 mt-6 lg:-mt-60 mx-1 sm:-mx-10 md:-ml-40"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-3 items-end overflow-x-auto pb-1 mt-6 lg:-mt-60 mx-1"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
           >
             {experts.map((ex, idx) => {
               const isActive = idx === cur;
