@@ -28,10 +28,12 @@ const baseStyles = [
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary: cn(
-    'bg-primary-500 text-white rounded-full',
-    'hover:bg-primary-400',
-    'active:bg-primary-600',
-    'disabled:bg-neutral-700 disabled:text-neutral-500',
+    'bg-[radial-gradient(ellipse_50%_100%_at_50%_0%,#FF824D_0%,#FE4C00_100%)]',
+    'text-white rounded-full font-heading uppercase',
+    'outline outline-1 outline-offset-[-1px] outline-white/30',
+    'hover:brightness-110',
+    'active:brightness-90',
+    'disabled:bg-neutral-700 disabled:text-neutral-500 disabled:outline-none',
     'focus-visible:ring-primary-500',
   ),
   secondary: cn(
@@ -55,7 +57,7 @@ const sizeStyles: Record<ButtonSize, string> = {
   xs: 'h-6  px-6   text-[10px] leading-[12px] [&_svg]:size-3',
   sm: 'h-8 px-8   text-[12px] leading-[16px] [&_svg]:size-3.5',
   md: 'h-10 px-10  text-[13px] leading-[20px] [&_svg]:size-4',
-  lg: 'h-12 px-12  text-[14px] leading-[20px] [&_svg]:size-4',
+  lg: 'h-16 px-10  text-lg    leading-7      [&_svg]:size-5',
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────

@@ -1,74 +1,84 @@
-import heroBanner from '@/assets/images/heroBanner.png'
-import heroBannerMb from '@/assets/images/heroBanner-mb.png'
-import icStars from '@/assets/images/ic_stars.png'
+import bgHeaderVideo from '@/assets/video/bg-header.webm'
 import Button from '@/components/ui/Button'
 import { motion } from 'framer-motion'
+import PartnersMarquee from './PartnersMarquee'
+import AitechBadge from './badges/AitechBadge'
+import AcademyBadge from './badges/AcademyBadge'
+import MediaBadge from './badges/MediaBadge'
+import EnterpriseBadge from './badges/EnterpriseBadge'
+
+const badges = [
+  { component: AitechBadge,    pos: '-left-10 top-20' },
+  { component: AcademyBadge,   pos: '-right-10 top-20' },
+  { component: MediaBadge,     pos: '-left-5 top-[54%]' },
+  { component: EnterpriseBadge, pos: '-right-5 top-[54%]' },
+]
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-90 md:h-screen bg-neutral-900 overflow-hidden">
-
-      {/* ═══ Background: heroBanner ═══ */}
-      <img
-        src={heroBanner}
-        alt=""
+    <section>
+      {/* Background */}
+      <video
+        src={bgHeaderVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover hidden md:block"
-        style={{ objectPosition: '130% center' }}
-        draggable={false}
-      />
-      {/* ═══ Background: heroBanner mobile ═══ */}
-      <img
-        src={heroBannerMb}
-        alt=""
-        aria-hidden
-        className="absolute inset-0 w-full h-100 object-contain object-center md:hidden"
-        draggable={false}
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* ═══ Content ═══ */}
-      <div className="relative z-10 h-full flex flex-col mx-auto w-full px-5 sm:px-10 md:px-20 lg:px-30">
+      {/* Center content */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-5 md:px-10">
 
-        {/* Main content — vertically centered */}
-        <div className="flex-1 flex flex-col justify-center max-w-200">
+        {/* Title */}
+        <motion.h1
+          className="font-heading font-medium text-white mb-6 text-[2.25rem] leading-tight md:text-6xl md:leading-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          <span className="block">Công nghệ <span className="text-primary-500">thực</span></span>
+          <span className="block">Giá trị <span className="text-primary-500">thực</span></span>
+        </motion.h1>
 
-          {/* H1 */}
-          <motion.h1
-            className="font-heading font-bold leading-[1.1] mb-6 text-[2rem] md:text-[3rem] lg:text-[3.75rem]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-          >
-            <span className="block text-neutral-0 md:hidden">Công Nghệ</span>
-            <span className="block text-neutral-0 md:hidden">Thực</span>
-            <span className="hidden md:block text-neutral-0">Công Nghệ Thực</span>
-            <span className="block text-neutral-0">Giá Trị Thực</span>
-          </motion.h1>
+        {/* Description */}
+        <motion.p
+          className="text-[#F5F0E8] text-base leading-6 mb-5 max-w-170"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
+        >
+          SOFIN GROUP mang đến cho bạn giải pháp công nghệ thực tiễn, dễ ứng dụng và tạo ra hiệu quả rõ ràng trong kinh doanh. Chúng tôi đồng hành - huấn luyện - chuyển giao xuyên suốt hành trình phát triển doanh nghiệp của bạn!
+        </motion.p>
 
-          {/* Description — hidden on mobile */}
-          <motion.p
-            className="hidden md:block text-neutral-100 text-[16px] md:text-[16px] leading-[1.85] mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
-          >
-            Chúng tôi không chỉ theo kịp tương lai, chúng tôi chủ động định hình và kiến tạo
-            nó. Bằng việc tiên<br />phong ứng dụng công nghệ AI, kết nối tri thức và con người,
-            nhằm tạo ra những giá trị bền vững cho<br />doanh nghiệp và xã hội.
-          </motion.p>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
-          >
-            <Button variant="primary" size="sm" className="w-auto md:h-16! md:px-9.5! py-4.5 md:text-[18px]!" rightIcon={<img src={icStars} alt="" className="size-5" />}>
-              TÌM HIỂU THÊM
-            </Button>
-          </motion.div>
-        </div>
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
+        >
+          <Button variant="primary" size="lg">TÌM HIỂU THÊM</Button>
+        </motion.div>
       </div>
+
+      {/* Partners marquee */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <PartnersMarquee />
+      </div>
+
+      {/* Floating category badges — desktop only */}
+      {badges.map(({ component: Badge, pos }) => (
+        <motion.div
+          key={pos}
+          className={`absolute hidden lg:block ${pos}`}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: 'easeOut' }}
+        >
+          <Badge />
+        </motion.div>
+      ))}
     </section>
   )
 }
