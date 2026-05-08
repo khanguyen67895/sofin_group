@@ -7,6 +7,8 @@ import img04 from "@/assets/images/chuyen-gia-04.png";
 import icLeft from "@/assets/images/ic_left.png";
 import icRight from "@/assets/images/ic_right.png";
 import icRec from '@/assets/images/ic_rec.png'
+import icCouncil from "@/assets/images/ic_council.png";
+import icCouncil2x from "@/assets/images/ic_council@2x.png";
 
 interface Expert {
   name: string;
@@ -71,7 +73,7 @@ export default function ExpertSection() {
   }, []);
 
   return (
-    <section className="py-15 md:py-15 bg-neutral-950">
+    <section className="py-15 md:py-15 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-10 pr-6 md:pr-20 lg:pr-100">
@@ -81,12 +83,14 @@ export default function ExpertSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.2em] uppercase mb-2">
-              HỘI ĐỒNG CỐ VẤN KHOA HỌC
-            </span>
+            <img
+              src={icCouncil}
+              srcSet={`${icCouncil2x} 2x`}
+              alt="Hội đồng cố vấn khoa học"
+              className="h-8 object-contain mb-2"
+            />
             <h2
-              className="font-heading font-bold text-primary-500"
-              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+              className="justify-center text-4xl font-medium font-['Unbounded'] leading-12 text-primary-500"
             >
               Đội ngũ chuyên gia
             </h2>
@@ -101,7 +105,7 @@ export default function ExpertSection() {
             >
               <img src={icLeft} alt="Previous" className="w-12 h-12 object-contain" />
             </button>
-            <span className="text-lm text-neutral-500 tabular-nums w-12 text-center">
+            <span className="text-lm text-[#F0EDE6] tabular-nums w-12 text-center">
               {cur + 1}/{experts.length}
             </span>
             <button
@@ -126,7 +130,7 @@ export default function ExpertSection() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             {/* Quote */}
-            <blockquote className="text-base md:text-2xl text-neutral-100 leading-[1.8] font-light">
+            <blockquote className="self-stretch justify-center text-stone-200 text-3xl font-normal font-['Mona_Sans'] leading-10">
               {e.quote}
             </blockquote>
 
@@ -137,14 +141,14 @@ export default function ExpertSection() {
 
             {/* Name + title */}
             <div>
-              <p className="text-neutral-500 text-sm">{e.title}</p>
-              <p className="font-heading font-bold text-2xl text-neutral-100 mt-1">
+              <p className="w-44 opacity-60 justify-center text-white text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px] mb-2">{e.title}</p>
+              <p className="justify-center text-white text-2xl font-medium font-['Unbounded'] leading-8">
                 {e.name}
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-neutral-100 text-[16px] leading-relaxed">
+            <p className="self-stretch justify-start text-stone-100 text-sm font-normal font-['Mona_Sans'] leading-5">
               {e.description}
             </p>
           </motion.div>

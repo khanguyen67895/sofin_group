@@ -1,9 +1,8 @@
-import Button from '@/components/ui/Button'
 import { motion } from 'framer-motion'
 import icInfo1 from '@/assets/images/ic_info1.png'
 import icInfo2 from '@/assets/images/ic_info2.png'
 import icInfo3 from '@/assets/images/ic_info3.png'
-import icRec from '@/assets/images/ic_rec.png'
+import icUpdate from '@/assets/images/ic_update.png'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
 
 const newsItems = [
@@ -28,31 +27,28 @@ const newsItems = [
     image: icInfo3,
     category: 'Sự kiện',
     date: '25 Tháng 3, 2026',
-    title: 'SOFIN Summit 2025: Hội nghị AI & Đổi mới sáng tạo quy mô lớn nhất Đông Nam Á',
+    title: 'SOFIN Summit 2025',
     detail: 'Nền tảng Al thế hệ mới với khả năng xử lý ngôn ngữ tự nhiên tiếng Việt đạt độ chính xác 98%.',
   },
 ]
 
 export default function NewsSection() {
   return (
-    <section className="pt-10 md:pt-10 bg-neutral-950">
+    <section className="pt-10 md:pt-10 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
-      {/* Divider line */}
-        <div className="relative mb-14">
-          <div className="h-0.5 bg-neutral-700/50" />
-          <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
-        </div>
         <motion.div
-          className="mb-10"
+          className="mb-8 px-5 sm:px-10 md:px-20 lg:px-30 flex flex-col items-center text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
-            CẬP NHẬT MỚI NHẤT
-          </span>
+          <img
+            src={icUpdate}
+            alt="Sandbox Đà Nẵng"
+            className="h-8 object-contain mb-2"
+          />
           <h2
             className="font-heading font-bold text-primary-500"
             style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
@@ -62,62 +58,50 @@ export default function NewsSection() {
         </motion.div>
 
         <div
-          className="flex gap-5 overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 md:mr-0"
+          className="flex justify-center gap-5"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {newsItems.map((news, i) => (
             <motion.article
               key={news.id}
-              className="relative cursor-pointer group overflow-hidden shrink-0 w-[80vw] md:w-auto md:shrink"
+              className="cursor-pointer group shrink-0 w-[80vw] md:w-116 md:shrink rounded-2xl overflow-hidden flex flex-col p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
-              style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}
+              style={{
+                border: '2px solid #3C3C3C',
+                background: 'radial-gradient(120% 53.36% at 0% 120%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(4px)',
+                WebkitBackdropFilter: 'blur(4px)',
+              }}
             >
               {/* Image */}
-              <img
-                src={news.image}
-                alt=""
-                className="w-full h-150 object-cover transition-all duration-500 group-hover:blur-[2px] group-hover:brightness-75 group-hover:scale-105"
-              />
+              <div className="overflow-hidden h-52">
+                <img
+                  src={news.image}
+                  alt=""
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-xl"
+                />
+              </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 flex flex-col justify-between p-6">
-                <div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-white text-[16px] font-bold">{news.category}</span>
-                    <span className="text-white text-[16px]">{news.date}</span>
-                  </div>
-                  <div className="w-16 h-0.5 bg-white my-4" />
-                  <h3 className="font-heading font-bold text-white text-2xl leading-snug mb-4">
-                    {news.title}
-                  </h3>
+              {/* Content */}
+              <div className="flex flex-col gap-3 py-5 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="justify-center text-neutral-100 text-base font-semibold font-['Mona_Sans'] leading-6">{news.category}</span>
+                  <span className="justify-center text-neutral-300 text-base font-normal font-['Mona_Sans'] leading-6">{news.date}</span>
                 </div>
-                <div>
-                  <span className="inline-flex items-center gap-2 text-primary-500 text-[22px] font-bold uppercase transition-transform duration-400 translate-y-12 group-hover:-translate-y-2">
-                    CHI TIẾT
-                    <img src={icArrowDetail} alt="" className="w-3.5 h-3.5" />
-                  </span>
-                  {/* Detail — slides up on hover */}
-                  <p className="text-white text-[16px] leading-relaxed mt-3 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                    {news.detail}
-                  </p>
-                </div>
+                <div className="self-stretch h-0.5 bg-linear-to-r from-zinc-100/10 to-zinc-100/0" />
+                <h3 className="font-heading font-semibold text-neutral-100 text-3xl leading-10 flex-1">
+                  {news.title}
+                </h3>
+                <button className="flex items-center gap-1.5 text-primary-500 text-sm font-semibold uppercase tracking-wider w-fit group-hover:opacity-80 transition-opacity mt-2">
+                  CHI TIẾT
+                  <img src={icArrowDetail} alt="" className="w-3 h-3 object-contain" />
+                </button>
               </div>
             </motion.article>
           ))}
-        </div>
-
-        <div className="flex justify-center mt-10">
-          <Button variant="primary" size="md">
-            XEM TẤT CẢ
-          </Button>
-        </div>
-
-        <div className="relative mt-14">
-          <div className="h-0.5 bg-neutral-700/50" />
-          <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
         </div>
       </div>
     </section>

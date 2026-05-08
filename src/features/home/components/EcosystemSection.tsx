@@ -1,19 +1,24 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import icRight from "@/assets/images/ic_right.png";
-import icSystem1 from "@/assets/images/ic_system1.png";
-import icSystem1x2 from "@/assets/images/ic_system1@2x.png";
-import icSystem2 from "@/assets/images/ic_system2.png";
-import icSystem2x2 from "@/assets/images/ic_system2@2x.png";
-import icSystem3 from "@/assets/images/ic_system3.png";
-import icSystem3x2 from "@/assets/images/ic_system3@2x.png";
-import icSystem4 from "@/assets/images/ic_system4.png";
-import icSystem4x2 from "@/assets/images/ic_system4@2x.png";
-import icArrowWhite from "@/assets/images/ic_arrow_white.png";
+import { useNavigate } from "react-router-dom";
+import icArrowDetail from "@/assets/images/ic_arrow_detail.png";
+import icArrowDetail2x from "@/assets/images/ic_arrow_detail@2x.png";
+import icSectionPlatform from "@/assets/images/ic_section_platform.png";
+import icSectionPlatform2x from "@/assets/images/ic_section_platform@2x.png";
+import bgEcosystem from "@/assets/images/bg_ecosystem.png";
+import bgEcosystem2x from "@/assets/images/bg_ecosystem@2x.png";
+import bgHeSinhThaiL from "@/assets/images/bg-he-sinh-thai-l.png";
+import bgHeSinhThaiL2x from "@/assets/images/bg-he-sinh-thai-l@2x.png";
+import imgHeSinhThai1 from "@/assets/images/img-he-sinh-thai-1.png";
+import imgHeSinhThai1x2 from "@/assets/images/img-he-sinh-thai-1@2x.png";
+import imgHeSinhThai2 from "@/assets/images/img-he-sinh-thai-2.png";
+import imgHeSinhThai2x2 from "@/assets/images/img-he-sinh-thai-2@2x.png";
+import imgHeSinhThai3 from "@/assets/images/img-he-sinh-thai-3.png";
+import imgHeSinhThai3x2 from "@/assets/images/img-he-sinh-thai-3@2x.png";
+import imgHeSinhThai4 from "@/assets/images/img-he-sinh-thai-4.png";
+import imgHeSinhThai4x2 from "@/assets/images/img-he-sinh-thai-4@2x.png";
 import { useEcosystemList } from "../hooks/useEcosystem";
 
 interface Item {
-  number: string;
   title: string;
   description: string;
   tags: string[];
@@ -22,60 +27,55 @@ interface Item {
 }
 
 const fallbackIcons = [
-  { icon: icSystem1, icon2x: icSystem1x2 },
-  { icon: icSystem2, icon2x: icSystem2x2 },
-  { icon: icSystem3, icon2x: icSystem3x2 },
-  { icon: icSystem4, icon2x: icSystem4x2 },
+  { icon: imgHeSinhThai1, icon2x: imgHeSinhThai1x2 },
+  { icon: imgHeSinhThai2, icon2x: imgHeSinhThai2x2 },
+  { icon: imgHeSinhThai3, icon2x: imgHeSinhThai3x2 },
+  { icon: imgHeSinhThai4, icon2x: imgHeSinhThai4x2 },
 ];
 
 const staticItems: Item[] = [
   {
-    number: "01",
-    title: "Khoa học công nghệ",
-    icon: icSystem1,
-    icon2x: icSystem1x2,
+    title: "Công nghệ & AI",
+    icon: imgHeSinhThai1,
+    icon2x: imgHeSinhThai1x2,
     description:
-      "Nghiên cứu và phát triển các giải pháp công nghệ đột phá, ứng dụng AI vào thực tiễn doanh nghiệp và y tế, khai thác tài nguyên thông minh.",
-    tags: ["Trí Tuệ Nhân Tạo", "Giải Pháp Doanh Nghiệp", "Y Tế Thông Minh", "Khai Khoáng", "Blockchain"],
+      "Trung tâm nghiên cứu phát triển AI, machine learning, chuyển đổi số và các giải pháp công nghệ tiên tiến cho doanh nghiệp.",
+    tags: ["SOFIN AI", "Interlink", "AVIXO Trading", "SOAFF"],
   },
   {
-    number: "02",
-    title: "Đầu tư chiến lược",
-    icon: icSystem2,
-    icon2x: icSystem2x2,
+    title: "SOFIN Academy",
+    icon: imgHeSinhThai2,
+    icon2x: imgHeSinhThai2x2,
     description:
-      "Quản lý danh mục đầu tư vào các startup công nghệ tiềm năng, bất động sản thông minh và các tài sản kỹ thuật số thế hệ mới.",
-    tags: ["Venture Capital", "PropTech", "Digital Assets", "M&A", "Blockchain"],
+      "Học viện đào tạo chuyên sâu về công nghệ, AI và kỹ năng số. Ươm mầm và phát triển thế hệ nhân tài công nghệ tương lai.",
+    tags: ["AI Bootcamp", "Tech Mentoring", "Workshop", "Corporate Training"],
   },
   {
-    number: "03",
-    title: "Truyền thông giải trí",
-    icon: icSystem3,
-    icon2x: icSystem3x2,
+    title: "SOFIN Media",
+    icon: imgHeSinhThai3,
+    icon2x: imgHeSinhThai3x2,
     description:
       "Xây dựng hệ sinh thái truyền thông số đa nền tảng, sản xuất nội dung chất lượng cao kết hợp công nghệ AI sáng tạo.",
-    tags: ["Digital Media", "Content AI", "Streaming", "Entertainment Tech", "Blockchain"],
+    tags: ["Content Production", "Digital Marketing", "Branding", "Entertainment"],
   },
   {
-    number: "04",
-    title: "Giáo dục đào tạo",
-    icon: icSystem4,
-    icon2x: icSystem4x2,
+    title: "Công ty thành viên",
+    icon: imgHeSinhThai4,
+    icon2x: imgHeSinhThai4x2,
     description:
-      "Đào tạo nguồn nhân lực chất lượng cao về công nghệ AI, chuyển đổi số và xuất khẩu lao động kỹ thuật cao vào thị trường Việt Nam và quốc tế.",
-    tags: ["AI Academy", "Corporate Training", "R&D Lab", "EdTech Platform"],
+      "Quản lý danh mục đầu tư vào các startup công nghệ tiềm năng, khai thác tài nguyên và phát triển các đối tác chiến lược.",
+    tags: ["SOFIN Ventures", "Mining & Exploration", "Strategic Partners", "Subsidiaries"],
   },
 ];
 
 export default function EcosystemSection() {
-  const [active, setActive] = useState<number | null>(null);
+  const navigate = useNavigate();
   const { data: cmsItems } = useEcosystemList();
 
   const items: Item[] = cmsItems && cmsItems.length > 0
     ? cmsItems.map((ci, idx) => {
         const fallback = fallbackIcons[idx % fallbackIcons.length];
         return {
-          number: ci.number,
           title: ci.title,
           description: ci.description,
           tags: ci.tags,
@@ -86,121 +86,118 @@ export default function EcosystemSection() {
     : staticItems;
 
   return (
-    <section className="y-10 md:py-10 bg-neutral-950">
-      <div>
+    <section className="py-10 md:py-16 bg-neutral-950">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 max-w-350">
         {/* Heading */}
         <motion.div
-          className=" mb-10 mx-auto pl-5 sm:pl-10 md:pl-20 lg:px-30"
+          className="mb-10 flex flex-col items-center text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase">
-            NỀN TẢNG TỔ CHỨC
-          </span>
+          <img
+            src={icSectionPlatform}
+            srcSet={`${icSectionPlatform2x} 2x`}
+            alt="Nền tảng tổ chức"
+            className="mb-3 h-8 object-contain"
+          />
           <h2
-            className="font-heading font-bold text-primary-500"
+            className="text-center font-heading font-bold text-primary-500"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
           >
             Hệ sinh thái SOFIN Group
           </h2>
         </motion.div>
 
-        {/* List */}
-        <div className="mb-10 mx-auto">
-          {items.map((it, idx) => (
-            <motion.div
-              key={it.number}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
-              className={`relative ${idx === 1 || idx === 3 ? 'bg-neutral-800/30' : ''}`}
-              onMouseEnter={() => setActive(idx)}
-              onMouseLeave={() => setActive(null)}
-            >
-              {/* Row background photo */}
-              <div
-                className={`absolute inset-0 overflow-hidden transition-opacity duration-300 ${
-                  active === idx ? "opacity-100" : "opacity-0"
-                }`}
+        {/* Cards */}
+        <div className="flex flex-col gap-20">
+          {items.map((item, idx) => {
+            const iconRight = idx % 2 !== 0;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                className="overflow-hidden rounded-2xl sticky"
+                style={{
+                  top: `${80 + idx * 20}px`,
+                  zIndex: idx + 1,
+                  boxShadow: "inset 0 0 0 1.5px rgba(229,66,30,0.25)",
+                }}
               >
+                {/* Card background image */}
                 <img
-                  src={it.icon}
-                  srcSet={`${it.icon2x} 2x`}
+                  src={idx % 2 === 0 ? bgHeSinhThaiL : bgEcosystem}
+                  srcSet={`${idx % 2 === 0 ? bgHeSinhThaiL2x : bgEcosystem2x} 2x`}
                   alt=""
                   aria-hidden="true"
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
-              </div>
 
-              {/* Row text */}
-              <div className={`relative ml-5 sm:ml-10 md:ml-20 md:pl-10 z-10 flex items-center gap-4 md:gap-6 py-6 md:py-10 transition-all duration-300 ${active === idx ? 'pr-5 md:pr-20' : 'pr-4'}`}>
-                <span className="font-heading text-sm font-bold w-8 shrink-0 transition-colors duration-200 text-neutral-100">
-                  {it.number}
-                </span>
-                <span
-                  className={`font-heading font-bold flex-1 transition-colors duration-200 ${
-                    active === idx ? "text-white" : "text-neutral-300"
-                  }`}
-                  style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
-                >
-                  {it.title}
-                </span>
-                <span className="md:hidden shrink-0 w-6 h-6 flex items-center justify-center">
-                  <img src={icArrowWhite} alt="" className="w-5 h-5 object-contain" />
-                </span>
-                <span className={`hidden md:flex shrink-0 w-12 h-12 items-center justify-center overflow-hidden transition-opacity duration-300 ${active === idx ? 'opacity-100' : 'opacity-0'}`}>
-                  <img
-                    src={icRight}
-                    alt=""
-                    className="w-12 h-12 object-contain"
-                    style={active === idx ? { animation: 'slideFromRight 0.4s ease-out' } : undefined}
-                  />
-                </span>
-              </div>
+                <div className={`relative z-10 flex flex-col md:flex-row items-stretch ${iconRight ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                  {/* Content */}
+                  <div className="flex flex-col justify-between max-w-2xl flex-1 px-6 md:px-10 pb-12 pt-6 md:pt-16">
+                    <div className="flex flex-col gap-4">
+                      <h3
+                        className="self-stretch justify-center text-primary-500 text-4xl font-medium font-['Unbounded'] leading-12"
+                      >
+                        {item.title}
+                      </h3>
+                      <p className="self-stretch justify-start text-white text-base font-normal font-['Mona_Sans'] leading-6">
+                        {item.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-4 py-1 rounded-full outline -outline-offset-1 outline-stone-500 inline-flex justify-center items-center gap-2 text-text-neutral-normal text-sm font-semibold font-['Mona_Sans'] leading-5"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-              {/* Popup card */}
-              {active === idx && (
-                <div
-                  className="absolute left-5 right-5 md:left-auto md:right-60 top-full md:top-10 z-30 md:w-120"
-                  style={{
-                    background: 'rgba(13,13,13,0.6)',
-                    backdropFilter: 'blur(16px)',
-                    WebkitBackdropFilter: 'blur(16px)',
-                    animation: 'slideDown 0.35s ease-out',
-                  }}
-                >
-                  <div style={{ height: '1px', background: 'linear-gradient(to left, #e5421e 0%, #1a1a1a 100%)' }} />
-                  <div style={{ position: 'absolute', top: 0, right: 0, width: '1px', height: '100%', background: 'linear-gradient(to bottom, #e5421e 0%, #1a1a1a 100%)' }} />
-                  <div style={{ position: 'absolute', top: 0, left: 0, width: '1px', height: '100%', background: '#3a3a3a' }} />
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', background: '#3a3a3a' }} />
-
-                  <div className="flex items-center justify-between px-5 pt-4 pb-3">
-                    <h3 className="font-heading font-bold text-[32px] text-white text-base leading-snug">
-                      {it.title}
-                    </h3>
+                    {/* CTA */}
+                    <button
+                      className="flex items-center gap-2 mt-4 w-fit group"
+                      onClick={() => navigate("/he-sinh-thai")}
+                    >
+                      <span className="text-primary-500 text-sm font-semibold font-heading tracking-widest uppercase group-hover:opacity-80 transition-opacity duration-200">
+                        CHI TIẾT
+                      </span>
+                      <img
+                        src={icArrowDetail}
+                        srcSet={`${icArrowDetail2x} 2x`}
+                        alt=""
+                        className="h-4 w-4 object-contain group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"
+                      />
+                    </button>
                   </div>
 
-                  <p className="px-5 pb-4 text-neutral-100 text-[16px] leading-relaxed">
-                    {it.description}
-                  </p>
 
-                  <div className="px-5 pb-5 flex flex-wrap gap-2">
-                    {it.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[11px] text-neutral-300 bg-neutral-800 border border-neutral-700 px-3 py-1"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Icon */}
+                  <div className="relative flex items-center justify-center w-full md:w-72 lg:w-100 shrink-0 py-6 md:py-0 overflow-hidden">
+                    <div
+                      className="absolute inset-0 opacity-15"
+                      style={{
+                        background: "radial-gradient(ellipse at center, rgba(229,66,30,0.4) 0%, transparent 70%)",
+                      }}
+                    />
+                    <img
+                      src={item.icon}
+                      srcSet={`${item.icon2x} 2x`}
+                      alt={item.title}
+                      className="relative z-10 w-full h-full object-contain"
+                    />
                   </div>
                 </div>
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
