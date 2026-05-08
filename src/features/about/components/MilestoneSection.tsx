@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import icRecStart from '@/assets/images/ic_rec_start.png'
+import icSectionPlatform from "@/assets/images/ic_section_platform.png";
+import icSectionPlatform2x from "@/assets/images/ic_section_platform@2x.png";
 
 const milestones = [
   {
@@ -26,10 +28,30 @@ const milestones = [
 
 export default function MilestoneSection() {
   return (
-    <section className="py-15 md:py-20 bg-neutral-950">
+    <section className="py-15 md:py-20 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
+        <motion.div
+            className="mb-10 flex flex-col items-center text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <img
+              src={icSectionPlatform}
+              srcSet={`${icSectionPlatform2x} 2x`}
+              alt="Nền tảng tổ chức"
+              className="mb-3 h-8 object-contain"
+            />
+            <h2
+              className="text-center text-4xl font-medium font-['Unbounded'] leading-12 text-primary-500"
+            >
+              Cột mốc của SOFIN Group
+            </h2>
+        </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
 
+          
           {/* Left — timeline */}
           <div className="relative">
             {/* Vertical line through diamond centers */}
@@ -38,7 +60,7 @@ export default function MilestoneSection() {
               {milestones.map((m, i) => (
                 <motion.div
                   key={m.year}
-                  className="flex flex-col items-start text-left lg:items-end lg:text-right"
+                  className={`flex flex-col items-start text-left lg:items-end lg:text-right`}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -71,7 +93,7 @@ export default function MilestoneSection() {
           </div>
 
           {/* Right — heading */}
-          <motion.div
+          {/* <motion.div
             className="order-first lg:order-last lg:sticky lg:top-24 lg:self-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +109,7 @@ export default function MilestoneSection() {
             >
               Cột mốc<br />của SOFIN Group
             </h2>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

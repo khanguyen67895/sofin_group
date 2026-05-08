@@ -80,8 +80,7 @@ export default function ActivitySection() {
             className="h-8 object-contain mb-2"
           />
           <h2
-            className="font-heading font-bold text-primary-500"
-            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+            className="text-center text-4xl font-medium font-['Unbounded'] leading-12 text-primary-500"
           >
             Hình ảnh hoạt động
           </h2>

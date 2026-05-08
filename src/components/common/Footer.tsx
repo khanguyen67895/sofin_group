@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logo from '@/assets/images/Logo.png'
+import logo from '@/assets/images/Logo.svg'
 import logoFooter from '@/assets/images/ic_logo_footer.png'
 import icFb from '@/assets/images/ic_fb.png'
 import icTiktok from '@/assets/images/ic_tiktok.png'
@@ -30,7 +30,7 @@ const col3 = [
 function NavCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div className="flex flex-col gap-4">
-      <h4 className="text-[10px] font-heading font-bold text-neutral-500 tracking-[0.15em] uppercase">
+      <h4 className="text-[10px] text-white opacity-60 tracking-[4px] uppercase font-normal font-['Mona_Sans'] block leading-3 mb-1">
         {title}
       </h4>
       <ul className="flex flex-col gap-3">
@@ -38,7 +38,7 @@ function NavCol({ title, links }: { title: string; links: { label: string; href:
           <li key={l.href}>
             <Link
               to={l.href}
-              className="text-sm text-neutral-white hover:text-300 transition-colors"
+              className="self-stretch justify-center text-white text-lg font-semibold font-['Mona_Sans'] leading-7"
             >
               {l.label}
             </Link>
@@ -58,7 +58,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505]" style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}>
+    <footer style={{ background: "radial-gradient(50% 56.97% at 50% 0%, #212121 0%, #0F0F0F 100%), #0F0F0F" }}>
 
       {/* ── Top: Logo + Socials ── */}
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 pt-16 pb-10">
@@ -91,8 +91,8 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icPhone} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase block mb-1">ĐIỆN THOẠI</span>
-                <a href="tel:0335456789" className="text-white font-bold text-lg hover:text-primary-500 transition-colors">
+                <span className="text-[10px] text-white opacity-60 tracking-[4px] uppercase font-normal font-['Mona_Sans'] block leading-3 mb-1">ĐIỆN THOẠI</span>
+                <a href="tel:0335456789" className="text-white font-normal font-['Unbounded'] leading-8 text-xl hover:text-primary-500 transition-colors">
                   0335 456 789
                 </a>
               </div>
@@ -101,8 +101,8 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icEmail} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase block mb-1">EMAIL</span>
-                <a href="mailto:hello@sofingroup.com" className="text-white font-bold text-lg hover:text-primary-500 transition-colors">
+                <span className="text-[10px] text-white opacity-60 tracking-[4px] uppercase font-normal font-['Mona_Sans'] block leading-3 mb-1">EMAIL</span>
+                <a href="mailto:hello@sofingroup.com" className="text-white font-normal font-['Unbounded'] leading-8 text-xl hover:text-primary-500 transition-colors">
                   hello@sofingroup.com
                 </a>
               </div>
@@ -111,8 +111,8 @@ export default function Footer() {
             <div className="flex items-start gap-3">
               <img src={icLocation} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
-                <span className="text-[10px] text-neutral-500 tracking-[0.15em] uppercase block mb-1">TRỤ SỞ CHÍNH</span>
-                <p className="text-white font-bold text-lg leading-snug">
+                <span className="text-[10px] text-white opacity-60 tracking-[4px] uppercase font-normal font-['Mona_Sans'] block leading-3 mb-1">TRỤ SỞ CHÍNH</span>
+                <p className="text-white font-normal font-['Unbounded'] leading-8 text-xl hover:text-primary-500 transition-colors">
                   216 - 218 Trần Hưng Đạo, P. An Hải, TP. Đà Nẵng
                 </p>
               </div>

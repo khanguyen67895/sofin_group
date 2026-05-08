@@ -103,8 +103,7 @@ export default function EcosystemSection() {
             className="mb-3 h-8 object-contain"
           />
           <h2
-            className="text-center font-heading font-bold text-primary-500"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+            className="text-center text-4xl font-medium font-['Unbounded'] leading-12 text-primary-500"
           >
             Hệ sinh thái SOFIN Group
           </h2>
