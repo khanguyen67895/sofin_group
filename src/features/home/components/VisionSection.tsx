@@ -26,10 +26,10 @@ const pillars = [
 export default function VisionSection() {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const bgY = useTransform(scrollYProgress, [0, 1], ['-50%', '50%'])
+  const bgY = useTransform(scrollYProgress, [0, 1], ['-20%', '50%'])
 
   return (
-    <section ref={ref} className="relative overflow-hidden mt-4">
+    <section id='vision-section' ref={ref} className="relative mt-4">
       {/* Background parallax layer */}
       <motion.img
         src={bgParallax}

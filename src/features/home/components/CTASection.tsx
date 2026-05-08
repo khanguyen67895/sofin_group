@@ -8,7 +8,7 @@ export default function CTASection() {
   return (
     <section className="bg-neutral-900 relative overflow-hidden mt-39">
       <motion.div
-        className="relative h-125 z-10 mb-8 px-5 sm:px-10 md:px-20 lg:px-30 flex flex-col items-center text-center"
+        className="relative h-125 z-10 mb-8 flex flex-col items-center text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -27,7 +27,7 @@ export default function CTASection() {
         <img
           src={bgFormHopTacMb}
           alt=""
-          className="w-full md:w-150 h-full self-center object-cover"
+          className="w-full h-full self-center object-cover"
         />
       </div>
     </section>

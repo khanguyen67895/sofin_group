@@ -58,7 +58,12 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
         >
-          <Button variant="primary" size="lg">TÌM HIỂU THÊM</Button>
+          <Button onClick={() => {
+            document
+              .getElementById('vision-section')
+              ?.scrollIntoView({ behavior: 'smooth' })
+            }} 
+            variant="primary" size="lg">TÌM HIỂU THÊM</Button>
         </motion.div>
       </div>
 

@@ -1,19 +1,19 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import logo from '@/assets/images/Logo.png'
+import logo from '@/assets/images/Logo.svg'
 import icMenu from '@/assets/images/ic_menu.png'
 import icCloseMenu from '@/assets/images/ic_close_menu.png'
 
 const navLeft = [
-  { label: 'Trang chủ',    href: '/' },
+  { label: 'Trang chủ', href: '/' },
   { label: 'Về chúng tôi', href: '/ve-chung-toi' },
   { label: 'Hệ sinh thái', href: '/he-sinh-thai' },
 ]
 
 const navRight = [
   { label: 'Sản phẩm nổi bật', href: '/he-sinh-thai' },
-  { label: 'Tin tức',          href: '/tin-tuc' },
-  { label: 'Tuyển dụng',       href: '/tuyen-dung' },
+  { label: 'Tin tức', href: '/tin-tuc' },
+  { label: 'Tuyển dụng', href: '/tuyen-dung' },
 ]
 
 const allNavItems = [...navLeft, ...navRight]
@@ -24,8 +24,7 @@ function NavItem({ href, label }: { href: string; label: string }) {
       to={href}
       end={href === '/'}
       className={({ isActive }) =>
-        `flex items-center text-center text-[16px] font-semibold leading-6 not-italic transition-colors duration-200 whitespace-nowrap ${
-          isActive ? 'text-primary-500' : 'text-[#F5F0E8] hover:text-white'
+        `flex items-center text-center text-[16px] font-semibold leading-6 not-italic transition-colors duration-200 whitespace-nowrap ${isActive ? 'text-primary-500' : 'text-[#F5F0E8] hover:text-white'
         }`
       }
     >
@@ -44,7 +43,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 lg:px-16 pt-4">
+    <header className="fixed top-0 left-0 right-0 z-999 px-4 md:px-8 lg:px-16 pt-4">
       {/* Desktop & Mobile pill */}
       <div className="flex items-center justify-between h-18 px-6 lg:px-8 xl:px-14 bg-black/30 backdrop-blur-lg rounded-[40px] border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.20)]">
 
@@ -86,8 +85,7 @@ export default function Header() {
               end={item.href === '/'}
               onClick={() => setMobileOpen(false)}
               className={({ isActive }) =>
-                `flex items-center gap-2 font-semibold text-lg transition-colors ${
-                  isActive ? 'text-primary-500' : 'text-[#F5F0E8] hover:text-white'
+                `flex items-center gap-2 font-semibold text-lg transition-colors ${isActive ? 'text-primary-500' : 'text-[#F5F0E8] hover:text-white'
                 }`
               }
             >
