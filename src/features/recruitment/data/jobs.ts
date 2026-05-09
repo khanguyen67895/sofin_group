@@ -93,27 +93,27 @@ export const benefits: string[] = [
 
 export const coreValues: CoreValue[] = [
   {
-    title: 'Team alignment',
-    description: 'Foster collaboration with transparent role-based objectives.',
+    title: 'Xây dựng đội ngũ',
+    description: 'Xây dựng quy trình làm việc minh bạch để mọi thành viên cùng hướng về một mục tiêu chung.',
   },
   {
-    title: 'Knowledge sharing',
-    description: 'Encourage open communication and cross-functional knowledge sharing.',
+    title: 'Chia sẻ kiến thức',
+    description: 'Khuyến khích giao tiếp cởi mở và lan tỏa kinh nghiệm giữa các cá nhân, phòng ban.',
   },
   {
-    title: 'Inclusive ideation',
-    description: 'Cultivate an environment where perspectives are welcomed.',
+    title: 'Tư duy cởi mở',
+    description: 'Tạo môi trường nơi mọi góc nhìn và ý tưởng đều được lắng nghe và tôn trọng.',
   },
   {
-    title: 'Inspiring creativity',
-    description: 'We encourage to approach problems with bold, imaginative thinking.',
+    title: 'Khơi nguồn sáng tạo',
+    description: 'Luôn tìm kiếm những cách tiếp cận mới để giải quyết vấn đề một cách khác biệt.',
   },
   {
-    title: 'Embracing change',
-    description: 'We thrive on challenging the status quo and exploring new frontiers.',
+    title: 'Sẵn sàng thích nghi',
+    description: 'Không ngại thay đổi, liên tục học hỏi và thích ứng với những thách thức mới.',
   },
   {
-    title: 'Future-focused mindset',
-    description: 'Continuously explore emerging technologies and industry trends.',
+    title: 'Định hướng tương lai',
+    description: 'Chủ động khám phá công nghệ và xu hướng mới để tạo ra giá trị bền vững.',
   },
 ]

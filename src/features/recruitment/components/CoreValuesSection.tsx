@@ -14,12 +14,11 @@ export default function CoreValuesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
+            <span className="text-neutral-100 justify-center text-text-neutral-normal text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">
               TUYỂN DỤNG
             </span>
             <h2
-              className="font-heading font-bold text-primary-500"
-              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+              className="justify-center text-text-primary-normal text-4xl font-semibold font-['Unbounded'] leading-12 text-primary-500"
             >
               Giá trị cốt lõi<br />của SOFIN
             </h2>
@@ -41,10 +40,10 @@ export default function CoreValuesSection() {
                   alt=""
                   className="w-6 h-6 object-cover object-center"
                 />
-                <h3 className="font-heading font-bold text-white text-base md:text-lg">
+                <h3 className="self-stretch justify-center text-white text-xl font-semibold font-['Unbounded'] leading-7">
                   {v.title}
                 </h3>
-                <p className="text-neutral-400 text-sm leading-relaxed">
+                <p className="self-stretch justify-center text-white text-base font-normal font-['Mona_Sans'] leading-6">
                   {v.description}
                 </p>
               </motion.div>

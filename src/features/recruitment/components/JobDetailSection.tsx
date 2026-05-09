@@ -39,16 +39,15 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
             transition={{ duration: 0.6 }}
           >
             <h1
-              className="font-heading font-bold text-white leading-tight"
-              style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
+              className="text-neutral-100 self-stretch justify-center text-text-neutral-normal text-4xl font-semibold font-['Unbounded'] leading-12"
             >
               {job.title}
             </h1>
 
-            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mt-3 text-sm">
+            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mt-3 text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">
               <div>
-                <span className="text-neutral-400">{job.location}</span>
-                <span className="text-primary-500 font-semibold ml-2">{job.salary}</span>
+                <span className="text-neutral-100">{job.location}</span>
+                <span className="text-primary-500 ml-2">{job.salary}</span>
               </div>
               <span className="text-neutral-500 text-xs md:text-sm mr-20">
                 Cập nhật: {job.updatedAt}
@@ -57,7 +56,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {job.descriptionText && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="text-primary-500 self-stretch justify-center text-text-primary-normal text-xl font-semibold font-['Mona_Sans'] leading-8">
                   Mô tả công việc
                 </h2>
                 <RichLines
@@ -69,7 +68,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {job.requirementsText && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="text-primary-500 self-stretch justify-center text-text-primary-normal text-xl font-semibold font-['Mona_Sans'] leading-8">
                   Yêu cầu công việc
                 </h2>
                 <RichLines
@@ -81,7 +80,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {job.benefitsText && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="text-primary-500 self-stretch justify-center text-text-primary-normal text-xl font-semibold font-['Mona_Sans'] leading-8">
                   Quyền lợi
                 </h2>
                 <RichLines
@@ -94,7 +93,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
             {/* Fallback: block-based description (static data) */}
             {!job.descriptionText && job.description && job.description.length > 0 && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="text-primary-500 self-stretch justify-center text-text-primary-normal text-xl font-semibold font-['Mona_Sans'] leading-8">
                   Mô tả công việc
                 </h2>
                 <div className="flex flex-col gap-5">
@@ -116,7 +115,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
 
             {!job.requirementsText && job.requirements && job.requirements.length > 0 && (
               <div className="mt-10">
-                <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
+                <h2 className="text-primary-500 self-stretch justify-center text-text-primary-normal text-xl font-semibold font-['Mona_Sans'] leading-8">
                   Yêu cầu công việc
                 </h2>
                 <ul className="flex flex-col gap-1 text-neutral-300 text-sm md:text-[16px] leading-relaxed">
@@ -142,10 +141,10 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
           {/* Other jobs */}
           {otherJobs.length > 0 && (
             <div className="lg:col-start-1 lg:row-start-2">
-              <h2 className="font-heading font-bold text-primary-500 text-xl md:text-2xl mb-4">
+              <h2 className="text-primary-500 self-stretch justify-center text-text-primary-normal text-xl font-semibold font-['Mona_Sans'] leading-8">
                 Các vị trí khác
               </h2>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 mt-2">
                 {otherJobs.map((j) => (
                   <JobCard key={j.id} job={j} />
                 ))}

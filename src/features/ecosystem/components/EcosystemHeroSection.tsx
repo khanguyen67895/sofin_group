@@ -17,12 +17,11 @@ export default function EcosystemHeroSection() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <h1
-            className="font-heading font-bold text-white"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+            className="justify-center text-text-neutral-normal text-6xl font-semibold font-['Unbounded'] leading-18"
           >
             Hệ sinh thái SOFIN Group
           </h1>
-          <p className="text-neutral-300 text-sm md:text-base mt-2 max-w-3xl mx-auto">
+          <p className="justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">
             SOFIN Group chuyên cung cấp giải pháp công nghệ AI, với những cập nhật xu hướng mới nhất
           </p>
         </motion.div>

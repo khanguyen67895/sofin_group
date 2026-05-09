@@ -21,8 +21,18 @@ export default function NewsListSection() {
   }, [page])
 
   const useFallback = isError || !data?.items?.length
-  const pageItems = useFallback ? fallback.items : data!.items
+  const allItems = useFallback ? fallback.items : data!.items
   const totalPages = useFallback ? fallback.totalPages : data!.meta.pageCount
+
+  const grouped = useMemo(() => {
+    const map = new Map<string, typeof allItems>()
+    for (const item of allItems) {
+      const cat = item.category || 'Khác'
+      if (!map.has(cat)) map.set(cat, [])
+      map.get(cat)!.push(item)
+    }
+    return Array.from(map.entries())
+  }, [allItems])
 
   const handlePageChange = (next: number) => {
     setPage(next)
@@ -30,29 +40,36 @@ export default function NewsListSection() {
   }
 
   return (
-    <section className="bg-neutral-950">
-      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
+    <section className="bg-neutral-950 py-10">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 flex flex-col gap-14">
         {isLoading && !data ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {Array.from({ length: PAGE_SIZE }).map((_, i) => (
               <NewsCardSkeleton key={i} />
             ))}
           </div>
         ) : (
           <>
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              {pageItems.map((item) => (
-                <NewsCard key={`${page}-${item.id}`} item={item} />
-              ))}
-            </motion.div>
+            {grouped.map(([category, items], gi) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: gi * 0.05 }}
+              >
+                <h2 className="text-center text-2xl font-semibold font-['Unbounded'] text-primary-500 mb-6">
+                  {category}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+                  {items.map((item) => (
+                    <NewsCard key={`${page}-${item.id}`} item={item} />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
 
-            <div className="mt-12 md:mt-16">
+            <div className="mt-4">
               <Pagination
                 currentPage={page}
                 totalPages={totalPages}

@@ -16,12 +16,11 @@ export default function RecruitmentHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="font-heading font-bold text-white"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+            className="justify-center text-text-neutral-normal text-6xl font-semibold font-['Unbounded'] leading-18 text-white"
           >
             Tuyển dụng
           </h1>
-          <p className="text-neutral-300 text-sm md:text-base mt-1">
+          <p className="text-neutral-100 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6 mt-1">
             Ứng tuyển để trở thành viên của SOFIN GROUP
           </p>
         </motion.div>

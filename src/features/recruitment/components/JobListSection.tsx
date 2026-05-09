@@ -50,19 +50,18 @@ export default function JobListSection() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="order-first lg:order-last lg:sticky lg:top-24"
           >
-            <span className="block text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase mb-2">
+            <span className="justify-center text-text-neutral-normal text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">
               CÁC VỊ TRÍ ĐANG MỞ
             </span>
             <h2
-              className="font-heading font-bold text-primary-500 mb-6"
-              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+              className="justify-center text-text-primary-normal text-4xl font-semibold font-['Unbounded'] leading-12 text-primary-500 mb-6"
             >
               Chúng tôi cần bạn!
             </h2>
 
             <ul className="flex flex-col gap-3">
               {benefits.map((b) => (
-                <li key={b} className="flex items-center gap-3 text-neutral-200 text-sm md:text-base">
+                <li key={b} className="flex items-center gap-3 self-stretch text-white text-base font-normal font-['Mona_Sans'] leading-6">
                   <CheckIcon />
                   <span>{b}</span>
                 </li>

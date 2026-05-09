@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useRef, useState, type ChangeEvent } from 'react'
 import icArrowDetail from '@/assets/images/ic_arrow_detail.png'
 import cmsAxios from '@/lib/cmsAxios'
+import Button from '@/components/ui/Button'
 
 interface ApplicationFormProps {
   jobTitle?: string
@@ -103,13 +104,13 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
     >
       {jobTitle && (
         <label className="flex flex-col gap-1">
-          <span className="text-neutral-500 text-xs">Vị trí ứng tuyển</span>
+          <span className="text-neutral-100 opacity-60 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">Vị trí ứng tuyển</span>
           <input type="text" value={jobTitle} readOnly className={`${fieldBase} cursor-default text-neutral-400`} />
         </label>
       )}
 
       <label className="flex flex-col gap-1">
-        <span className="text-neutral-500 text-xs">Họ và tên</span>
+        <span className="text-neutral-100 opacity-60 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">Họ và tên</span>
         <input
           type="text"
           value={form.ho_ten}
@@ -120,7 +121,7 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
       </label>
 
       <label className="flex flex-col gap-1">
-        <span className="text-neutral-500 text-xs">Số điện thoại</span>
+        <span className="text-neutral-100 opacity-60 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">Số điện thoại</span>
         <input
           type="tel"
           value={form.so_dien_thoai}
@@ -131,7 +132,7 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
       </label>
 
       <label className="flex flex-col gap-1">
-        <span className="text-neutral-500 text-xs">Email</span>
+        <span className="text-neutral-100 opacity-60 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">Email</span>
         <input
           type="email"
           value={form.email}
@@ -142,7 +143,7 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
       </label>
 
       <label className="flex flex-col gap-1">
-        <span className="text-neutral-500 text-xs">Ghi chú</span>
+        <span className="text-neutral-100 opacity-60 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">Ghi chú</span>
         <textarea
           value={form.ghi_chu}
           onChange={(e) => setForm((f) => ({ ...f, ghi_chu: e.target.value }))}
@@ -179,16 +180,15 @@ export default function ApplicationForm({ jobTitle }: ApplicationFormProps) {
         <p className="text-red-400 text-xs text-center">Gửi thất bại, vui lòng thử lại.</p>
       )}
 
-      <button
+      <Button
         type="submit"
+        size='lg'
+        variant='primary'
         disabled={status === 'loading'}
-        className="inline-flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold h-12 px-8 rounded-full transition-colors"
+        rightIcon={<img src={icArrowDetail} alt="" className="w-3.5 h-3.5 ml-4 filter-[brightness(0)_invert(1)]" />}
       >
         {status === 'loading' ? 'ĐANG GỬI...' : 'NỘP ĐƠN ỨNG TUYỂN'}
-        {status !== 'loading' && (
-          <img src={icArrowDetail} alt="" className="w-3.5 h-3.5 filter-[brightness(0)_invert(1)]" />
-        )}
-      </button>
+      </Button>
     </motion.form>
   )
 }

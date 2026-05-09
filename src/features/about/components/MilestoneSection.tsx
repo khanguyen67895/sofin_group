@@ -49,67 +49,68 @@ export default function MilestoneSection() {
               Cột mốc của SOFIN Group
             </h2>
         </motion.div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-start">
-
-          
-          {/* Left — timeline */}
-          <div className="relative">
-            {/* Vertical line through diamond centers */}
-
-            <div className="flex flex-col gap-1">
-              {milestones.map((m, i) => (
-                <motion.div
-                  key={m.year}
-                  className={`flex flex-col items-start text-left lg:items-end lg:text-right`}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <div className="flex items-center gap-4 flex-row-reverse lg:flex-row">
-                    <span
-                      className="font-heading font-bold text-white"
-                      style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)' }}
+        <div className="relative max-w-2xl mx-auto">
+          <div className="flex flex-col">
+            {milestones.map((m, i) => {
+              const isLeft = i % 2 === 0 // 0,2,4 → content left; 1,3 → content right
+              return (
+                <motion.div key={m.year} className="flex flex-col items-center">
+                  {/* Row: left content | diamond | right content */}
+                  <div className="grid grid-cols-[1fr_auto_1fr] w-full items-center gap-x-10">
+                    {/* Left cell */}
+                    <motion.div
+                      className={`flex flex-col ${isLeft ? 'items-end text-right' : ''}`}
+                      initial={{ opacity: 0, x: isLeft ? -20 : 0 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
                     >
-                      {m.year}
-                    </span>
-                    <img
-                      src={icRecStart}
-                      alt=""
-                      className="w-5 h-5 left-0.5 relative z-10 bg-neutral-950"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1 pl-9 lg:pl-0 lg:pr-9">
-                    {m.items.map((item) => (
-                      <p key={item} className="text-white text-sm">
-                        {item}
-                      </p>
-                    ))}
-                  </div>
-                  {i === milestones.length - 1 ? <></> : <div className="h-12 lg:h-24 -mt-4 ml-2.75 lg:ml-0 lg:mr-1.75 w-0.5 bg-neutral-700/50" />}
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                      {isLeft && (
+                        <>
+                          <span className="text-white text-2xl font-semibold font-['Unbounded'] leading-8">
+                            {m.year}
+                          </span>
+                          {m.items.map((item) => (
+                            <p key={item} className="text-base font-semibold font-['Mona_Sans'] leading-6">{item}</p>
+                          ))}
+                        </>
+                      )}
+                    </motion.div>
 
-          {/* Right — heading */}
-          {/* <motion.div
-            className="order-first lg:order-last lg:sticky lg:top-24 lg:self-start"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-[10px] font-heading text-neutral-500 tracking-[0.15em] uppercase block mb-2">
-              HOW WE START
-            </span>
-            <h2
-              className="font-heading font-bold text-primary-500"
-              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
-            >
-              Cột mốc<br />của SOFIN Group
-            </h2>
-          </motion.div> */}
+                    {/* Diamond */}
+                    <div className="relative z-10 bg-neutral-900 py-1">
+                      <img src={icRecStart} alt="" className="w-5 h-5" />
+                    </div>
+
+                    {/* Right cell */}
+                    <motion.div
+                      className={`flex flex-col ${!isLeft ? 'items-start text-left' : ''}`}
+                      initial={{ opacity: 0, x: !isLeft ? 20 : 0 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                    >
+                      {!isLeft && (
+                        <>
+                          <span className="text-white text-2xl font-semibold font-['Unbounded'] leading-8">
+                            {m.year}
+                          </span>
+                          {m.items.map((item) => (
+                            <p key={item} className="text-base font-semibold font-['Mona_Sans'] leading-6">{item}</p>
+                          ))}
+                        </>
+                      )}
+                    </motion.div>
+                  </div>
+
+                  {/* Connector line between items */}
+                  {i !== milestones.length - 1 && (
+                    <div className="w-px h-16 bg-neutral-800/50" />
+                  )}
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

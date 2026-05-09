@@ -45,7 +45,7 @@ export default function EcosystemExperts() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary-500 text-[28px] font-semibold tracking-widest uppercase">
+          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-3xl font-semibold font-['Mona_Sans'] leading-10">
             Đội ngũ chuyên gia
           </span>
         </motion.div>
@@ -72,8 +72,8 @@ export default function EcosystemExperts() {
                   />
                 </div>
                 <div>
-                  <p className="text-white font-heading font-bold text-[16px]">{e.name}</p>
-                  <p className="text-neutral-500 text-[10px] tracking-widest uppercase mt-0.5">{e.title}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-base font-semibold font-['Mona_Sans'] leading-6">{e.name}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">{e.title}</p>
                 </div>
               </div>
             ))}
@@ -119,8 +119,9 @@ export default function EcosystemExperts() {
                   />
                 </div>
                 <div>
-                  <p className="text-white font-heading font-bold text-[16px]">{e.name}</p>
-                  <p className="text-neutral-500 text-[10px] tracking-widest uppercase mt-0.5">{e.title}</p>
+                  
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-base font-semibold font-['Mona_Sans'] leading-6">{e.name}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">{e.title}</p>
                 </div>
               </motion.div>
             ))}

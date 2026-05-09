@@ -16,12 +16,11 @@ export default function NewsHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="font-heading font-bold text-white"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+            className="justify-center text-text-neutral-normal text-6xl font-semibold font-['Unbounded'] leading-18 text-neutral-100"
           >
             Tin tức
           </h1>
-          <p className="text-neutral-300 text-sm md:text-base mt-1 max-w-2xl">
+          <p className="text-neutral-100 justify-center text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">
             Cập nhật xu hướng công nghệ, phân tích chuyên sâu và case study từ SOFIN GROUP
           </p>
         </motion.div>

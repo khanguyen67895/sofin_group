@@ -5,60 +5,57 @@ import type { NewsItem } from '../types'
 
 export interface NewsCardProps {
   item: NewsItem
-  aspectClass?: string
 }
 
-export default function NewsCard({
-  item,
-  aspectClass = 'aspect-[464/640]',
-}: NewsCardProps) {
+export default function NewsCard({ item }: NewsCardProps) {
   return (
-    <motion.div
+    <motion.article
+      className="cursor-pointer group rounded-2xl overflow-hidden flex flex-col p-4 h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-    >
-    <Link
-      to={`/tin-tuc/${item.id}`}
-      className={`relative cursor-pointer group overflow-hidden block w-full ${aspectClass}`}
       style={{
-        clipPath:
-          'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)',
+        border: '2px solid #3C3C3C',
+        background:
+          'radial-gradient(120% 53.36% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), radial-gradient(120% 53.36% at 0% 120%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(4px)',
+        WebkitBackdropFilter: 'blur(4px)',
       }}
     >
-      <img
-        src={item.image}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:blur-[2px] group-hover:brightness-75 group-hover:scale-105"
-      />
+      <Link to={`/tin-tuc/${item.id}`} className="flex flex-col flex-1">
+        {/* Image */}
+        <div className="overflow-hidden h-52 rounded-xl">
+          <img
+            src={item.image}
+            alt=""
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
 
-      <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/40 to-black/80 pointer-events-none" />
-
-      <div className="absolute inset-0 flex flex-col justify-between p-6">
-        <div>
-          <div className="flex items-center gap-3">
-            <span className="text-white text-sm font-bold">
+        {/* Content */}
+        <div className="flex flex-col gap-3 flex-1">
+          <div className="flex items-center gap-2">
+            <span className="text-neutral-100 text-base font-semibold font-['Mona_Sans'] leading-6">
               {item.category}
             </span>
-            <span className="text-white text-sm">{item.date}</span>
+            <span className="text-neutral-300 text-base font-normal font-['Mona_Sans'] leading-6">
+              {item.date}
+            </span>
           </div>
-          <div className="w-12 h-0.5 bg-white my-3" />
-          <h3 className="font-heading font-bold text-white text-lg md:text-xl leading-snug">
+          <div className="self-stretch h-0.5 bg-linear-to-r from-zinc-100/10 to-zinc-100/0" />
+          <h3 className="font-heading font-semibold text-neutral-100 text-xl leading-7 flex-1">
             {item.title}
           </h3>
-        </div>
-        <div className="h-30 pt-15 relative">
-          <span className="inline-flex items-center gap-2 text-primary-500 text-lg font-bold uppercase transition-transform duration-400 group-hover:-translate-y-12">
-            CHI TIẾT
-            <img src={icArrowDetail} alt="" className="w-3.5 h-3.5" />
-          </span>
-          <p className="absolute left-0 right-0 top-12 text-white text-sm leading-relaxed translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+          <p className="text-neutral-400 text-sm leading-relaxed line-clamp-2">
             {item.detail}
           </p>
+          <div className="flex items-center gap-1.5 text-primary-500 text-sm font-semibold uppercase tracking-wider w-fit group-hover:opacity-80 transition-opacity mt-2">
+            CHI TIẾT
+            <img src={icArrowDetail} alt="" className="w-3 h-3 object-contain" />
+          </div>
         </div>
-      </div>
-    </Link>
-    </motion.div>
+      </Link>
+    </motion.article>
   )
 }

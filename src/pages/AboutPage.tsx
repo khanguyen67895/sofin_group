@@ -3,7 +3,7 @@ import AboutContentSection from '@/features/about/components/AboutContentSection
 import MilestoneSection from '@/features/about/components/MilestoneSection'
 import AboutVisionQuote from '@/features/about/components/AboutVisionQuote'
 import ExpertSection from '@/features/home/components/ExpertSection'
-import PartnersSection from '@/features/home/components/PartnersSection'
+import PartnersMarquee from '@/features/home/components/PartnersMarquee'
 
 export default function AboutPage() {
   return (
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <MilestoneSection />
       <AboutVisionQuote />
       <ExpertSection />
-      <PartnersSection />
+      <PartnersMarquee />
     </>
   )
 }

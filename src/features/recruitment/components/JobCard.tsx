@@ -24,17 +24,17 @@ export default function JobCard({ job }: JobCardProps) {
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <h3 className="font-heading font-bold text-white text-base md:text-lg leading-snug">
+          <h3 className="text-neutral-100 self-stretch justify-center text-text-neutral-normal text-xl font-semibold font-['Unbounded'] leading-7">
             {job.title}
           </h3>
-          <div className="flex flex-wrap justify-between gap-x-3 gap-y-1 mt-2 text-sm">
+          <div className="flex flex-wrap justify-between gap-x-3 gap-y-1 mt-2 text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">
             <div>
               <span className="text-neutral-400">{job.location}</span>
               <span className="text-primary-500 font-semibold ml-1.5">
                 {job.salary}
               </span>
             </div>
-            <span className="text-neutral-500 text-xs md:text-sm shrink-0 mt-1">
+            <span className="text-neutral-300 justify-center text-text-neutral-disabled text-base font-normal font-['Mona_Sans'] leading-6 mt-1">
               Cập nhật: {job.updatedAt}
             </span>
           </div>

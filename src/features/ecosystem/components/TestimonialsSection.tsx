@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="bg-neutral-950">
-      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
+      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 mt-20">
 
         <motion.div
           className="mb-24 text-center"
@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary-500 text-[28px] font-semibold tracking-widest uppercase">
+          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-3xl font-semibold font-['Mona_Sans'] leading-10">
             Phản hồi của khách hàng
           </span>
         </motion.div>
@@ -84,12 +84,12 @@ export default function TestimonialsSection() {
                 className="shrink-0 w-[85vw] flex flex-col justify-between gap-8 border-t border-l border-neutral-700 px-6 py-6"
                 style={{ scrollSnapAlign: 'center' }}
               >
-                <p className="text-white text-[16px] leading-[1.85]">{t.text}</p>
+                <p className="text-white self-stretch justify-start text-base font-normal font-['Mona_Sans'] leading-6">{t.text}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover object-top shrink-0" />
                   <div>
-                    <p className="text-white font-semibold text-[13px]">{t.name}</p>
-                    <p className="text-neutral-500 text-[10px] tracking-widest uppercase mt-0.5">{t.title}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-base font-semibold font-['Mona_Sans'] leading-6">{t.name}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">{t.title}</p>
                   </div>
                 </div>
               </div>
@@ -128,12 +128,12 @@ export default function TestimonialsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
               >
-                <p className="text-white text-[16px] leading-[1.85] flex-1">{t.text}</p>
+                <p className="text-white self-stretch justify-start text-base font-normal font-['Mona_Sans'] leading-6">{t.text}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover object-top shrink-0" />
                   <div>
-                    <p className="text-white font-semibold text-[13px]">{t.name}</p>
-                    <p className="text-neutral-500 text-[10px] tracking-widest uppercase mt-0.5">{t.title}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-base font-semibold font-['Mona_Sans'] leading-6">{t.name}</p>
+                    <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">{t.title}</p>
                   </div>
                 </div>
               </motion.div>

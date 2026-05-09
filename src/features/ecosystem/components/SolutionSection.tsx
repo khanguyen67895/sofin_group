@@ -28,12 +28,11 @@ export function SolutionHeading() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <span className="text-primary-500 text-[28px] font-semibold tracking-widest uppercase">
+          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-3xl font-semibold font-['Mona_Sans'] leading-10">
             Giải pháp doanh nghiệp
           </span>
           <h2
-            className="font-heading font-semibold text-neutral-100 mt-3 leading-[1.15]"
-            style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}
+            className="self-stretch text-center justify-center text-neutral-100 text-4xl font-semibold font-['Unbounded'] leading-12"
           >
             Hệ thống vận hành riêng cho bạn<br />
             Không phần mềm đóng gói
@@ -47,7 +46,7 @@ export function SolutionHeading() {
 export default function SolutionSection() {
   return (
     <section className="bg-neutral-900">
-      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
+      <div className="mx-auto px-5 py-20 sm:px-10 md:px-20 lg:px-30">
 
         {/* Content: text left + image right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-80 items-center">
@@ -59,7 +58,7 @@ export default function SolutionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <p className="text-neutral-100 text-[16px] leading-[1.85] mb-10">
+            <p className="text-neutral-100 self-stretch justify-start text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6 mb-12">
               Giải pháp doanh nghiệp của SOFIN Group cung cấp hệ sinh thái công cụ và
               dữ liệu toàn diện, giúp tối ưu vận hành, phân tích thị trường, quản trị rủi ro và ra
               quyết định chiến lược. Đồng thời hỗ trợ tự động hóa quy trình, nâng cao hiệu
@@ -76,9 +75,9 @@ export default function SolutionSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08, ease: 'easeOut' }}
                 >
-                  <div className="mt-1 shrink-0 w-0.5 h-18 bg-neutral-600" />
+                  <div className="mt-1 shrink-0 w-0.5 h-12 bg-neutral-600" />
                   <div>
-                    <p className="text-primary-500 font-semibold text-[16px]">{f.title}</p>
+                    <p className="text-primary-500 self-stretch justify-start text-text-primary-normal text-base font-semibold font-['Mona_Sans'] leading-6">{f.title}</p>
                     <p className="text-neutral-100 text-[16px] leading-relaxed mt-0.5">{f.desc}</p>
                   </div>
                 </motion.div>
@@ -94,12 +93,18 @@ export default function SolutionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
           >
-            <img
-              src={imgAction}
-              alt=""
-              className="w-115.25 h-72 md:h-125 object-cover object-center"
-              style={{ clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)' }}
-            />
+
+            <div
+              className="p-3 bg-[radial-gradient(ellipse_53.36%_100.00%_at_0.00%_0.00%,rgba(255,255,255,0.20)_0%,rgba(255,255,255,0)_100%)] rounded-2xl outline -outline-offset-2 outline-neutral-700 backdrop-blur-sm inline-flex justify-start items-start gap-2"
+            >
+              <img
+                src={imgAction}
+                alt={""}
+                className="w-115.25 h-72 md:h-125 object-cover object-center rounded-xl"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-neutral-900/70 via-transparent to-transparent" />
+            </div>
+
           </motion.div>
         </div>
       </div>

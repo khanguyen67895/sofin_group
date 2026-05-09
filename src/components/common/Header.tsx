@@ -11,7 +11,7 @@ const navLeft = [
 ]
 
 const navRight = [
-  { label: 'Sản phẩm nổi bật', href: '/he-sinh-thai' },
+  { label: 'Sản phẩm nổi bật', href: '/lien-he' },
   { label: 'Tin tức', href: '/tin-tuc' },
   { label: 'Tuyển dụng', href: '/tuyen-dung' },
 ]
