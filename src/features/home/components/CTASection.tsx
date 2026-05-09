@@ -8,7 +8,7 @@ export default function CTASection() {
   return (
     <section className="bg-neutral-900 relative overflow-hidden mt-12 md:mt-39">
       {/* Top fade to #0C0C0C */}
-      <div className="absolute top-0 left-0 right-0 h-15 bg-linear-to-b from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
+      <div className="hidden md:block absolute top-0 left-0 right-0 h-15 bg-linear-to-b from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
       {/* Mobile layout: text/button on top, image below */}
       <div className="md:hidden flex flex-col">
         <motion.div

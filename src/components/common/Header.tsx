@@ -18,7 +18,11 @@ const navRight = [
   { label: 'Liên hệ', href: '/lien-he' },
 ]
 
-const allNavItems = [...navLeft, ...navRight]
+const navMobile = [
+  { label: 'Trang chủ', href: '/' },
+]
+
+const allNavItems = [...navMobile, ...navLeft, ...navRight]
 
 function NavItem({ href, label }: { href: string; label: string }) {
   return (
