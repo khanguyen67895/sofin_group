@@ -24,7 +24,7 @@ export default function RelatedNewsSection({
   if (!items.length) return null
 
   return (
-    <section className="pt-12 md:pt-20 bg-neutral-950">
+    <section className="pt-12 md:pt-20 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <motion.div
           className="mb-8 md:mb-10"

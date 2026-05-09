@@ -20,7 +20,7 @@ const logos = [
 
 export default function ClientsMarquee() {
   return (
-    <section className="py-14 md:py-20 bg-neutral-950 overflow-hidden">
+    <section className="py-14 md:py-20 bg-neutral-900 overflow-hidden">
       <motion.div
         className="mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}

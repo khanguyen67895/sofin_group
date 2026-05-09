@@ -11,6 +11,7 @@ import RecruitmentPage from '@/pages/RecruitmentPage'
 import JobDetailPage from '@/pages/JobDetailPage'
 import ContactPage from '@/pages/ContactPage'
 import EcosystemPage from '@/pages/EcosystemPage'
+import ProductsPage from '@/pages/ProductsPage'
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       { path: 'tuyen-dung/:id', element: <JobDetailPage /> },
       { path: 'he-sinh-thai', element: <EcosystemPage /> },
       { path: 'lien-he', element: <ContactPage /> },
+      { path: 'san-pham-noi-bat', element: <ProductsPage /> },
     ],
   },
   {

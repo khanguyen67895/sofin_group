@@ -8,10 +8,10 @@ import MediaBadge from './badges/MediaBadge'
 import EnterpriseBadge from './badges/EnterpriseBadge'
 
 const badges = [
-  { component: AitechBadge,    pos: '-left-10 top-20' },
-  { component: AcademyBadge,   pos: '-right-10 top-20' },
-  { component: MediaBadge,     pos: '-left-5 top-[54%]' },
-  { component: EnterpriseBadge, pos: '-right-5 top-[54%]' },
+  { component: AitechBadge,    pos: 'left-0 top-20' },
+  { component: AcademyBadge,   pos: 'right-0 top-20' },
+  { component: MediaBadge,     pos: 'left-0 top-[54%]' },
+  { component: EnterpriseBadge, pos: 'right-0 top-[54%]' },
 ]
 
 export default function HeroSection() {
@@ -27,6 +27,9 @@ export default function HeroSection() {
         aria-hidden
         className="absolute inset-0 w-full h-60 md:h-full object-cover"
       />
+
+      {/* Bottom fade to black */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
 
       {/* Center content */}
       <div className="relative h-120 md:min-h-screen z-10 flex flex-col items-center justify-center text-center px-5 md:px-10">

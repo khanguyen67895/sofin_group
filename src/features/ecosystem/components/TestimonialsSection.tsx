@@ -55,7 +55,7 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section className="bg-neutral-950">
+    <section className="bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 mt-20">
 
         <motion.div

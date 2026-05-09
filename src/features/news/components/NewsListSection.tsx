@@ -40,7 +40,7 @@ export default function NewsListSection() {
   }
 
   return (
-    <section className="bg-neutral-950 py-10">
+    <section className="bg-neutral-900 py-10">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 flex flex-col gap-14">
         {isLoading && !data ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">

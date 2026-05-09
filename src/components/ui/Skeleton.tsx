@@ -21,7 +21,7 @@ export function NewsCardSkeleton() {
 
 export function NewsDetailSkeleton() {
   return (
-    <section className="bg-neutral-950 pt-24 md:pt-28">
+    <section className="bg-neutral-900 pt-24 md:pt-28">
       <div className="mx-auto px-5 max-w-5xl">
         <Skeleton className="h-8 w-3/4 mb-4" />
         <Skeleton className="h-4 w-40 mb-8" />
@@ -50,7 +50,7 @@ export function JobCardSkeleton() {
 
 export function JobDetailSkeleton() {
   return (
-    <section className="bg-neutral-950 py-12 md:py-16">
+    <section className="bg-neutral-900 py-12 md:py-16">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <Skeleton className="h-9 w-2/3 mb-4" />
         <Skeleton className="h-4 w-48 mb-10" />

@@ -3,17 +3,19 @@ import { Link, NavLink } from 'react-router-dom'
 import logo from '@/assets/images/Logo.svg'
 import icMenu from '@/assets/images/ic_menu.png'
 import icCloseMenu from '@/assets/images/ic_close_menu.png'
+import icHomePage from '@/assets/images/ic_home_page.png'
+import icLanguageVi from '@/assets/images/ic_language_vi.png'
 
 const navLeft = [
-  { label: 'Trang chủ', href: '/' },
   { label: 'Về chúng tôi', href: '/ve-chung-toi' },
   { label: 'Hệ sinh thái', href: '/he-sinh-thai' },
+  { label: 'Sản phẩm nổi bật', href: '/san-pham-noi-bat' },
 ]
 
 const navRight = [
-  { label: 'Sản phẩm nổi bật', href: '/lien-he' },
-  { label: 'Tin tức', href: '/tin-tuc' },
+  { label: 'Tin tức/Sự kiện', href: '/tin-tuc' },
   { label: 'Tuyển dụng', href: '/tuyen-dung' },
+  { label: 'Liên hệ', href: '/lien-he' },
 ]
 
 const allNavItems = [...navLeft, ...navRight]
@@ -58,6 +60,9 @@ export default function Header() {
 
         {/* Desktop left nav */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-16">
+          <Link to="/" className="shrink-0">
+            <img src={icHomePage} alt="Trang chủ" className="w-7 h-7 object-contain" />
+          </Link>
           {navLeft.map((item) => <NavItem key={item.href + item.label} {...item} />)}
         </nav>
 
@@ -72,6 +77,7 @@ export default function Header() {
         {/* Desktop right nav */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-16">
           {navRight.map((item) => <NavItem key={item.href + item.label} {...item} />)}
+          <img src={icLanguageVi} alt="Tiếng Việt" className="w-8 h-8 object-contain shrink-0 cursor-pointer" />
         </nav>
 
         {/* Mobile: Liên hệ button */}

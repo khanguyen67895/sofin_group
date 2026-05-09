@@ -27,7 +27,7 @@ export default function NewsDetailPage() {
 
   if (!item) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center bg-neutral-950 text-neutral-400">
+      <div className="min-h-[60vh] flex items-center justify-center bg-neutral-900 text-neutral-400">
         Không tìm thấy bài viết.
       </div>
     )

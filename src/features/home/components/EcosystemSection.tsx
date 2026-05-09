@@ -86,7 +86,7 @@ export default function EcosystemSection() {
     : staticItems;
 
   return (
-    <section className="py-10 md:py-16 bg-neutral-950">
+    <section className="py-10 md:py-16 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 max-w-350">
         {/* Heading */}
         <motion.div

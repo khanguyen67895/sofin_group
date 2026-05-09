@@ -7,6 +7,8 @@ export default function CTASection() {
   const navigate = useNavigate();
   return (
     <section className="bg-neutral-900 relative overflow-hidden mt-12 md:mt-39">
+      {/* Top fade to #0C0C0C */}
+      <div className="absolute top-0 left-0 right-0 h-15 bg-linear-to-b from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
       {/* Mobile layout: text/button on top, image below */}
       <div className="md:hidden flex flex-col">
         <motion.div
@@ -26,7 +28,7 @@ export default function CTASection() {
         <img
           src={bgFormHopTacMb}
           alt=""
-          className="w-full h-80 -mt-20 object-cover"
+          className="w-full h-80 -mt-16 -mb-2 object-cover"
         />
       </div>
 
@@ -49,7 +51,7 @@ export default function CTASection() {
         <img
           src={bgFormHopTacMb}
           alt=""
-          className="w-full h-full self-center object-cover"
+          className="w-full h-full self-center object-cover -mb-6"
         />
       </div>
     </section>

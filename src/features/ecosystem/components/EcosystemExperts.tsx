@@ -35,7 +35,7 @@ export default function EcosystemExperts() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-neutral-950">
+    <section className="py-16 md:py-24 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         <motion.div

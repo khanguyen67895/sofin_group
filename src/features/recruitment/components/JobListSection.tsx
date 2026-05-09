@@ -22,7 +22,7 @@ export default function JobListSection() {
   const { data: jobs = [], isLoading } = useJobList()
 
   return (
-    <section className="bg-neutral-950">
+    <section className="bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left — jobs list */}

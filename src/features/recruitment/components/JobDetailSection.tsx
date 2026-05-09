@@ -27,7 +27,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
   const otherJobs = allJobs.filter((j) => j.id !== job.id)
 
   return (
-    <section className="bg-neutral-950 py-12 md:py-16">
+    <section className="bg-neutral-900 py-12 md:py-16">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="flex flex-col lg:grid lg:grid-cols-[2fr_1fr] gap-10 lg:gap-16 lg:items-start">
           {/* Content */}
