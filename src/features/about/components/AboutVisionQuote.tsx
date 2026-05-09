@@ -12,7 +12,7 @@ export default function AboutVisionQuote() {
           transition={{ duration: 0.7 }}
         >
           <p
-            className="text-neutral-100 text-3xl font-normal font-['Mona_Sans'] leading-10"
+            className="text-neutral-100 text-base md:text-3xl font-normal font-['Mona_Sans'] leading-6 md:leading-10"
           >
             "Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng
             AI và công nghệ tiên tiến để tạo giá trị bền vững, đồng thời kết nối tri thức,

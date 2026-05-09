@@ -3,7 +3,7 @@ import icBannerVct from '@/assets/images/ic_banner_vct.png'
 
 export default function AboutHeroSection() {
   return (
-    <section className="relative h-60 md:h-80 overflow-hidden">
+    <section className="relative h-70 md:h-80 overflow-hidden">
       <img
         src={icBannerVct}
         alt=""
@@ -16,7 +16,7 @@ export default function AboutHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="justify-center text-text-neutral-normal text-6xl font-semibold font-['Unbounded'] leading-18"
+            className="justify-center text-text-neutral-normal text-2xl md:text-6xl font-semibold font-['Unbounded'] leading-18"
           >
             Về Chúng Tôi
           </h1>

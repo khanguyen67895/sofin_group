@@ -35,7 +35,7 @@ export default function EcosystemExperts() {
   }
 
   return (
-    <section className="pt-16 md:pt-24 bg-neutral-950">
+    <section className="py-16 md:py-24 bg-neutral-950">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
 
         <motion.div
@@ -45,7 +45,7 @@ export default function EcosystemExperts() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-3xl font-semibold font-['Mona_Sans'] leading-10">
+          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-sm md:text-3xl font-semibold font-['Mona_Sans'] leading-10">
             Đội ngũ chuyên gia
           </span>
         </motion.div>

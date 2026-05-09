@@ -18,7 +18,7 @@ export default function CoreValuesSection() {
               TUYỂN DỤNG
             </span>
             <h2
-              className="justify-center text-text-primary-normal text-4xl font-semibold font-['Unbounded'] leading-12 text-primary-500"
+              className="justify-center text-text-primary-normal text-2xl md:text-4xl font-semibold font-['Unbounded'] md:leading-12 text-primary-500"
             >
               Giá trị cốt lõi<br />của SOFIN
             </h2>

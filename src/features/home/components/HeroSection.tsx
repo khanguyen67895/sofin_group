@@ -25,11 +25,11 @@ export default function HeroSection() {
         muted
         playsInline
         aria-hidden
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-60 md:h-full object-cover"
       />
 
       {/* Center content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-5 md:px-10">
+      <div className="relative h-120 md:min-h-screen z-10 flex flex-col items-center justify-center text-center px-5 md:px-10">
 
         {/* Title */}
         <motion.h1
@@ -68,7 +68,7 @@ export default function HeroSection() {
       </div>
 
       {/* Partners marquee */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      <div className="-mt-20 md:mt-0 md:absolute bottom-0 left-0 right-0 z-10">
         <PartnersMarquee />
       </div>
 

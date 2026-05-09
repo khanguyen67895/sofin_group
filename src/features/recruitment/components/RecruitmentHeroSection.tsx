@@ -16,7 +16,7 @@ export default function RecruitmentHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="justify-center text-text-neutral-normal text-6xl font-semibold font-['Unbounded'] leading-18 text-white"
+            className="justify-center text-text-neutral-normal text-2xl md:text-6xl font-semibold font-['Unbounded'] leading-18 text-white"
           >
             Tuyển dụng
           </h1>

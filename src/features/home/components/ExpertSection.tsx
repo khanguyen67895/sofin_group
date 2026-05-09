@@ -78,6 +78,7 @@ export default function ExpertSection() {
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-10 pr-6 md:pr-20 lg:pr-100">
           <motion.div
+            className="flex flex-col items-center md:items-start text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -57,7 +57,7 @@ export default function ContactPage() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="justify-center text-text-neutral-normal text-6xl font-semibold font-['Unbounded'] leading-18 text-neutral-100"
+            className="justify-center text-text-neutral-normal text-2xl md:text-6xl font-semibold font-['Unbounded'] md:leading-18 text-neutral-100"
           >
             Liên hệ hợp tác
           </h1>
@@ -112,8 +112,8 @@ export default function ContactPage() {
       </section>
 
       <section className="flex flex-col md:flex-row bg-[#0C0C0C] relative overflow-hidden md:justify-between">
-        {/* Left dark gradient overlay */}
-        <div className="absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(to_right,#0C0C0C_30%,transparent_30%)]" />
+        {/* Left dark gradient overlay — desktop only */}
+        <div className="hidden md:block absolute inset-0 z-10 pointer-events-none bg-[linear-gradient(to_right,#0C0C0C_30%,transparent_30%)]" />
         <motion.div
           className="relative z-20 py-16 md:py-20 px-5 sm:px-10 md:pl-30 md:pr-0 flex justify-center md:justify-start"
           initial={{ opacity: 0, x: -20 }}
@@ -123,7 +123,7 @@ export default function ContactPage() {
         >
           <div className="w-full md:w-2xl">
 
-            <p className="text-neutral-100 self-stretch justify-center text-text-neutral-normal text-3xl font-normal font-['Mona_Sans'] leading-10 mb-10">
+            <p className="text-neutral-100 self-stretch justify-center text-text-neutral-normal text-base md:text-3xl font-normal font-['Mona_Sans'] md:leading-10 mb-10">
               Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng doanh nghiệp của bạn
             </p>
 
@@ -188,11 +188,17 @@ export default function ContactPage() {
             )}
           </div>
         </motion.div>
-        {/* Mobile image — below form */}
+        {/* Mobile: image below form */}
         <img
           src={bgFormHopTacMB}
           alt=""
-          className="absolute left-120 -bottom-10 w-full object-cover z-0"
+          className="md:hidden w-full h-80 -mt-20 object-cover"
+        />
+        {/* Desktop: image absolute right */}
+        <img
+          src={bgFormHopTacMB}
+          alt=""
+          className="hidden md:block absolute left-120 -bottom-10 w-full object-cover z-0"
         />
       </section>
     </>

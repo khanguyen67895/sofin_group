@@ -57,13 +57,13 @@ export default function NewsSection() {
         </motion.div>
 
         <div
-          className="flex justify-center gap-5"
+          className="flex md:justify-center gap-5 overflow-x-auto snap-x snap-mandatory px-5 md:px-0 -mx-5 md:mx-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {newsItems.map((news, i) => (
             <motion.article
               key={news.id}
-              className="cursor-pointer group shrink-0 w-[80vw] md:w-116 md:shrink rounded-2xl overflow-hidden flex flex-col p-6"
+              className="cursor-pointer group snap-center shrink-0 w-[80vw] md:w-116 md:shrink rounded-2xl overflow-hidden flex flex-col p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

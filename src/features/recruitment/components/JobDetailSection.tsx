@@ -39,7 +39,7 @@ export default function JobDetailSection({ job }: JobDetailSectionProps) {
             transition={{ duration: 0.6 }}
           >
             <h1
-              className="text-neutral-100 self-stretch justify-center text-text-neutral-normal text-4xl font-semibold font-['Unbounded'] leading-12"
+              className="text-neutral-100 self-stretch justify-center text-text-neutral-normal text-2xl md:text-4xl font-semibold font-['Unbounded'] md:leading-12"
             >
               {job.title}
             </h1>

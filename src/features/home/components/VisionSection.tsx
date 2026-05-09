@@ -4,6 +4,7 @@ import bgVisionSection from '@/assets/images/bg_vision_section.png'
 import bgParallax from '@/assets/images/bg_parallax.png'
 import bgQuote from '@/assets/images/bg_quote.png'
 import bgPillars from '@/assets/images/bg_pillars.png'
+import icVisionMb from '@/assets/images/ic_vision_mb.png'
 
 const pillars = [
   {
@@ -30,6 +31,50 @@ export default function VisionSection() {
 
   return (
     <section id='vision-section' ref={ref} className="relative mt-4">
+
+      {/* ── Mobile layout ── */}
+      <div className="md:hidden flex flex-col bg-neutral-950 px-5 py-10 gap-6">
+        {/* Quote block */}
+        <div
+          className="rounded-2xl px-6 py-8 flex flex-col gap-4 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgQuote})` }}
+        >
+          <h2 className="text-white text-center font-medium font-['Unbounded'] text-xl leading-snug">
+            "Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á. Tiên phong ứng dụng AI, kết nối tri thức và con người"
+          </h2>
+          <p className="text-white/70 text-center font-normal font-['Mona_Sans'] text-sm leading-relaxed">
+            SOFIN GROUP không chỉ là một doanh nghiệp công nghệ, mà là kiến trúc sư của những giá trị thực. Chúng tôi xây dựng hệ sinh thái số toàn diện – nơi công nghệ phục vụ con người, nơi tri thức tạo nên đột phá, và nơi mỗi giải pháp đều mang lại tác động bền vững cho xã hội.
+          </p>
+        </div>
+
+        {/* Badges row */}
+        <img
+          src={icVisionMb}
+          alt=""
+          className="w-full object-contain"
+        />
+
+        {/* Pillars list */}
+        <div
+          className="rounded-2xl px-6 py-6 flex flex-col gap-6 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgPillars})` }}
+        >
+          {pillars.map(({ id, title, desc }) => (
+            <div key={id} className="flex items-start gap-4">
+              <span className="shrink-0 w-9 h-9 text-white font-medium font-['Unbounded'] bg-white/5 rounded-xl shadow-[inset_0px_-8px_20px_0px_rgba(255,255,255,0.10)] outline -outline-offset-1 outline-white/30 inline-flex justify-center items-center text-sm">
+                {id}
+              </span>
+              <div>
+                <p className="text-white font-medium font-['Unbounded'] text-sm leading-snug">{title}</p>
+                <p className="text-white/60 font-normal font-['Mona_Sans'] text-xs leading-relaxed mt-1">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Desktop layout ── */}
+      <div className="hidden md:block relative">
       {/* Background parallax layer */}
       <motion.img
         src={bgParallax}
@@ -80,6 +125,7 @@ export default function VisionSection() {
           ))}
         </ul>
       </div>
+      </div>{/* end desktop layout */}
     </section>
   )
 }

@@ -43,13 +43,13 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-999 px-4 md:px-8 lg:px-16 pt-4">
+    <header className="fixed top-0 left-0 right-0 z-999 px-4 md:px-8 lg:px-16 py-3 md:pt-4 bg-black lg:bg-transparent">
       {/* Desktop & Mobile pill */}
-      <div className="flex items-center justify-between h-18 px-6 lg:px-8 xl:px-14 bg-black/30 backdrop-blur-lg rounded-[40px] border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.20)]">
+      <div className="flex items-center justify-between h-10 md:h-18  lg:px-8 xl:px-14 bg-black/30 backdrop-blur-lg rounded-[40px] md:border md:border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.20)]">
 
         {/* Mobile: hamburger */}
         <button
-          className="lg:hidden w-9 h-9 flex items-center justify-center shrink-0"
+          className="lg:hidden w-7 h-7 flex items-center justify-center shrink-0"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -61,9 +61,12 @@ export default function Header() {
           {navLeft.map((item) => <NavItem key={item.href + item.label} {...item} />)}
         </nav>
 
-        {/* Logo — center */}
-        <Link to="/" className="shrink-0 absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
-          <img src={logo} alt="SOFIN GROUP" className="h-5 lg:h-9 w-auto object-contain" />
+        {/* Logo — mobile: flex-1 center; desktop: static */}
+        <Link to="/" className="lg:hidden flex-1 flex ml-2">
+          <img src={logo} alt="SOFIN GROUP" className="h-5 w-auto object-contain" />
+        </Link>
+        <Link to="/" className="hidden lg:block shrink-0">
+          <img src={logo} alt="SOFIN GROUP" className="h-9 w-auto object-contain" />
         </Link>
 
         {/* Desktop right nav */}
@@ -71,13 +74,18 @@ export default function Header() {
           {navRight.map((item) => <NavItem key={item.href + item.label} {...item} />)}
         </nav>
 
-        {/* Mobile: spacer to balance hamburger */}
-        <div className="lg:hidden w-9 shrink-0" />
+        {/* Mobile: Liên hệ button */}
+        <Link
+          to="/lien-he"
+          className="lg:hidden shrink-0 px-4 py-1.5 rounded-full border border-primary-500 text-primary-500 text-sm font-semibold whitespace-nowrap hover:bg-primary-500/10 transition-colors"
+        >
+          Liên hệ
+        </Link>
       </div>
 
       {/* Mobile menu — fullscreen overlay */}
       {mobileOpen && (
-        <nav className="lg:hidden fixed inset-0 top-22 bg-black/80 backdrop-blur-md z-50 flex flex-col items-center justify-center gap-8">
+        <nav className="lg:hidden fixed inset-0 top-14 bg-black/70 backdrop-blur-sm z-50 flex flex-col items-center justify-center gap-8">
           {allNavItems.map((item) => (
             <NavLink
               key={item.href + item.label}

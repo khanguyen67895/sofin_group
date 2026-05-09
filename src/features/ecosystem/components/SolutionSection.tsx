@@ -22,19 +22,19 @@ export function SolutionHeading() {
     <section className="pb-0 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <motion.div
-          className="flex flex-col text-center items-center"
+          className="relative flex flex-col text-center items-center -mt-20 md:mt-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-3xl font-semibold font-['Mona_Sans'] leading-10">
+          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-sm md:text-3xl font-semibold font-['Mona_Sans'] leading-10">
             Giải pháp doanh nghiệp
           </span>
           <h2
-            className="self-stretch text-center justify-center text-neutral-100 text-4xl font-semibold font-['Unbounded'] leading-12"
+            className="self-stretch text-center justify-center text-neutral-100 text-xl md:text-4xl font-semibold font-['Unbounded'] md:leading-12"
           >
-            Hệ thống vận hành riêng cho bạn<br />
+            Hệ thống vận hành riêng cho bạn<span className="hidden md:inline"><br /></span>{' '}
             Không phần mềm đóng gói
           </h2>
         </motion.div>
@@ -46,7 +46,7 @@ export function SolutionHeading() {
 export default function SolutionSection() {
   return (
     <section className="bg-neutral-900">
-      <div className="mx-auto px-5 py-20 sm:px-10 md:px-20 lg:px-30">
+      <div className="mx-auto px-5 md:py-20 sm:px-10 md:px-20 lg:px-30">
 
         {/* Content: text left + image right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-80 items-center">
@@ -100,7 +100,7 @@ export default function SolutionSection() {
               <img
                 src={imgAction}
                 alt={""}
-                className="w-115.25 h-72 md:h-125 object-cover object-center rounded-xl"
+                className="w-115.25 h-125 object-cover object-center rounded-xl"
               />
               <div className="absolute inset-0 bg-linear-to-t from-neutral-900/70 via-transparent to-transparent" />
             </div>

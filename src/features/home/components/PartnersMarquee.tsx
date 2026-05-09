@@ -20,12 +20,12 @@ export default function PartnersMarquee() {
       <p className="text-center text-white text-lg font-bold mb-6 leading-7">
         Đối tác - Khách hàng tin cậy chúng tôi
       </p>
-      <div className="flex gap-12 w-max animate-marquee">
+      <div className="flex gap-2 md:gap-12 w-max animate-marquee">
         {[...logos, ...logos].map((src) => (
           <img
             src={src}
             alt={src}
-            className="h-6 md:h-18 object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all"
+            className="h-12 md:h-18 object-contain grayscale hover:grayscale-0 hover:opacity-100 transition-all"
           />
         ))}
       </div>

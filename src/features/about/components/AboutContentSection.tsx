@@ -18,7 +18,7 @@ export default function AboutContentSection() {
             <img
               src={icAboutAI}
               alt="SOFIN Group"
-              className="w-162.75 h-142.5 object-cover"
+              className="w-full h-auto md:w-162.75 md:h-142.5 object-contain md:object-cover"
             />
           </motion.div>
 

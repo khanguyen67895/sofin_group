@@ -41,19 +41,28 @@ export default function RelatedNewsSection({
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mb-20"
+          className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           {items.map((item) => (
-            <NewsCard
-              key={item.id}
-              item={item}
-            />
+            <NewsCard key={item.id} item={item} />
           ))}
         </motion.div>
+
+        {/* Mobile carousel */}
+        <div
+          className="sm:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-5 px-5 pb-4 mb-16"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {items.map((item) => (
+            <div key={item.id} className="snap-center shrink-0 w-[80vw]">
+              <NewsCard item={item} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

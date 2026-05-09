@@ -138,7 +138,7 @@ export default function EcosystemSection() {
 
                 <div className={`relative z-10 flex flex-col md:flex-row items-stretch ${iconRight ? "md:flex-row" : "md:flex-row-reverse"}`}>
                   {/* Content */}
-                  <div className="flex flex-col justify-between max-w-2xl flex-1 px-6 md:px-10 pb-12 pt-6 md:pt-16">
+                  <div className="flex flex-col justify-between max-w-2xl flex-1 px-6 md:px-10 pb-6 pt-4 md:pb-12 md:pt-16">
                     <div className="flex flex-col gap-4">
                       <h3
                         className="self-stretch justify-center text-primary-500 text-4xl font-medium font-['Unbounded'] leading-12"
@@ -179,7 +179,7 @@ export default function EcosystemSection() {
 
 
                   {/* Icon */}
-                  <div className="relative flex items-center justify-center w-full md:w-72 lg:w-100 shrink-0 py-6 md:py-0 overflow-hidden">
+                  <div className="order-first md:order-last relative flex items-center justify-center w-full md:w-72 lg:w-100 shrink-0 py-2 md:py-0 overflow-hidden max-h-70 md:max-h-none">
                     <div
                       className="absolute inset-0 opacity-15"
                       style={{

@@ -12,7 +12,7 @@ export default function EcosystemQuote() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <p
-            className="text-center justify-center text-text-neutral-normal text-3xl font-normal font-['Mona_Sans'] leading-10"
+            className="text-center justify-center text-text-neutral-normal text-base  md:text-3xl font-normal font-['Mona_Sans'] md:leading-10"
           >
             "Trở thành tập đoàn công nghệ hàng đầu Đông Nam Á, tiên phong ứng dụng
             AI và công nghệ tiên tiến để tạo giá trị bền vững, đồng thời kết nối tri thức,

@@ -15,7 +15,7 @@ export default function StatsSection() {
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
-              className="flex flex-col items-center md:items-start justify-center py-4 px-12 md:px-16 border-neutral-800/60"
+              className="flex flex-col items-center text-center md:items-start md:text-left justify-center py-4 md:px-16 border-neutral-800/60"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
