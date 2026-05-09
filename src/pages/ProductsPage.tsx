@@ -58,7 +58,7 @@ export default function ProductsPage() {
           className="md:hidden absolute inset-0 w-full h-full object-cover object-top"
         />
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0C0C0C] to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0C0C0C] to-transparent pointer-events-none" />
         <motion.div
           className="relative z-10 mx-auto px-5 sm:px-10 md:px-20 lg:px-30"
           initial={{ opacity: 0, y: 30 }}

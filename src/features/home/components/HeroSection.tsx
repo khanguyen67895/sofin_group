@@ -29,7 +29,7 @@ export default function HeroSection() {
       />
 
       {/* Bottom fade to black */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
 
       {/* Center content */}
       <div className="relative h-120 md:min-h-screen z-10 flex flex-col items-center justify-center text-center px-5 md:px-10">
