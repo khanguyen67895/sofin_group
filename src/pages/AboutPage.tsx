@@ -13,10 +13,11 @@ export default function AboutPage() {
     <>
       <AboutHeroSection />
       <AboutContentSection />
-      <div
-        className="relative opacity-5 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `image-set(url(${bgCoreValue}) 1x, url(${bgCoreValue2x}) 2x)` }}
-      >
+      <div className="relative">
+        <div
+          className="absolute inset-0 top-70 bg-cover bg-center bg-no-repeat opacity-5 pointer-events-none"
+          style={{ backgroundImage: `image-set(url(${bgCoreValue}) 1x, url(${bgCoreValue2x}) 2x)` }}
+        />
         <CoreValueSection />
         <MilestoneSection />
       </div>
