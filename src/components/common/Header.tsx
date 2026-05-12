@@ -75,7 +75,7 @@ export default function Header() {
 
         {/* ── CENTER: Logo ── */}
         <Link to="/" className="flex-1 flex justify-start ml-2 lg:flex-none lg:justify-center lg:px-4">
-          <img src={logo} alt="SOFIN GROUP" className="h-5 lg:h-6 lg:pl-10 xl:h-9 w-auto object-contain" />
+          <img src={logo} alt="SOFIN GROUP" className="h-5 lg:h-6 lg:pl-18 xl:h-9 w-auto object-contain" />
         </Link>
 
         {/* ── RIGHT: mobile Liên hệ / desktop nav ── */}
