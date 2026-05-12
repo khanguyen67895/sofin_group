@@ -5,7 +5,7 @@ export default function AboutContentSection() {
   return (
     <section className="bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-16">
 
           {/* Left — text content */}
           <motion.div
@@ -18,7 +18,7 @@ export default function AboutContentSection() {
             <img
               src={icAboutAI}
               alt="SOFIN Group"
-              className="w-full h-auto md:w-162.75 md:h-142.5 object-contain md:object-cover"
+              className="w-full h-auto object-contain"
             />
           </motion.div>
 

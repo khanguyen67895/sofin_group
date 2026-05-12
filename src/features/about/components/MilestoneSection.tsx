@@ -90,7 +90,7 @@ export default function MilestoneSection() {
                       </>)}
                     </motion.div>
                   </div>
-                  {i !== milestones.length - 1 && <div className="w-px h-16 bg-neutral-800/50" />}
+                  {i !== milestones.length - 1 && <div className="w-0.5 h-16 bg-neutral-100" />}
                 </motion.div>
               )
             })}

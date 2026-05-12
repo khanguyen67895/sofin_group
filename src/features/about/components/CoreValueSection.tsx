@@ -7,6 +7,7 @@ import imgAction2 from '@/assets/images/image_action2.png'
 import imgAction3 from '@/assets/images/image_action3.png'
 import imgAction4 from '@/assets/images/image_action4.jpg'
 import bgCoreValue from '@/assets/images/bg_core_value.png'
+import icTick from '@/assets/images/ic_tick.png'
 
 const slideImages = [imgAction1, imgAction2, imgAction3, imgAction4, bgCoreValue]
 import icLeft from '@/assets/images/ic_left.png'
@@ -214,7 +215,7 @@ function CoreValueSlider() {
             <ul className="flex flex-col gap-2">
               {value.items.map((item) => (
                 <li key={item.label} className="flex items-start gap-2">
-                  <img src={itemIcons[index].src} srcSet={itemIcons[index].srcSet} alt="" className="mt-1 w-4 h-4 shrink-0 object-contain" />
+                  <img src={icTick} alt="" className="mt-1 w-4 h-4 shrink-0 object-contain" />
                   <span className="text-text-neutral-normal text-sm font-['Mona_Sans'] leading-6">
                     <span className="font-semibold text-white">{item.label}</span>{' '}
                     {item.desc}
@@ -285,8 +286,7 @@ function ValueCard({ value, index }: { value: Value; index: number }) {
         {value.items.map((item) => (
           <li key={item.label} className="flex items-start gap-2">
             <img
-              src={itemIcons[index].src}
-              srcSet={itemIcons[index].srcSet}
+              src={icTick}
               alt=""
               className="mt-1 w-4 h-4 shrink-0 object-contain"
             />
