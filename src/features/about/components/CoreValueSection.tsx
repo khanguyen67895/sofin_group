@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import icCoreValue from '@/assets/images/ic_core_value.png'
-import icCoreValue2x from '@/assets/images/ic_core_value@2x.png'
-import imgAction1 from '@/assets/images/image_action1.jpg'
-import imgAction2 from '@/assets/images/image_action2.png'
-import imgAction3 from '@/assets/images/image_action3.png'
-import imgAction4 from '@/assets/images/image_action4.jpg'
-import bgCoreValue from '@/assets/images/bg_core_value.png'
+import { useRef, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import icTick from '@/assets/images/ic_tick.png'
+import bgVideo from '@/assets/video/48125552034f7f13a84de49e414ff004.mp4'
 
-const slideImages = [imgAction1, imgAction2, imgAction3, imgAction4, bgCoreValue]
-import icLeft from '@/assets/images/ic_left.png'
-import icLeft2x from '@/assets/images/ic_left@2x.png'
-import icRight from '@/assets/images/ic_right.png'
-import icRight2x from '@/assets/images/ic_right@2x.png'
+import icSection1 from '@/assets/images/ic_section1.png'
+import icSection1x2 from '@/assets/images/ic_section1@2x.png'
+import icSection2 from '@/assets/images/ic_section2.png'
+import icSection2x2 from '@/assets/images/ic_section2@2x.png'
+import icSection3 from '@/assets/images/ic_section3.png'
+import icSection3x2 from '@/assets/images/ic_section3@2x.png'
+import icSection4 from '@/assets/images/ic_section4.png'
+import icSection4x2 from '@/assets/images/ic_section4@2x.png'
+import icSection5 from '@/assets/images/ic_section5.png'
+import icSection5x2 from '@/assets/images/ic_section5@2x.png'
+
 import icItem1 from '@/assets/images/ic_item_core_value1.png'
 import icItem1x2 from '@/assets/images/ic_item_core_value1@2x.png'
 import icItem2 from '@/assets/images/ic_item_core_value2.png'
@@ -25,278 +25,267 @@ import icItem4x2 from '@/assets/images/ic_item_core_value4@2x.png'
 import icItem5 from '@/assets/images/ic_item_core_value5.png'
 import icItem5x2 from '@/assets/images/ic_item_core_value5@2x.png'
 
-const itemIcons = [
-  { src: icItem1, srcSet: `${icItem1x2} 2x` },
-  { src: icItem2, srcSet: `${icItem2x2} 2x` },
-  { src: icItem3, srcSet: `${icItem3x2} 2x` },
-  { src: icItem4, srcSet: `${icItem4x2} 2x` },
-  { src: icItem5, srcSet: `${icItem5x2} 2x` },
+import icNum1 from '@/assets/images/ic_num1.png'
+import icNum1x2 from '@/assets/images/ic_num1@2x.png'
+import icNum2 from '@/assets/images/ic_num2.png'
+import icNum2x2 from '@/assets/images/ic_num2@2x.png'
+import icNum3 from '@/assets/images/ic_num3.png'
+import icNum3x2 from '@/assets/images/ic_num3@2x.png'
+import icNum4 from '@/assets/images/ic_num4.png'
+import icNum4x2 from '@/assets/images/ic_num4@2x.png'
+import icNum5 from '@/assets/images/ic_num5.png'
+import icNum5x2 from '@/assets/images/ic_num5@2x.png'
+
+const numIcons = [
+  { src: icNum1, srcSet: `${icNum1x2} 2x` },
+  { src: icNum2, srcSet: `${icNum2x2} 2x` },
+  { src: icNum3, srcSet: `${icNum3x2} 2x` },
+  { src: icNum4, srcSet: `${icNum4x2} 2x` },
+  { src: icNum5, srcSet: `${icNum5x2} 2x` },
 ]
+
+const CONTAINER_H = 500
 
 const values = [
   {
-    title: 'ĐỒNG ĐỘI',
+    num: '01',
+    title: 'Đồng đội',
     subtitle: 'Cùng nhau, chúng ta đi xa hơn.',
-    description: 'Tại SOFIN GROUP, không có thành công nào là của riêng ai. Chúng tôi tin rằng những thành tựu lớn nhất luôn đến từ tinh thần đồng đội — nơi mỗi cá nhân đóng góp thế mạnh riêng để tạo nên sức mạnh tập thể vượt trội.',
+    description:
+      'Tại SOFIN GROUP, không có thành công nào là của riêng ai. Chúng tôi tin rằng những thành tựu lớn nhất luôn đến từ tinh thần đồng đội — nơi mỗi cá nhân đóng góp thế mạnh riêng để tạo nên sức mạnh tập thể vượt trội.',
     items: [
       { label: 'Đoàn kết:', desc: 'Chung mục tiêu, cùng vượt thử thách.' },
       { label: 'Hợp tác:', desc: 'Lắng nghe, tôn trọng và phối hợp hiệu quả.' },
       { label: 'Sẻ chia:', desc: 'Hỗ trợ, chia sẻ kiến thức và cùng phát triển.' },
     ],
-    span: 1,
+    section: { src: icSection1, srcSet: `${icSection1x2} 2x` },
+    icon: { src: icItem1, srcSet: `${icItem1x2} 2x` },
   },
   {
-    title: 'SÁNG TẠO',
+    num: '02',
+    title: 'Sáng tạo',
     subtitle: 'Dám nghĩ khác, dám làm khác.',
-    description: 'Trong kỷ nguyên công nghệ, sáng tạo không còn là lựa chọn — đó là điều bắt buộc. Chúng tôi khuyến khích mỗi thành viên đặt câu hỏi, thử nghiệm ý tưởng mới và không ngại thất bại để tìm ra những giải pháp đột phá.',
+    description:
+      'Trong kỷ nguyên công nghệ, sáng tạo không còn là lựa chọn — đó là điều bắt buộc. Chúng tôi khuyến khích mỗi thành viên đặt câu hỏi, thử nghiệm ý tưởng mới và không ngại thất bại để tìm ra những giải pháp đột phá.',
     items: [
       { label: 'Đổi mới:', desc: 'Không ngừng cải tiến và phát triển.' },
       { label: 'Đột phá:', desc: 'Tư duy khác biệt để giải quyết vấn đề mới.' },
       { label: 'Khám phá:', desc: 'Sẵn sàng đón nhận công nghệ và xu hướng mới.' },
     ],
-    span: 1,
+    section: { src: icSection2, srcSet: `${icSection2x2} 2x` },
+    icon: { src: icItem2, srcSet: `${icItem2x2} 2x` },
   },
   {
-    title: 'CHÍNH TRỰC',
+    num: '03',
+    title: 'Chính trực',
     subtitle: 'Niềm tin được xây trên sự trung thực.',
-    description: 'Chính trực là gốc rễ của mọi mối quan hệ bền vững. Chúng tôi cam kết trung thực với khách hàng, minh bạch với đối tác, công bằng với đồng nghiệp — bởi đó là cách duy nhất để xây dựng niềm tin lâu dài.',
+    description:
+      'Chính trực là gốc rễ của mọi mối quan hệ bền vững. Chúng tôi cam kết trung thực với khách hàng, minh bạch với đối tác, công bằng với đồng nghiệp — bởi đó là cách duy nhất để xây dựng niềm tin lâu dài.',
     items: [
       { label: 'Trung thực:', desc: 'Nói thật, làm đúng cam kết.' },
-      { label: 'Hợp tác:', desc: 'Rõ ràng trong mọi hành động.' },
+      { label: 'Minh bạch:', desc: 'Rõ ràng trong mọi hành động.' },
       { label: 'Công bằng:', desc: 'Tôn trọng và công tâm.' },
     ],
-    span: 1,
+    section: { src: icSection3, srcSet: `${icSection3x2} 2x` },
+    icon: { src: icItem3, srcSet: `${icItem3x2} 2x` },
   },
   {
-    title: 'LINH HOẠT',
+    num: '04',
+    title: 'Linh hoạt',
     subtitle: 'Thích nghi nhanh, đi trước một bước.',
-    description: 'Thị trường công nghệ thay đổi từng ngày. Linh hoạt giúp SOFIN GROUP không chỉ thích nghi với những biến động, mà còn chủ động tạo ra thay đổi — luôn đi trước đối thủ một bước.',
+    description:
+      'Thị trường công nghệ thay đổi từng ngày. Linh hoạt giúp SOFIN GROUP không chỉ thích nghi với những biến động, mà còn chủ động tạo ra thay đổi — luôn đi trước đối thủ một bước.',
     items: [
       { label: 'Thích nghi:', desc: 'Phản ứng nhanh nhạy trước thay đổi.' },
       { label: 'Cởi mở:', desc: 'Đón nhận điều mới như cơ hội.' },
       { label: 'Đa năng:', desc: 'Sẵn sàng vượt giới hạn.' },
     ],
-    span: 1,
+    section: { src: icSection4, srcSet: `${icSection4x2} 2x` },
+    icon: { src: icItem4, srcSet: `${icItem4x2} 2x` },
   },
   {
-    title: 'TỐC ĐỘ',
+    num: '05',
+    title: 'Tốc độ',
     subtitle: 'Lợi thế cạnh tranh trong kỷ nguyên số.',
-    description: 'Trong thế giới mà ý tưởng tốt nhất chỉ có giá trị khi được thực thi nhanh nhất, tốc độ trở thành vũ khí cạnh tranh hàng đầu. SOFIN GROUP đề cao sự quyết đoán, hành động kịp thời và triển khai hiệu quả.',
+    description:
+      'Trong thế giới mà ý tưởng tốt nhất chỉ có giá trị khi được thực thi nhanh nhất, tốc độ trở thành vũ khí cạnh tranh hàng đầu. SOFIN GROUP đề cao sự quyết đoán, hành động kịp thời và triển khai hiệu quả.',
     items: [
       { label: 'Quyết đoán:', desc: 'Ra quyết định nhanh và chính xác.' },
       { label: 'Hiệu quả:', desc: 'Hoàn thành đúng hạn, tối ưu chất lượng.' },
       { label: 'Tiên phong:', desc: 'Dẫn đầu công nghệ và xu hướng mới.' },
     ],
-    span: 1,
+    section: { src: icSection5, srcSet: `${icSection5x2} 2x` },
+    icon: { src: icItem5, srcSet: `${icItem5x2} 2x` },
   },
 ]
 
 export default function CoreValueSection() {
-  const [isSlider, setIsSlider] = useState(false)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [scrollTop, setScrollTop] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [exitIndex, setExitIndex] = useState<number | null>(null)
+  const [animKey, setAnimKey] = useState(0)
+  const [scrollDir, setScrollDir] = useState<'down' | 'up'>('down')
+
+  const handleScroll = () => {
+    const st = scrollRef.current?.scrollTop ?? 0
+    const newIndex = Math.min(Math.floor(st / CONTAINER_H), values.length - 1)
+    if (newIndex !== activeIndex) {
+      const dir = st > scrollTop ? 'down' : 'up'
+      setScrollDir(dir)
+      if (dir === 'up') setExitIndex(activeIndex)
+      setActiveIndex(newIndex)
+      setAnimKey(k => k + 1)
+    }
+    setScrollTop(st)
+  }
+
+  const activeValue = values[activeIndex]
 
   return (
-    <section className="py-15 md:py-20">
-      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
+    <section className=""
+            style={{ background: 'radial-gradient(50% 50% at 50% 100%, #242424 0%, rgba(15, 15, 15, 0.00) 100%), radial-gradient(50% 56.97% at 50% 0%, #242424 0%, rgba(15, 15, 15, 0.00) 100%), #0F0F0F' }}
+    >
+      <div className="mx-auto">
 
-        {/* Header */}
-        <motion.div
-          className="mb-10 flex flex-col items-center text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <img
-            src={icCoreValue}
-            srcSet={`${icCoreValue2x} 2x`}
-            alt="Giá trị cốt lõi"
-            className="mb-3 h-8 object-contain"
+        {/* Fixed-height scroll container */}
+        <div className="relative overflow-hidden" style={{ height: `${CONTAINER_H}px` }}>
+
+          {/* Background video */}
+          <video
+            src={bgVideo}
+            autoPlay muted loop playsInline
+            className="absolute inset-0 w-[43%] h-full object-cover pointer-events-none"
           />
-          <h2 className="text-3xl md:text-4xl font-medium font-['Unbounded'] leading-tight text-primary-500">
-            Năm trụ cột định hình SOFIN GROUP
-          </h2>
-          <p className="mt-4 max-w-2xl text-text-neutral-normal text-base font-normal font-['Mona_Sans'] leading-6">
-            Giá trị cốt lõi không chỉ là những từ trên giấy. Đó là cách chúng tôi suy nghĩ, cách chúng tôi hành động, và cách chúng tôi kiến tạo nên SOFIN GROUP của ngày hôm nay và tương lai.
-          </p>
 
-          {/* Toggle button */}
-          <div className="absolute top-8 flex items-center gap-2 rounded-full border border-neutral-700 p-1">
-            <button
-              onClick={() => setIsSlider(false)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium font-['Mona_Sans'] transition-all ${
-                !isSlider ? 'bg-primary-500 text-white' : 'text-text-neutral-normal hover:text-white'
-              }`}
-            >
-              Grid
-            </button>
-            <button
-              onClick={() => setIsSlider(true)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium font-['Mona_Sans'] transition-all ${
-                isSlider ? 'bg-primary-500 text-white' : 'text-text-neutral-normal hover:text-white'
-              }`}
-            >
-              Slider
-            </button>
-          </div>
-        </motion.div>
+          {/* Edge fades – blend video into section bg */}
+          <div className="absolute inset-y-0 left-0 w-16 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, #0F0F0F 0%, transparent 100%)' }} />
+          <div className="absolute inset-y-0 right-0 w-full pointer-events-none"
+            style={{ background: 'linear-gradient(to left, #0F0F0F 60%, transparent 100%)' }} />
+          <div className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, #0F0F0F 0%, transparent 100%)' }} />
+          <div className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
+            style={{ background: 'linear-gradient(to top, #0F0F0F 0%, transparent 100%)' }} />
 
-        <AnimatePresence mode="wait">
-          {isSlider ? (
-            <motion.div key="slider" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3 }}>
-              <CoreValueSlider />
-            </motion.div>
-          ) : (
-            <motion.div key="grid" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3 }}>
-              {/* Top row: 2 cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-                {values.slice(0, 2).map((v, i) => (
-                  <ValueCard key={v.title} value={v} index={i} />
-                ))}
-              </div>
-              {/* Bottom row: 3 cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {values.slice(2).map((v, i) => (
-                  <ValueCard key={v.title} value={v} index={i + 2} />
-                ))}
-              </div>
-            </motion.div>
+          {/* Desktop animated icon overlays – hidden on mobile */}
+          {exitIndex !== null && scrollDir === 'up' && (
+            <div
+              key={`exit-${animKey}`}
+              className="icon-exit-up-left hidden md:block absolute left-[28%] top-1/2 w-80 h-80 pointer-events-none"
+            >
+              <img
+                src={values[exitIndex].section.src}
+                srcSet={values[exitIndex].section.srcSet}
+                alt={values[exitIndex].title}
+                className="w-full h-full object-contain drop-shadow-2xl"
+              />
+            </div>
           )}
-        </AnimatePresence>
+
+          <div
+            key={`enter-${animKey}`}
+            className={`${scrollDir === 'down' ? 'icon-enter-down' : 'icon-enter-up'} hidden md:block absolute left-[28%] top-1/2 w-100 h-100 pointer-events-none`}
+          >
+            <img
+              src={activeValue.section.src}
+              srcSet={activeValue.section.srcSet}
+              alt={activeValue.title}
+              className="w-full h-full object-contain drop-shadow-2xl"
+            />
+          </div>
+
+          {/* Scrollable content track */}
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="absolute inset-0 overflow-y-scroll hide-scrollbar"
+            style={{ scrollSnapType: 'y mandatory', scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
+          >
+            {values.map((v, vi) => (
+              <div
+                key={v.num}
+                className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-20 px-8 md:px-16"
+                style={{ height: `${CONTAINER_H}px`, scrollSnapAlign: 'start' }}
+              >
+                {/* Mobile: image on top, static */}
+                <img
+                  src={v.section.src}
+                  srcSet={v.section.srcSet}
+                  alt={v.title}
+                  className="md:hidden shrink-0 w-32 h-32 object-contain drop-shadow-2xl"
+                />
+                {/* Desktop: spacer to match overlay icon position */}
+                <div className="hidden md:block shrink-0 w-60" aria-hidden="true" />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={v.num}
+                    initial={{ opacity: 0, y: scrollDir === 'down' ? 30 : -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: scrollDir === 'down' ? -30 : 30 }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    className="flex flex-col gap-5 max-w-lg"
+                  >
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={numIcons[vi].src}
+                        srcSet={numIcons[vi].srcSet}
+                        alt={v.num}
+                        className="w-12 h-12 shrink-0 object-contain"
+                      />
+                      <div>
+                        <h3 className="text-primary-500 text-xl md:text-2xl font-SemiBold font-['Unbounded'] leading-tight">
+                          {v.title}
+                        </h3>
+                        <p className="text-[#F0EDE6] text-sm font-['Mona_Sans'] mt-0.5">
+                          {v.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-text-neutral-normal text-sm md:text-base font-['Mona_Sans'] leading-7">
+                      {v.description}
+                    </p>
+
+                    <ul className="flex flex-row gap-2.5">
+                      {v.items.map((item) => (
+                        <li
+                          key={item.label}
+                          className="flex-1 flex flex-col gap-2 rounded-xl p-3"
+                          style={{ background: 'rgba(255,255,255,0.05)' }}
+                        >
+                          <img src={icTick} alt="" className="w-5 h-5 object-contain" />
+                          <span className="text-neutral-100 font-semibold text-sm font-['Mona_Sans'] leading-5">
+                            {item.label.replace(':', '')}
+                          </span>
+                          <span className="text-neutral-100 text-xs font-['Mona_Sans'] leading-5">
+                            {item.desc}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+
+          {/* Dot indicators */}
+          <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-2 pointer-events-none">
+            {values.map((v, i) => (
+              <div
+                key={v.num}
+                className="w-1.5 rounded-full transition-all duration-300"
+                style={{
+                  height: i === activeIndex ? '24px' : '6px',
+                  background: i === activeIndex ? '#FF754C' : 'rgba(255,255,255,0.25)',
+                }}
+              />
+            ))}
+          </div>
+        </div>
 
       </div>
     </section>
-  )
-}
-
-type Value = (typeof values)[number]
-
-function CoreValueSlider() {
-  const [current, setCurrent] = useState(0)
-  const value = values[current]
-  const index = current
-
-  return (
-    <div className="flex flex-col md:flex-row gap-24 items-center">
-      {/* Left: image — stays fixed, not animated */}
-      <div className="shrink-0 w-full md:w-170">
-        <img
-          src={slideImages[current]}
-          alt={value.title}
-          className="w-full md:w-170 h-93.5 object-cover rounded-xl"
-        />
-      </div>
-
-      {/* Right: content */}
-      <div className="flex-1 flex w-auto max-w-2xl flex-col gap-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            className="flex flex-col gap-4"
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -16 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="flex items-center gap-3">
-              <img src={itemIcons[index].src} srcSet={itemIcons[index].srcSet} alt="" className="w-9.5 h-9.5 object-contain" />
-              <h3 className="text-white text-base font-semibold font-['Mona_Sans'] leading-6 tracking-wide">
-                {value.title}
-              </h3>
-            </div>
-
-            <p className="text-white text-lg font-semibold font-['Mona_Sans'] leading-7">
-              {value.subtitle}
-            </p>
-
-            <p className="text-text-neutral-normal text-sm font-normal font-['Mona_Sans'] leading-6">
-              {value.description}
-            </p>
-
-            <ul className="flex flex-col gap-2">
-              {value.items.map((item) => (
-                <li key={item.label} className="flex items-start gap-2">
-                  <img src={icTick} alt="" className="mt-1 w-4 h-4 shrink-0 object-contain" />
-                  <span className="text-text-neutral-normal text-sm font-['Mona_Sans'] leading-6">
-                    <span className="font-semibold text-white">{item.label}</span>{' '}
-                    {item.desc}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Navigation — outside AnimatePresence to stay fixed */}
-        <div className="mt-4 flex items-center gap-2">
-          <button
-            onClick={() => setCurrent(current === 0 ? values.length - 1 : current - 1)}
-            className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
-          >
-            <img src={icLeft} srcSet={`${icLeft2x} 2x`} alt="Previous" className="w-12 h-12 object-contain" />
-          </button>
-          <span className="text-sm text-[#F0EDE6] tabular-nums w-12 text-center font-['Mona_Sans']">
-            {current + 1}/{values.length}
-          </span>
-          <button
-            onClick={() => setCurrent(current === values.length - 1 ? 0 : current + 1)}
-            className="w-12 h-12 flex items-center justify-center hover:opacity-70 transition-opacity"
-          >
-            <img src={icRight} srcSet={`${icRight2x} 2x`} alt="Next" className="w-12 h-12 object-contain" />
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function ValueCard({ value, index }: { value: Value; index: number }) {
-  return (
-    <motion.div
-      className="rounded-2xl border border-neutral-700 p-6 flex flex-col gap-4"
-      style={{
-        background: `
-          radial-gradient(ellipse 60% 45% at 90% 0%, rgba(255,117,76,0.25) 0%, transparent 90%),
-          linear-gradient(to bottom, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 100%)
-        `,
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-      }}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-    >
-      <div className="flex items-center gap-3">
-       <img
-          src={itemIcons[index].src}
-          srcSet={itemIcons[index].srcSet}
-          alt=""
-          className="w-9.5 h-9.5 object-contain"
-        />
-        <h3 className="text-white text-base font-semibold font-['Mona_Sans'] leading-6 tracking-wide">
-          {value.title}
-        </h3>
-      </div>
-
-      <p className="text-text-neutral-normal text-sm font-normal font-['Mona_Sans'] leading-6">
-        {value.description}
-      </p>
-
-      <ul className="flex flex-col gap-2">
-        {value.items.map((item) => (
-          <li key={item.label} className="flex items-start gap-2">
-            <img
-              src={icTick}
-              alt=""
-              className="mt-1 w-4 h-4 shrink-0 object-contain"
-            />
-            <span className="text-text-neutral-normal text-sm font-['Mona_Sans'] leading-6">
-              <span className="font-semibold text-white">{item.label}</span>{' '}
-              {item.desc}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
   )
 }

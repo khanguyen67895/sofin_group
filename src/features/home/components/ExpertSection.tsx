@@ -73,7 +73,7 @@ export default function ExpertSection() {
   }, []);
 
   return (
-    <section className="py-15 md:py-15 bg-neutral-900">
+    <section className="py-15 md:py-15 bg-neutral-900 mt-20">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-10 pr-6 md:pr-20 lg:pr-100">
@@ -124,7 +124,7 @@ export default function ExpertSection() {
 
           {/* ── LEFT: content ── */}
           <motion.div
-            className="flex flex-col gap-5 w-full lg:w-142"
+            className="flex flex-col gap-5 w-full min-w-0 pr-40"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

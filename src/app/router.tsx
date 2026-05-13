@@ -12,6 +12,8 @@ import JobDetailPage from '@/pages/JobDetailPage'
 import ContactPage from '@/pages/ContactPage'
 import EcosystemPage from '@/pages/EcosystemPage'
 import ProductsPage from '@/pages/ProductsPage'
+import CoreValuesPage from '@/pages/CoreValuesPage'
+import ExpertTeamPage from '@/pages/ExpertTeamPage'
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 've-chung-toi', element: <AboutPage /> },
+      { path: 've-chung-toi/gia-tri-cot-loi', element: <CoreValuesPage /> },
+      { path: 've-chung-toi/doi-ngu-chuyen-gia', element: <ExpertTeamPage /> },
       { path: 'tin-tuc', element: <NewsPage /> },
       { path: 'tin-tuc/:id', element: <NewsDetailPage /> },
       { path: 'tuyen-dung', element: <RecruitmentPage /> },

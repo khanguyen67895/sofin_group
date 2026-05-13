@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Ẩn scrollbar trên Chrome/Safari */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @theme {
   /* Primary */
   --color-primary-100: #ffeae0;
@@ -109,6 +114,48 @@ body {
 }
 
 /* Animations */
+@keyframes iconEnterDown {
+  from { transform: translate(calc(-50% - 300px), calc(-50% - 300px)); opacity: 0; }
+  to   { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes iconEnterUp {
+  from { transform: translate(calc(-50% - 300px), calc(-50% + 300px)); opacity: 0; }
+  to   { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes iconExitUpLeft {
+  from { transform: translate(-50%, -50%); opacity: 1; }
+  to   { transform: translate(calc(-50% - 300px), calc(-50% - 300px)); opacity: 0; }
+}
+
+.icon-enter-down  { animation: iconEnterDown  0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.icon-enter-up    { animation: iconEnterUp    0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.icon-exit-up-left { animation: iconExitUpLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; pointer-events: none; }
+
+@keyframes statFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.stat-float {
+  animation: statFloat 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.04); }
+}
+
+@keyframes tagFloatUp {
+  0%, 100% { translate: 0 0; }
+  50%       { translate: 0 -6px; }
+}
+@keyframes tagFloatDown {
+  0%, 100% { translate: 0 0; }
+  50%       { translate: 0 6px; }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
