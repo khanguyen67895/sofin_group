@@ -76,7 +76,7 @@ export default function ExpertHeroSection() {
             key={s.value}
             initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 + i * 0.12, ease: [0.4, 0, 0.2, 1] }}
-            className={`absolute ${statPos[s.corner]} stat-float rounded-xl p-px ${i === 2 || i === 3 ? "mx-16" : "-mx-2"}`}
+            className={`absolute ${statPos[s.corner]} stat-float rounded-xl p-px ${i === 2 || i === 3 ? "mx-2 md:mx-16" : "-mx-2"}`}
             style={{
               animationDelay: s.delay,
               background: 'linear-gradient(135deg, #272727 40%, #3A3A3A 100%)',

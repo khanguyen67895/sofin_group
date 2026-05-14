@@ -64,55 +64,42 @@ export default function ExpertiseGrid() {
           <motion.div
             key={e.title}
             variants={fadeUp} transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="relative flex-col gap-4 p-6"
-            style={{ background: 'transparent' }}
+            className="relative"
           >
-            <div className="relative">
-              <img src={bgGrids[i]} alt="" className="w-full" />
-              <svg
-                viewBox="0 0 466 285"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute inset-0 w-full h-full pointer-events-none"
+            <img src={bgGrids[i]} alt="" className="w-full h-auto block" />
+            <svg
+              viewBox="0 0 466 285"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute inset-0 w-full h-full pointer-events-none"
+            >
+              <path
+                d="M0 47.5C0 37.5589 8.05887 29.5 18 29.5H121.582C126.773 29.5 131.711 31.7406 135.129 35.6469L145.371 47.3531C148.789 51.2594 153.727 53.5 158.918 53.5H447C456.941 53.5 465 61.5589 465 71.5V266.5C465 276.441 456.941 284.5 447 284.5H18C8.05889 284.5 0 276.441 0 266.5V47.5Z"
+                fill="none"
+                stroke="#FE4C00"
+                strokeOpacity="0.8"
+                strokeWidth="2"
+                strokeDasharray="200 9999"
+                strokeLinecap="round"
               >
-                <path
-                  d="M0 47.5C0 37.5589 8.05887 29.5 18 29.5H121.582C126.773 29.5 131.711 31.7406 135.129 35.6469L145.371 47.3531C148.789 51.2594 153.727 53.5 158.918 53.5H447C456.941 53.5 465 61.5589 465 71.5V266.5C465 276.441 456.941 284.5 447 284.5H18C8.05889 284.5 0 276.441 0 266.5V47.5Z"
-                  fill="none"
-                  stroke="#FE4C00"
-                  strokeOpacity="0.8"
-                  strokeWidth="2"
-                  strokeDasharray="200 9999"
-                  strokeLinecap="round"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="0"
-                    to="-2000"
-                    dur={`${5 + i * 0.6}s`}
-                    repeatCount="indefinite"
-                  />
-                </path>
-              </svg>
-            </div>
-
-            <div className="absolute pl-5 pr-20 top-[32%] z-10 flex flex-col gap-4 flex-1">
-
-              {/* Title */}
-              <h3 className="text-white font-bold text-base md:text-lg font-['Mona_Sans'] leading-tight">
-                {e.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-neutral-100 text-sm font-['Mona_Sans'] leading-6 flex-1">
-                {e.desc}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
+                <animate attributeName="stroke-dashoffset" from="0" to="-2000" dur={`${5 + i * 0.6}s`} repeatCount="indefinite" />
+              </path>
+            </svg>
+            <div className="absolute inset-0 flex flex-col justify-between px-[6%] pt-[20%] pb-[6%]">
+              <div className="flex flex-col gap-[2%]">
+                <h3 className="text-white font-bold font-['Mona_Sans'] leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1.125rem)' }}>
+                  {e.title}
+                </h3>
+                <p className="text-neutral-100 font-['Mona_Sans'] leading-snug" style={{ fontSize: 'clamp(0.75rem, 0.95vw, 0.875rem)' }}>
+                  {e.desc}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-1">
                 {e.tags.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-1 rounded-full text-xs font-['Mona_Sans'] text-neutral-100"
-                    style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}
+                    className="px-2 py-0.5 rounded-full font-['Mona_Sans'] text-neutral-100"
+                    style={{ fontSize: 'clamp(0.65rem, 0.8vw, 0.75rem)', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}
                   >
                     {t}
                   </span>
