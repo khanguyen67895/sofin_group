@@ -124,7 +124,7 @@ export default function ExpertSection() {
 
           {/* ── LEFT: content ── */}
           <motion.div
-            className="flex flex-col gap-5 w-full min-w-0 pr-40"
+            className="flex flex-col gap-5 w-full min-w-0 pr-0 lg:pr-40 items-center lg:items-start text-center lg:text-left"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -135,7 +135,7 @@ export default function ExpertSection() {
               {e.quote}
             </blockquote>
 
-            <div className="relative mt-14">
+            <div className="relative mt-14 w-full">
               <div className="h-0.5 bg-neutral-700/50" />
               <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
             </div>
@@ -186,7 +186,7 @@ export default function ExpertSection() {
         </div>
 
         {/* ── Mobile nav: bottom-left ── */}
-        <div className="flex md:hidden items-center gap-2 mt-6">
+        <div className="flex md:hidden items-center justify-center gap-2 mt-6">
           <button
             onClick={() =>
               goTo(cur === 0 ? experts.length - 1 : cur - 1)

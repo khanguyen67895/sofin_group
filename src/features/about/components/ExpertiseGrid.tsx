@@ -87,10 +87,10 @@ export default function ExpertiseGrid() {
             </svg>
             <div className="absolute inset-0 flex flex-col justify-between px-[6%] pt-[20%] pb-[6%]">
               <div className="flex flex-col gap-[2%]">
-                <h3 className="text-white font-bold font-['Mona_Sans'] leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1.125rem)' }}>
+                <h3 className="text-white font-bold font-['Mona_Sans'] leading-tight" style={{ fontSize: 'clamp(1.25rem, 1.4vw, 1.25rem)' }}>
                   {e.title}
                 </h3>
-                <p className="text-neutral-100 font-['Mona_Sans'] leading-snug" style={{ fontSize: 'clamp(0.75rem, 0.95vw, 0.875rem)' }}>
+                <p className="text-neutral-100 font-['Mona_Sans'] leading-snug mt-2" style={{ fontSize: 'clamp(1rem, 0.95vw, 1rem)' }}>
                   {e.desc}
                 </p>
               </div>

@@ -1,14 +1,10 @@
-import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import CoreValueSection from '@/features/about/components/CoreValueSection'
 import GalleryCarousel from '@/features/about/components/GalleryCarousel'
-import Button from '@/components/ui/Button/Button'
-import icBgCore from '@/assets/images/ic_bg_core.png'
-import icBgCore2x from '@/assets/images/ic_bg_core@2x.png'
 import icBannerVct from '@/assets/images/ic_banner_vct.png'
+import CTASection from '@/features/home/components/CTASection'
 
 export default function CoreValuesPage() {
-  const navigate = useNavigate()
 
   return (
     <>
@@ -49,31 +45,7 @@ export default function CoreValuesPage() {
       </div>
 
       {/* CTA */}
-      <section className="relative py-20 md:py-28 px-5 text-center overflow-hidden">
-        <img
-          src={icBgCore}
-          srcSet={`${icBgCore2x} 2x`}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none"
-        />
-        <div className="relative z-10 flex flex-col items-center gap-6 max-w-2xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="text-white text-base md:text-xl font-['Mona_Sans'] leading-8"
-          >
-            Năm giá trị — một SOFIN GROUP. Đó là cách chúng tôi định nghĩa thành công và xây dựng tương lai.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <Button size="lg" onClick={() => navigate('/lien-he')}>
-              LIÊN HỆ NGAY CHO CHÚNG TÔI
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection />
     </>
   )
 }

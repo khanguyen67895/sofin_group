@@ -120,7 +120,7 @@ export default function EcosystemSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-                className="overflow-hidden rounded-2xl sticky"
+                className="overflow-hidden md:h-105 rounded-2xl sticky"
                 style={{
                   top: `${80 + idx * 20}px`,
                   zIndex: idx + 1,
@@ -179,13 +179,7 @@ export default function EcosystemSection() {
 
 
                   {/* Icon */}
-                  <div className="order-first md:order-last relative flex items-center justify-center w-full md:w-72 lg:w-100 shrink-0 py-2 md:py-0 overflow-hidden max-h-70 md:max-h-none">
-                    <div
-                      className="absolute inset-0 opacity-15"
-                      style={{
-                        background: "radial-gradient(ellipse at center, rgba(229,66,30,0.4) 0%, transparent 70%)",
-                      }}
-                    />
+                  <div className="order-first md:order-last relative flex items-center justify-center w-full md:w-72 lg:w-130 shrink-0 py-2 md:py-0 overflow-hidden max-h-70 md:max-h-none">
                     <img
                       src={item.icon}
                       srcSet={`${item.icon2x} 2x`}
