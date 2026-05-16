@@ -176,10 +176,19 @@ export default function ExpertSection() {
           </div>
 
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
-          <div className="-mt-10 sm:-mt-30 md:mt-8 lg:-mt-40 xl:-mt-60 lg:-ml-12 xl:-ml-20" style={{ overflowX: 'auto', overflowY: 'visible', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div
+            className="-mt-10 sm:-mt-30 md:mt-8 lg:-mt-40 xl:-mt-60 lg:-ml-12 xl:-ml-20"
+            style={{
+              overflowX: 'auto',
+              overflowY: 'hidden',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              height: isMobile ? 'min(290px, 70vw)' : 'min(610px, 60vw)',
+            }}
+          >
             <div
               ref={scrollRef}
-              className="flex sm:gap-0.5 md:gap-0 lg:gap-3 items-end"
+              className="flex sm:gap-0.5 md:gap-0 lg:gap-3 items-end h-full"
             >
               {experts.map((ex, idx) => {
                 const isActive = idx === cur;
@@ -187,13 +196,13 @@ export default function ExpertSection() {
                   <button
                     key={ex.name}
                     onClick={() => setCur(idx)}
-                    className="relative shrink-0 overflow-hidden transition-all duration-300"
+                    className="relative shrink-0 overflow-hidden transition-all duration-300 ease-in-out self-end"
                     style={isMobile ? {
                       width: isActive ? 'min(200px, 38vw)' : 'min(100px, 22vw)',
-                      height: isActive ? 'min(290px, 70vw)' : 'min(150px, 40vw)',
+                      height: isActive ? '100%' : '52%',
                     } : {
                       width: isActive ? 'min(385px, 45vw)' : 'min(205px, 28vw)',
-                      height: isActive ? 'min(610px, 60vw)' : 'min(325px, 32vw)',
+                      height: isActive ? '100%' : '53%',
                     }}
                   >
                     <picture className="w-full h-full">

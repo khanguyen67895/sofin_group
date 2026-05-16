@@ -9,7 +9,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="relative z-20 bg-neutral-900 border-y border-neutral-800/60 -mt-50 md:-mt-60">
+    <section className="relative z-20 bg-neutral-900 border-y border-neutral-800/60 -mt-40 sm:-mt-20 md:-mt-40 lg:-mt-60">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="grid grid-cols-1 md:grid-cols-4">
           {stats.map((s, i) => (

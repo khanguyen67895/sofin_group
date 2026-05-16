@@ -4,7 +4,7 @@ import icSmile from '@/assets/images/ic_smile.png'
 
 export default function CoreValuesSection() {
   return (
-    <section className="py-12 md:py-20 bg-neutral-900">
+    <section className="pt-12 md:pt-20 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16">
           {/* Heading */}
