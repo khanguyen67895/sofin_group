@@ -100,7 +100,7 @@ const values = [
 
 export default function CoreValueSection() {
   return (
-    <section className="pt-10 md:pt-16 bg-neutral-900">
+    <section className="md:pt-16 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 max-w-350">
 
       <div className="flex flex-col gap-20">
@@ -177,16 +177,12 @@ export default function CoreValueSection() {
                 </div>
 
                 {/* Icon */}
-                <div className="order-first md:order-last relative flex items-center justify-center w-full md:w-72 lg:w-100 shrink-0 py-4 md:py-0 overflow-hidden max-h-80 md:max-h-none">
-                  {/* <div
-                    className="absolute inset-0 opacity-15"
-                    style={{ background: 'radial-gradient(ellipse at center, rgba(229,66,30,0.4) 0%, transparent 70%)' }}
-                  /> */}
+                <div className="order-first md:order-last relative flex items-center justify-start md:justify-center w-full md:w-72 lg:w-100 shrink-0 py-2 md:py-0 overflow-hidden max-h-48 md:max-h-none">
                   <img
                     src={v.icon}
                     srcSet={`${v.icon2x} 2x`}
                     alt={v.title}
-                    className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+                    className="relative z-10 w-1/2 md:w-full h-full object-contain drop-shadow-2xl"
                   />
                 </div>
               </div>

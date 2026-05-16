@@ -25,7 +25,7 @@ export default function HeroSection() {
         muted
         playsInline
         aria-hidden
-        className="absolute inset-0 w-full h-60 md:h-full object-cover"
+        className="absolute inset-0 w-full h-130 md:h-full object-cover"
       />
 
       {/* Bottom fade to black */}
@@ -36,7 +36,7 @@ export default function HeroSection() {
 
         {/* Title */}
         <motion.h1
-          className="font-heading font-medium text-white mb-6 text-[2.25rem] leading-tight md:text-6xl md:leading-20"
+          className="font-heading font-medium text-white mb-6 text-[2.25rem] leading-tight md:text-6xl md:leading-20 mt-36"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
         {/* Description */}
         <motion.p
-          className="text-[#F5F0E8] text-base leading-6 mb-5 max-w-170"
+          className="text-[#F5F0E8] text-base leading-6 mb-5 max-w-170 mt-6 md:mt-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
@@ -71,7 +71,7 @@ export default function HeroSection() {
       </div>
 
       {/* Partners marquee */}
-      <div className="-mt-20 md:mt-0 md:absolute bottom-0 left-0 right-0 z-10">
+      <div className="md:mt-0 md:absolute bottom-0 left-0 right-0 z-10">
         <PartnersMarquee />
       </div>
 

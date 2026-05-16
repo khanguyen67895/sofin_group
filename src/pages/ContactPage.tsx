@@ -43,12 +43,12 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#0C0C0C] pt-28 overflow-hidden">
-          <img
-            src={bgContact}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
+      <section className="relative bg-[#0C0C0C] pt-20 md:pt-28 overflow-hidden">
+        <img
+          src={bgContact}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
 
         <motion.div
           className="relative mx-auto px-5 sm:px-10 md:px-20 lg:px-30 text-center"
@@ -68,7 +68,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact info cards */}
-      <section className="bg-[#0C0C0C] mt-20">
+      <section className="bg-[#0C0C0C] mt-8 md:mt-20">
         <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {contactInfo.map((item, index) => (
@@ -95,10 +95,12 @@ export default function ContactPage() {
                       'radial-gradient(ellipse at top left, black 20%, transparent 75%)',
                   }}
                 />
-
-                <img src={item.icon} alt="" className="w-10 h-10 shrink-0 mt-1 object-contain" />
+                {/* Mobile: icon top */}
+                <img src={item.icon} alt="" className="w-10 h-10 shrink-0 mt-1 object-contain hidden md:block" />
                 <div className='flex flex-col'>
-                  <span className="text-neutral-300 justify-center text-text-neutral-disabled text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px]">
+                  {/* Desktop: icon top */}
+                  <img src={item.icon} alt="" className="w-10 h-10 shrink-0 mt-1 object-contain block md:hidden" />
+                  <span className="text-neutral-300 justify-center text-text-neutral-disabled text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px] mt-4 md:mt-0">
                     {item.label}
                   </span>
                   <span className="text-neutral-100 justify-center text-text-neutral-normal text-xl font-semibold font-['Unbounded'] leading-7 group-hover:text-primary-500 transition-colors">

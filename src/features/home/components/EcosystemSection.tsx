@@ -86,7 +86,7 @@ export default function EcosystemSection() {
     : staticItems;
 
   return (
-    <section className="py-10 md:py-16 bg-neutral-900">
+    <section className="pt-10 md:py-16 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 max-w-350">
         {/* Heading */}
         <motion.div
@@ -165,7 +165,7 @@ export default function EcosystemSection() {
                       className="flex items-center gap-2 mt-4 w-fit group"
                       onClick={() => navigate("/he-sinh-thai")}
                     >
-                      <span className="text-primary-500 text-sm font-semibold font-heading tracking-widest uppercase group-hover:opacity-80 transition-opacity duration-200">
+                      <span className="text-primary-500 text-lg font-semibold font-heading tracking-widest uppercase group-hover:opacity-80 transition-opacity duration-200">
                         CHI TIẾT
                       </span>
                       <img
@@ -179,12 +179,12 @@ export default function EcosystemSection() {
 
 
                   {/* Icon */}
-                  <div className="order-first md:order-last relative flex items-center justify-center w-full md:w-72 lg:w-130 shrink-0 py-2 md:py-0 overflow-hidden max-h-70 md:max-h-none">
+                  <div className="order-first md:order-last relative flex items-center justify-start md:justify-center w-full md:w-72 lg:w-130 shrink-0 py-2 md:py-0 overflow-hidden max-h-70 md:max-h-none">
                     <img
                       src={item.icon}
                       srcSet={`${item.icon2x} 2x`}
                       alt={item.title}
-                      className="relative z-10 w-full h-full object-contain"
+                      className="relative z-10 w-1/2 md:w-full h-full object-contain"
                     />
                   </div>
                 </div>

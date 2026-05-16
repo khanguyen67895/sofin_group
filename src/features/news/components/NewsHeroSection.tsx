@@ -3,14 +3,14 @@ import icBgNews from '@/assets/images/bg_news.png'
 
 export default function NewsHeroSection() {
   return (
-    <section className="relative h-60 md:h-80 overflow-hidden">
+    <section className="relative h-50 md:h-80 pt-8 md:pt-0 overflow-hidden">
       <img
         src={icBgNews}
         alt=""
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       {/* Bottom fade to #0C0C0C */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
       <div className="relative w-full h-full flex flex-col items-center justify-center text-center px-5">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

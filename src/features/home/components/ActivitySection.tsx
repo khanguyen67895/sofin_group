@@ -1,10 +1,11 @@
 import { useState, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 import icSanbox from '@/assets/images/ic_sanbox.png'
 import icSanbox2x from '@/assets/images/ic_sanbox@2x.png'
-import icLeft from '@/assets/images/ic_left.png'
-import icRight from '@/assets/images/ic_right.png'
+// import icLeft from '@/assets/images/ic_left.png'
+// import icRight from '@/assets/images/ic_right.png'
 import img1 from '@/assets/images/image_action1.jpg'
 import img2 from '@/assets/images/image_action2.png'
 import img3 from '@/assets/images/image_action3.png'
@@ -20,27 +21,29 @@ const tabs = [
 const slides = [
   { src: img1, label: 'Hội nghị công nghệ 2024', tab: 0 },
   { src: img2, label: 'Ra mắt nền tảng SofinOS', tab: 0 },
-  { src: img3, label: 'Chương trình đào tạo 2024', tab: 1 },
-  { src: img4, label: 'Ký kết đối tác chiến lược', tab: 2 },
+  { src: img3, label: 'Chương trình đào tạo 2024', tab: 0 },
+  { src: img4, label: 'Ký kết đối tác chiến lược', tab: 0 },
 ]
 
 export default function ActivitySection() {
   const [activeTab, setActiveTab] = useState(0)
-  const [current, setCurrent] = useState(0)
+  // const [current, setCurrent] = useState(0)
 
   const filteredSlides = slides.filter(s => s.tab === activeTab)
   const displaySlides = filteredSlides.length > 0 ? filteredSlides : slides
 
+  const autoplay = Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
     dragFree: false,
-    loop: false,
+    loop: true,
     containScroll: false,
-  })
+  }, [autoplay])
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
-    setCurrent(emblaApi.selectedScrollSnap())
+    // setCurrent(emblaApi.selectedScrollSnap())
   }, [emblaApi])
 
   useEffect(() => {
@@ -49,12 +52,12 @@ export default function ActivitySection() {
     return () => { emblaApi.off('select', onSelect) }
   }, [emblaApi, onSelect])
 
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+  // const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  // const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
   const handleTabChange = (idx: number) => {
     setActiveTab(idx)
-    setCurrent(0)
+    // setCurrent(0)
     emblaApi?.scrollTo(0, false)
   }
 
@@ -88,7 +91,7 @@ export default function ActivitySection() {
 
         {/* Category tabs */}
         <motion.div
-          className="flex justify-center gap-2 mb-4 px-5 sm:px-10 md:px-20 lg:px-30 flex-wrap"
+          className="flex justify-start md:justify-center gap-2 mb-4 px-5 sm:px-10 md:px-20 lg:px-30 overflow-x-auto md:overflow-visible flex-nowrap md:flex-wrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -99,19 +102,19 @@ export default function ActivitySection() {
               <button
                 key={tab}
                 onClick={() => handleTabChange(idx)}
-                className="px-4 py-1 rounded-full bg-primary-500 text-white text-sm font-semibold leading-5"
+                className="px-4 py-1 rounded-full bg-primary-500 text-white text-sm font-semibold leading-5 shrink-0 whitespace-nowrap"
               >
                 {tab}
               </button>
             ) : (
               <div
                 key={tab}
-                className="rounded-full p-px"
+                className="rounded-full p-px shrink-0"
                 style={{ background: 'linear-gradient(180deg, #666666 0%, #242424 100%)' }}
               >
                 <button
                   onClick={() => handleTabChange(idx)}
-                  className="px-4 py-1 rounded-full bg-[#0F0F0F] text-neutral-400 hover:text-neutral-200 text-sm font-semibold transition-colors duration-200"
+                  className="px-4 py-1 rounded-full bg-[#0F0F0F] text-neutral-400 hover:text-neutral-200 text-sm font-semibold transition-colors duration-200 whitespace-nowrap"
                 >
                   {tab}
                 </button>
@@ -151,7 +154,7 @@ export default function ActivitySection() {
         </motion.div>
 
         {/* Carousel nav — centered bottom */}
-        <div className="flex items-center justify-center gap-6 mt-6">
+        {/* <div className="flex items-center justify-center gap-6 mt-6">
           <button
             onClick={scrollPrev}
             className="w-14 h-14 flex items-center justify-center hover:opacity-70 transition-opacity"
@@ -167,7 +170,7 @@ export default function ActivitySection() {
           >
             <img src={icRight} alt="Next" className="w-14 h-14 object-contain" />
           </button>
-        </div>
+        </div> */}
 
       </div>
     </section>

@@ -58,13 +58,13 @@ export default function ExpertiseGrid() {
       </motion.h2>
       <motion.div
         variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5"
       >
         {expertise.map((e, i) => (
           <motion.div
             key={e.title}
             variants={fadeUp} transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="relative"
+            className="relative @container"
           >
             <img src={bgGrids[i]} alt="" className="w-full h-auto block" />
             <svg
@@ -85,21 +85,21 @@ export default function ExpertiseGrid() {
                 <animate attributeName="stroke-dashoffset" from="0" to="-2000" dur={`${5 + i * 0.6}s`} repeatCount="indefinite" />
               </path>
             </svg>
-            <div className="absolute inset-0 flex flex-col justify-between px-[6%] pt-[20%] pb-[6%]">
-              <div className="flex flex-col gap-[2%]">
-                <h3 className="text-white font-bold font-['Mona_Sans'] leading-tight" style={{ fontSize: 'clamp(1.25rem, 1.4vw, 1.25rem)' }}>
+            <div className="absolute inset-0 flex flex-col px-[6%] pt-[20%] pb-[6%] overflow-hidden">
+              <div className="flex flex-col gap-[2%] flex-1 min-h-0">
+                <h3 className="text-white font-bold font-['Mona_Sans'] leading-tight shrink-0" style={{ fontSize: 'clamp(0.85rem, 4cqw, 1.25rem)' }}>
                   {e.title}
                 </h3>
-                <p className="text-neutral-100 font-['Mona_Sans'] leading-snug mt-2" style={{ fontSize: 'clamp(1rem, 0.95vw, 1rem)' }}>
+                <p className="text-neutral-100 font-['Mona_Sans'] leading-snug mt-1 overflow-hidden" style={{ fontSize: 'clamp(0.7rem, 3cqw, 1rem)', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical' }}>
                   {e.desc}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1 mt-2 shrink-0">
                 {e.tags.map((t) => (
                   <span
                     key={t}
-                    className="px-2 py-0.5 rounded-full font-['Mona_Sans'] text-neutral-100"
-                    style={{ fontSize: 'clamp(0.65rem, 0.8vw, 0.75rem)', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}
+                    className="px-1.5 py-0.5 rounded-full font-['Mona_Sans'] text-neutral-100 whitespace-nowrap"
+                    style={{ fontSize: 'clamp(0.5rem, 2cqw, 0.7rem)', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}
                   >
                     {t}
                   </span>

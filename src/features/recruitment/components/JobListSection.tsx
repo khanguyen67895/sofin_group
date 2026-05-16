@@ -54,7 +54,7 @@ export default function JobListSection() {
               CÁC VỊ TRÍ ĐANG MỞ
             </span>
             <h2
-              className="justify-center text-text-primary-normal text-2xl md:text-4xl font-semibold font-['Unbounded'] leading-12 text-primary-500 mb-6"
+              className="justify-center text-text-primary-normal text-2xl md:text-4xl font-semibold font-['Unbounded'] md:leading-12 text-primary-500 mb-2 md:mb-6"
             >
               Chúng tôi cần bạn!
             </h2>

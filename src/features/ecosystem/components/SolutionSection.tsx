@@ -17,32 +17,6 @@ const features = [
   },
 ]
 
-export function SolutionHeading() {
-  return (
-    <section className="pb-0 bg-neutral-900">
-      <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
-        <motion.div
-          className="relative flex flex-col text-center items-center -mt-20 md:mt-0"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
-          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-sm md:text-3xl font-semibold font-['Mona_Sans'] leading-10">
-            Giải pháp doanh nghiệp
-          </span>
-          <h2
-            className="self-stretch text-center justify-center text-neutral-100 text-xl md:text-4xl font-semibold font-['Unbounded'] md:leading-12"
-          >
-            Hệ thống vận hành riêng cho bạn<span className="hidden md:inline"><br /></span>{' '}
-            Không phần mềm đóng gói
-          </h2>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
 export default function SolutionSection() {
   return (
     <section className="bg-neutral-900">

@@ -14,6 +14,8 @@ import EcosystemPage from '@/pages/EcosystemPage'
 import ProductsPage from '@/pages/ProductsPage'
 import CoreValuesPage from '@/pages/CoreValuesPage'
 import ExpertTeamPage from '@/pages/ExpertTeamPage'
+import BrandResourcePage from '@/pages/BrandResourcePage'
+import TrainingPage from '@/pages/TrainingPage'
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,7 @@ export const router = createBrowserRouter([
       { path: 've-chung-toi', element: <AboutPage /> },
       { path: 've-chung-toi/gia-tri-cot-loi', element: <CoreValuesPage /> },
       { path: 've-chung-toi/doi-ngu-chuyen-gia', element: <ExpertTeamPage /> },
+      { path: 've-chung-toi/tai-lieu-thuong-hieu', element: <BrandResourcePage /> },
       { path: 'tin-tuc', element: <NewsPage /> },
       { path: 'tin-tuc/:id', element: <NewsDetailPage /> },
       { path: 'tuyen-dung', element: <RecruitmentPage /> },
@@ -31,6 +34,7 @@ export const router = createBrowserRouter([
       { path: 'he-sinh-thai', element: <EcosystemPage /> },
       { path: 'lien-he', element: <ContactPage /> },
       { path: 'san-pham-noi-bat', element: <ProductsPage /> },
+      { path: 'dao-tao', element: <TrainingPage /> },
     ],
   },
   {

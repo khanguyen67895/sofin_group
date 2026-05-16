@@ -44,7 +44,7 @@ export default function NewsCard({ item }: NewsCardProps) {
             </span>
           </div>
           <div className="self-stretch h-0.5 bg-linear-to-r from-zinc-100/10 to-zinc-100/0" />
-          <h3 className="font-heading font-semibold text-neutral-100 text-xl leading-7 flex-1">
+          <h3 className="font-['Mona_Sans'] font-semibold text-neutral-100 text-xl leading-7 flex-1">
             {item.title}
           </h3>
           <p className="text-neutral-400 text-sm leading-relaxed line-clamp-2">

@@ -30,10 +30,10 @@ export default function VisionSection() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-20%', '50%'])
 
   return (
-    <section id='vision-section' ref={ref} className="relative mt-16">
+    <section id='vision-section' ref={ref} className="relative md:mt-16">
 
       {/* ── Mobile layout ── */}
-      <div className="md:hidden flex flex-col px-5 py-10 gap-6">
+      <div className="md:hidden flex flex-col px-5 pb-10 gap-6">
         {/* Quote block */}
         <div
           className="rounded-2xl px-6 py-8 flex flex-col gap-4 bg-cover bg-center"

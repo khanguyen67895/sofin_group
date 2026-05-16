@@ -15,10 +15,11 @@ const navLeft: { label: string; href: string; dropdown?: DropdownItem[] }[] = [
     dropdown: [
       { label: 'Giá trị cốt lõi', href: '/ve-chung-toi/gia-tri-cot-loi' },
       { label: 'Đội ngũ chuyên gia', href: '/ve-chung-toi/doi-ngu-chuyen-gia' },
+      { label: 'Brand Resource & Guidelines', href: '/ve-chung-toi/tai-lieu-thuong-hieu' },
     ],
   },
   { label: 'Hệ sinh thái', href: '/he-sinh-thai' },
-  { label: 'Sản phẩm nổi bật', href: '/san-pham-noi-bat' },
+  { label: 'Đào tạo', href: '/dao-tao' },
 ]
 
 const navRight = [

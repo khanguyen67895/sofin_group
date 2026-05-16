@@ -9,7 +9,7 @@ export default function AboutContentSection() {
 
           {/* Left — text content */}
           <motion.div
-            className="relative"
+            className="relative -mt-24 md:mt-0"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -24,7 +24,7 @@ export default function AboutContentSection() {
 
           {/* Right — image */}
           <motion.div
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-2 md:gap-8"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

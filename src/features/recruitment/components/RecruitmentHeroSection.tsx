@@ -3,14 +3,14 @@ import icRecruitment from '@/assets/images/bg_recruitment.png'
 
 export default function RecruitmentHeroSection() {
   return (
-    <section className="relative h-60 md:h-80 overflow-hidden">
+    <section className="relative h-30 md:h-80 mt-12 md:mt-0 overflow-hidden">
       <img
         src={icRecruitment}
         alt=""
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       {/* Bottom fade to #0C0C0C */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[#0C0C0C] to-transparent z-10 pointer-events-none" />
       <div className="relative w-full h-full flex flex-col items-center justify-center text-center px-5">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -18,7 +18,7 @@ export default function RecruitmentHeroSection() {
           transition={{ duration: 0.7 }}
         >
           <h1
-            className="justify-center text-text-neutral-normal text-2xl md:text-6xl font-semibold font-['Unbounded'] leading-18 text-white"
+            className="justify-center text-text-neutral-normal text-2xl md:text-6xl font-semibold font-['Unbounded'] md:leading-18 text-white"
           >
             Tuyển dụng
           </h1>

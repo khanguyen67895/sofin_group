@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import img01 from "@/assets/images/chuyen-gia-01.png";
 import img02 from "@/assets/images/chuyen-gia-02.png";
 import img03 from "@/assets/images/chuyen-gia-03.png";
@@ -73,10 +73,10 @@ export default function ExpertSection() {
   }, []);
 
   return (
-    <section className="py-15 md:py-15 bg-neutral-900 mt-20">
+    <section className="pb-5 md:py-15 bg-neutral-900 mt-10">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
-        <div className="flex items-end justify-between mb-10 pr-6 md:pr-20 lg:pr-100">
+        <div className="flex items-end justify-between mb-2 md:mb-10 pr-6 md:pr-20 lg:pr-100">
           <motion.div
             className="flex flex-col items-center md:items-start text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export default function ExpertSection() {
               className="h-8 object-contain mb-2"
             />
             <h2
-              className="justify-center text-4xl font-medium font-['Unbounded'] leading-12 text-primary-500"
+              className="justify-center text-[32px] md:text-[40px] font-medium font-['Unbounded'] leading-12 text-primary-500"
             >
               Đội ngũ chuyên gia
             </h2>
@@ -123,42 +123,47 @@ export default function ExpertSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
 
           {/* ── LEFT: content ── */}
-          <motion.div
-            className="flex flex-col gap-5 w-full min-w-0 pr-0 lg:pr-40 items-center lg:items-start text-center lg:text-left"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            {/* Quote */}
-            <blockquote className="self-stretch justify-center text-stone-200 text-3xl font-normal font-['Mona_Sans'] leading-10">
-              {e.quote}
-            </blockquote>
+          <div className="flex flex-col gap-5 w-[90%] min-w-0 pr-0 lg:pr-10 items-start text-left min-h-105 lg:min-h-120">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={cur}
+                className="flex flex-col gap-5 w-full items-start"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                {/* Quote */}
+                <blockquote className="self-stretch justify-center text-stone-200 text-base md:text-3xl font-normal font-['Mona_Sans'] md:leading-10">
+                  {e.quote}
+                </blockquote>
 
-            <div className="relative mt-14 w-full">
-              <div className="h-0.5 bg-neutral-700/50" />
-              <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
-            </div>
+                <div className="relative md:mt-14 w-full">
+                  <div className="h-0.5 bg-neutral-700/50" />
+                  <img src={icRec} alt="" className="absolute left-0 -top-0.5 -translate-y-1/2 h-1.5" />
+                </div>
 
-            {/* Name + title */}
-            <div>
-              <p className="w-44 opacity-60 justify-center text-white text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px] mb-2">{e.title}</p>
-              <p className="justify-center text-white text-2xl font-medium font-['Unbounded'] leading-8">
-                {e.name}
-              </p>
-            </div>
+                {/* Name + title */}
+                <div>
+                  <p className="w-44 opacity-60 justify-center text-white text-[10px] font-normal font-['Mona_Sans'] uppercase leading-3 tracking-[4px] mb-2">{e.title}</p>
+                  <p className="justify-center text-white text-2xl font-medium font-['Unbounded'] leading-8">
+                    {e.name}
+                  </p>
+                </div>
 
-            {/* Description */}
-            <p className="self-stretch justify-start text-stone-100 text-sm font-normal font-['Mona_Sans'] leading-5">
-              {e.description}
-            </p>
-          </motion.div>
+                {/* Description */}
+                <p className="self-stretch justify-start text-stone-100 text-sm font-normal font-['Mona_Sans'] leading-5">
+                  {e.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
           <div
             ref={scrollRef}
-            className="flex gap-3 items-end overflow-x-auto pb-1 mt-6 lg:-mt-60 mx-1"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} 
+            className="flex gap-3 items-end overflow-x-auto pb-1 -mt-30 lg:-mt-60 lg:-ml-20"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {experts.map((ex, idx) => {
               const isActive = idx === cur;
@@ -168,7 +173,7 @@ export default function ExpertSection() {
                   onClick={() => setCur(idx)}
                   className="relative shrink-0 overflow-hidden transition-all duration-300"
                   style={{
-                    width: isActive ? 'min(330px, 55vw)' : 'min(200px, 33vw)',
+                    width: isActive ? 'min(380px, 55vw)' : 'min(200px, 33vw)',
                     height: isActive ? 'min(591px, 75vw)' : 'min(297px, 38vw)',
                   }}
                 >
@@ -186,7 +191,7 @@ export default function ExpertSection() {
         </div>
 
         {/* ── Mobile nav: bottom-left ── */}
-        <div className="flex md:hidden items-center justify-center gap-2 mt-6">
+        <div className="flex md:hidden items-center justify-start md:justify-center gap-2 mt-6">
           <button
             onClick={() =>
               goTo(cur === 0 ? experts.length - 1 : cur - 1)
