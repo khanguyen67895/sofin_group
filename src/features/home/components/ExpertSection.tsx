@@ -173,8 +173,8 @@ export default function ExpertSection() {
                   onClick={() => setCur(idx)}
                   className="relative shrink-0 overflow-hidden transition-all duration-300"
                   style={{
-                    width: isActive ? 'min(380px, 55vw)' : 'min(200px, 33vw)',
-                    height: isActive ? 'min(591px, 75vw)' : 'min(297px, 38vw)',
+                    width: isActive ? 'min(385px, 55vw)' : 'min(205px, 33vw)',
+                    height: isActive ? 'min(610px, 75vw)' : 'min(325px, 38vw)',
                   }}
                 >
                   <img

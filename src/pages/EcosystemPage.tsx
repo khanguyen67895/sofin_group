@@ -8,11 +8,6 @@ export default function EcosystemPage() {
       <EcosystemHeroSection />
       <StatsSection />
       <ProductsPage />
-      {/* <SolutionSection />
-      <PartnersMarquee />
-      <TestimonialsSection />
-      <EcosystemQuote />
-      <EcosystemExperts /> */}
     </>
   )
 }

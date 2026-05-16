@@ -1,7 +1,10 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 import bgProducts from '@/assets/images/bg_products.png'
 
 export default function EcosystemHeroSection() {
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <section
       className="relative w-full overflow-hidden"
@@ -37,9 +40,22 @@ export default function EcosystemHeroSection() {
         title="SOFIN Ecosystem"
         className="absolute w-full h-full md:-bottom-30"
         style={{ zIndex: 0, bottom: 0 }}
+        onLoad={() => setLoaded(true)}
       />
 
-      {/* bottom fade đè lên iframe */}
+      {/* Overlay che iframe cho đến khi load xong */}
+      <AnimatePresence>
+        {!loaded && (
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: '#0C0C0C', zIndex: 5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* bottom fade */}
       <div
         className="absolute inset-x-0 bottom-0 pointer-events-none bg-linear-to-t from-[#0C0C0C] to-transparent"
         style={{ height: '25%', zIndex: 10 }}
