@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import icTick from '@/assets/images/ic_tick.png'
 import bgEcosystem from '@/assets/images/bg_ecosystem.png'
@@ -99,6 +100,14 @@ const values = [
 ]
 
 export default function CoreValueSection() {
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768)
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
+
   return (
     <section className="md:pt-16 bg-neutral-900">
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 max-w-350">
@@ -115,7 +124,7 @@ export default function CoreValueSection() {
               transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.4, 0, 0.2, 1] }}
               className={`overflow-hidden rounded-2xl sticky ${idx % 2 === 0 ? "md:pl-20" : "md:pr-20"}`}
               style={{
-                top: `${80 + idx * 20}px`,
+                top: `${(isMobile ? 30 : 80) + idx * 20}px`,
                 zIndex: idx + 1,
                 boxShadow: 'inset 0 0 0 1.5px rgba(229,66,30,0.25)',
               }}
@@ -142,32 +151,32 @@ export default function CoreValueSection() {
                         className="w-12 h-12 shrink-0 object-contain"
                       />
                       <div>
-                        <h3 className="text-primary-500 text-xl md:text-5xl font-semibold font-['Unbounded'] leading-tight">
+                        <h3 className="text-primary-500 text-2xl md:text-5xl font-semibold font-['Unbounded'] leading-tight">
                           {v.title}
                         </h3>
                       </div>
                     </div>
-                    <p className="text-[#F0EDE6] text-sm md:text-xl font-['Mona_Sans'] mt-0.5">
+                    <p className="text-[#F0EDE6] text-lg md:text-xl font-['Mona_Sans'] mt-0.5">
                       {v.subtitle}
                     </p>
 
-                    <p className="text-white text-sm md:text-base font-['Mona_Sans'] leading-7">
+                    <p className="text-white text-base font-['Mona_Sans'] leading-7">
                       {v.description}
                     </p>
 
                     {/* Items */}
-                    <ul className="flex flex-row gap-2.5">
+                    <ul className="flex flex-col sm:flex-row gap-2.5">
                       {v.items.map((item) => (
                         <li
                           key={item.label}
-                          className="flex-1 flex flex-col gap-2 rounded-xl p-3"
+                          className="flex-1 flex flex-col md:gap-2 rounded-xl p-3"
                           style={{ background: 'rgba(255,255,255,0.05)' }}
                         >
                           <img src={icTick} alt="" className="w-5 h-5 object-contain" />
                           <span className="text-neutral-100 font-semibold text-base md:text-xl font-['Mona_Sans']">
                             {item.label}
                           </span>
-                          <span className="text-neutral-100 text-sm md:text-base font-['Mona_Sans'] leading-5">
+                          <span className="text-neutral-100 text-sm md:text-base font-['Mona_Sans'] md:leading-5">
                             {item.desc}
                           </span>
                         </li>

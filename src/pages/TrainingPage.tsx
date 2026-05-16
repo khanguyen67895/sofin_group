@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import Button from '@/components/ui/Button'
 import bgProducts from '@/assets/images/bg_products.png'
 import trainingGif from '@/assets/images/daa9216c6c27d87735025b49f654a1d6cb83fa7c.gif'
 
@@ -55,13 +56,13 @@ export default function TrainingPage() {
         </motion.p>
 
         <motion.button
-          onClick={() => navigate('/')}
-          className="px-8 py-3 rounded-full bg-primary-500 text-white text-sm font-semibold font-['Mona_Sans'] tracking-widest uppercase hover:bg-primary-600 transition-colors duration-200"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
         >
-          Khám phá SOFIN Group
+          <Button variant="primary" size="lg" onClick={() => navigate('/')}>
+            Khám phá SOFIN Group
+          </Button>
         </motion.button>
 
       </div>

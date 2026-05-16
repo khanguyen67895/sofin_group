@@ -20,7 +20,7 @@ export default function HeroSection() {
       <div className="hidden md:block absolute bottom-30 left-0 right-0 h-64 bg-linear-to-t from-[#0C0C0C] via-[#0C0C0C]/80 to-transparent z-10 pointer-events-none" />
 
         {/* Title */}
-       <div className="relative z-10 w-full mx-auto px-5 md:px-75 py-32 md:py-40 flex flex-col md:flex-row items-center gap-10 md:gap-0">
+       <div className="relative z-10 w-full mx-auto px-5 md:pl-10 sm:pl-10 lg:pl-10 xl:pl-85 py-32 md:py-40 flex flex-col md:flex-row items-center gap-10 md:gap-0">
         {/* Left: text */}
         <div className="flex-1 text-center md:text-left flex flex-col">
           <motion.p
@@ -33,7 +33,7 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.h1
-            className="font-heading font-semibold text-primary-500 text-[32px] md:text-4xl lg:text-4xl xl:text-[64px] md:leading-18 mb-6 order-2"
+            className="font-heading font-semibold text-primary-500 text-[32px] sm:leading-4 md:text-4xl lg:text-4xl xl:text-[64px] md:leading-10 xl:leading-18 lg:leading-10 mb-6 order-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}

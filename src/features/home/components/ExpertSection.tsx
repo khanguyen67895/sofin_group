@@ -1,9 +1,13 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import img01 from "@/assets/images/chuyen-gia-01.png";
 import img02 from "@/assets/images/chuyen-gia-02.png";
 import img03 from "@/assets/images/chuyen-gia-03.png";
 import img04 from "@/assets/images/chuyen-gia-04.png";
+import img01mb from "@/assets/images/chuyen-gia-01-mb.png";
+import img02mb from "@/assets/images/chuyen-gia-02-mb.png";
+import img03mb from "@/assets/images/chuyen-gia-03-mb.png";
+import img04mb from "@/assets/images/chuyen-gia-04-mb.png";
 import icLeft from "@/assets/images/ic_left.png";
 import icRight from "@/assets/images/ic_right.png";
 import icRec from '@/assets/images/ic_rec.png'
@@ -16,6 +20,7 @@ interface Expert {
   quote: string;
   description: string;
   image: string;
+  imageMb: string;
 }
 
 const experts: Expert[] = [
@@ -27,6 +32,7 @@ const experts: Expert[] = [
     description:
       "Với hơn 15 năm kinh nghiệm trong lĩnh vực công nghệ và đầu tư, ông Nguyễn Quang Việt đã dẫn dắt SOFIN GROUP từ những bước đầu khởi nghiệp đến vị thế tập đoàn công nghệ hàng đầu Việt Nam.",
     image: img01,
+    imageMb: img01mb,
   },
   {
     name: "Lê Thanh Hương",
@@ -36,6 +42,7 @@ const experts: Expert[] = [
     description:
       "Bà Lê Thanh Hương phụ trách điều hành toàn bộ hoạt động của tập đoàn, đảm bảo các quy trình hoạt động trơn tru và mục tiêu chiến lược được thực hiện đúng tiến độ.",
     image: img02,
+    imageMb: img02mb,
   },
   {
     name: "Trần Minh Khoa",
@@ -45,6 +52,7 @@ const experts: Expert[] = [
     description:
       "Ông Trần Minh Khoa là kiến trúc sư công nghệ của SOFIN, người định hình nền tảng kỹ thuật vững chắc cho toàn bộ hệ sinh thái sản phẩm và dịch vụ của tập đoàn.",
     image: img03,
+    imageMb: img03mb,
   },
   {
     name: "Phạm Đức Anh",
@@ -54,13 +62,21 @@ const experts: Expert[] = [
     description:
       "Ông Phạm Đức Anh quản lý chiến lược tài chính và danh mục đầu tư của SOFIN GROUP, với chuyên môn sâu trong phân tích thị trường và định giá startup công nghệ.",
     image: img04,
+    imageMb: img04mb,
   },
 ];
 
 export default function ExpertSection() {
   const [cur, setCur] = useState(0);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 1024);
   const e = experts[cur];
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
 
   const goTo = useCallback((idx: number) => {
     setCur(idx);
@@ -73,7 +89,7 @@ export default function ExpertSection() {
   }, []);
 
   return (
-    <section className="pb-5 md:py-15 bg-neutral-900 mt-10">
+    <section className="pb-12 md:py-15 bg-neutral-900 mt-10" style={{ overflowX: 'clip' }}>
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30">
         {/* ── Top row: label + title trái, nav phải ── */}
         <div className="flex items-end justify-between mb-2 md:mb-10 pr-6 md:pr-20 lg:pr-100">
@@ -120,7 +136,7 @@ export default function ExpertSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch" style={{ overflowX: 'clip' }}>
 
           {/* ── LEFT: content ── */}
           <div className="flex flex-col gap-5 w-[90%] min-w-0 pr-0 lg:pr-10 items-start text-left min-h-105 lg:min-h-120">
@@ -160,32 +176,39 @@ export default function ExpertSection() {
           </div>
 
           {/* ── RIGHT: horizontal scroll of all portraits ── */}
-          <div
-            ref={scrollRef}
-            className="flex gap-3 items-end overflow-x-auto pb-1 -mt-30 lg:-mt-60 lg:-ml-20"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {experts.map((ex, idx) => {
-              const isActive = idx === cur;
-              return (
-                <button
-                  key={ex.name}
-                  onClick={() => setCur(idx)}
-                  className="relative shrink-0 overflow-hidden transition-all duration-300"
-                  style={{
-                    width: isActive ? 'min(385px, 55vw)' : 'min(205px, 33vw)',
-                    height: isActive ? 'min(610px, 75vw)' : 'min(325px, 38vw)',
-                  }}
-                >
-                  <img
-                    src={ex.image}
-                    alt={ex.name}
-                    className="w-full h-full object-cover object-top"
-                    draggable={false}
-                  />
-                </button>
-              );
-            })}
+          <div className="-mt-10 sm:-mt-30 md:mt-8 lg:-mt-40 xl:-mt-60 lg:-ml-12 xl:-ml-20" style={{ overflowX: 'auto', overflowY: 'visible', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div
+              ref={scrollRef}
+              className="flex sm:gap-0.5 md:gap-0 lg:gap-3 items-end"
+            >
+              {experts.map((ex, idx) => {
+                const isActive = idx === cur;
+                return (
+                  <button
+                    key={ex.name}
+                    onClick={() => setCur(idx)}
+                    className="relative shrink-0 overflow-hidden transition-all duration-300"
+                    style={isMobile ? {
+                      width: isActive ? 'min(200px, 38vw)' : 'min(100px, 22vw)',
+                      height: isActive ? 'min(290px, 70vw)' : 'min(150px, 40vw)',
+                    } : {
+                      width: isActive ? 'min(385px, 45vw)' : 'min(205px, 28vw)',
+                      height: isActive ? 'min(610px, 60vw)' : 'min(325px, 32vw)',
+                    }}
+                  >
+                    <picture className="w-full h-full">
+                      <source media="(min-width: 1024px)" srcSet={ex.image} />
+                      <img
+                        src={ex.imageMb}
+                        alt={ex.name}
+                        className="w-full h-full object-contain object-bottom"
+                        draggable={false}
+                      />
+                    </picture>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
         </div>

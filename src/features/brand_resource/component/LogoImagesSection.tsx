@@ -27,7 +27,7 @@ const rowLeft = [
 function MarqueeRow({ items, direction }: { items: typeof rowRight; direction: 'right' | 'left' }) {
   // Duplicate for seamless loop
   const doubled = [...items, ...items, ...items, ...items]
-  const animateX = direction === 'right' ? ['0%', '-50%'] : ['-50%', '0%']
+  const animateX = direction === 'right' ? ['0%', '-30%'] : ['-30%', '0%']
 
   return (
     <div className="overflow-hidden w-full">
@@ -45,13 +45,13 @@ function MarqueeRow({ items, direction }: { items: typeof rowRight; direction: '
         {doubled.map((img, i) => (
           <div
             key={i}
-            className="shrink-0 overflow-hidden w-72 md:w-165.5 aspect-video"
+            className="shrink-0 w-72 md:w-165.5"
           >
             <img
               src={img.src}
               srcSet={img.srcSet}
               alt={img.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-auto block"
             />
           </div>
         ))}

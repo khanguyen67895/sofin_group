@@ -134,19 +134,23 @@ export default function ActivitySection() {
             ref={emblaRef}
             className="overflow-hidden px-5 sm:px-10 md:px-20 lg:px-30"
           >
-            <div className="flex gap-4 pb-4">
+            <div className="flex pb-4 -ml-4">
               {displaySlides.map((slide) => (
                 <div
                   key={slide.label}
-                  className="relative shrink-0 w-[85vw] sm:w-[70vw] md:w-150 h-60 md:h-91 overflow-hidden cursor-pointer p-2 rounded-2xl border-2 border-[#3C3C3C]"
-                  style={{ background: 'radial-gradient(100% 53.36% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), rgba(255, 255, 255, 0.05)' }}
+                  className="shrink-0 w-[85vw] sm:w-[70vw] md:w-150 pl-4"
                 >
-                  <img
-                    src={slide.src}
-                    alt={slide.label}
-                    className="w-full h-full rounded-[10px] object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-neutral-900/70 via-transparent to-transparent" />
+                  <div
+                    className="relative h-60 md:h-91 overflow-hidden cursor-pointer p-2 rounded-2xl border-2 border-[#3C3C3C]"
+                    style={{ background: 'radial-gradient(100% 53.36% at 0% 0%, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%), rgba(255, 255, 255, 0.05)' }}
+                  >
+                    <img
+                      src={slide.src}
+                      alt={slide.label}
+                      className="w-full h-full rounded-[10px] object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-neutral-900/70 via-transparent to-transparent" />
+                  </div>
                 </div>
               ))}
             </div>

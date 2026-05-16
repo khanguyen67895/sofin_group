@@ -45,7 +45,7 @@ export default function EcosystemExperts() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-sm md:text-3xl font-semibold font-['Mona_Sans'] leading-10">
+          <span className="text-primary-500 self-stretch text-center justify-center text-text-primary-normal text-xl md:text-3xl font-semibold font-['Mona_Sans'] leading-10">
             Đội ngũ chuyên gia
           </span>
         </motion.div>

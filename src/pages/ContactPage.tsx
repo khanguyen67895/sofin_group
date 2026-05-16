@@ -13,14 +13,14 @@ const contactInfo = [
   {
     icon: icPhone,
     label: 'ĐIỆN THOẠI',
-    value: '0335 456 789',
+    value: '079 456 6789',
     href: 'tel:0335456789',
   },
   {
     icon: icEmail,
     label: 'EMAIL',
-    value: 'hello@sofingroup.com',
-    href: 'mailto:hello@sofingroup.com',
+    value: 'vietnguyen@sofingroup.com',
+    href: 'mailto:vietnguyen@sofingroup.com',
   },
   {
     icon: icLocation,

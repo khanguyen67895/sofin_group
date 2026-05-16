@@ -3,7 +3,7 @@ import icRecruitment from '@/assets/images/bg_recruitment.png'
 
 export default function RecruitmentHeroSection() {
   return (
-    <section className="relative h-30 md:h-80 mt-12 md:mt-0 overflow-hidden">
+    <section className="relative h-30 md:h-80 mt-16 md:mt-0 overflow-hidden">
       <img
         src={icRecruitment}
         alt=""

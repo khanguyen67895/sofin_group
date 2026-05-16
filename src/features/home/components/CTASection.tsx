@@ -47,7 +47,7 @@ export default function CTASection({
           <img
             src={icReal}
             alt="Real Tech Real Value"
-            className="w-40 h-40 md:w-56 md:h-56 object-contain"
+            className="w-70 h-58.5 md:w-92 md:h-56 object-contain"
           />
         </motion.div>
 

@@ -93,7 +93,7 @@ export default function Footer() {
               <div>
                 <span className="text-[10px] text-white opacity-60 tracking-[4px] uppercase font-normal font-['Mona_Sans'] block leading-3 mb-1">ĐIỆN THOẠI</span>
                 <a href="tel:0335456789" className="text-white font-normal font-['Unbounded'] leading-8 text-xl hover:text-primary-500 transition-colors">
-                  0335 456 789
+                  079 456 6789
                 </a>
               </div>
             </div>
@@ -102,8 +102,8 @@ export default function Footer() {
               <img src={icEmail} alt="" className="w-10 h-10 mt-1 object-contain" />
               <div>
                 <span className="text-[10px] text-white opacity-60 tracking-[4px] uppercase font-normal font-['Mona_Sans'] block leading-3 mb-1">EMAIL</span>
-                <a href="mailto:hello@sofingroup.com" className="text-white font-normal font-['Unbounded'] leading-8 text-xl hover:text-primary-500 transition-colors">
-                  hello@sofingroup.com
+                <a href="mailto:vietnguyen@sofingroup.com" className="text-white font-normal font-['Unbounded'] leading-8 text-xl hover:text-primary-500 transition-colors">
+                  vietnguyen@sofingroup.com
                 </a>
               </div>
             </div>

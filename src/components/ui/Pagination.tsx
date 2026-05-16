@@ -9,8 +9,6 @@ export default function Pagination({
   totalPages,
   onPageChange,
 }: PaginationProps) {
-  if (totalPages <= 1) return null
-
   // Hiển thị tối đa 5 trang
   let startPage = Math.max(1, currentPage - 2)
   let endPage = Math.min(totalPages, currentPage + 2)

@@ -1,10 +1,10 @@
-import bgLogo from '@/assets/video/tạo_video_zoom_in_zoom_202605151110.mp4'
+import bgLogo from '@/assets/video/video_logo.mp4'
 import { motion } from 'framer-motion'
 
 export default function LogoSection() {
   return (
     <section className="bg-neutral-900 relative z-50 md:mt-0 -mt-10">
-      <div className="max-w-7xl mx-auto px-5 md:px-10">
+      <div className="w-full mx-auto px-5 sm:px-10 md:pl-10 lg:pl-10 xl:pl-85">
         {/* Section title */}
         <motion.h2
           className="md:text-center text-primary-500 text-left font-heading font-bold text-2xl md:text-3xl md:mb-4"
@@ -24,21 +24,21 @@ export default function LogoSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <video
-            src={bgLogo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-hidden
-            disablePictureInPicture
-            controlsList="nodownload nofullscreen noremoteplayback"
-            className="w-177.5 h-50 object-cover"
-          />
+            <video
+              src={bgLogo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-hidden
+              disablePictureInPicture
+              controlsList="nodownload nofullscreen noremoteplayback"
+              className="w-177.5 h-50 object-cover"
+            />
         </motion.div>
 
         {/* Description paragraphs */}
-        <div className="max-w-7xl mx-auto space-y-5 text-white text-sm md:text-base leading-6">
+        <div className="space-y-5 text-white text-sm md:text-base leading-6 max-w-7xl">
           {[
             'Logo được hình thành từ sự kết hợp giữa hai chữ cái S và F trong tên gọi SOFIN, kết hợp cùng biểu tượng tia sáng – một hình ảnh quen thuộc trong lĩnh vực AI, đại diện cho sự sáng tạo và những khoảnh khắc bùng nổ ý tưởng.',
             'Tổng thể logo thể hiện SOFIN là một nền tảng được xây dựng và phát triển trên công nghệ AI, luôn đổi mới, thông minh và tiên phong trong việc tạo ra giá trị.',

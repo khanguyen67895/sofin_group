@@ -6,23 +6,23 @@ import { useCmsNewsList } from '../hooks/useCmsNews'
 import { mockNews } from '../data/mockNews'
 import NewsCard from './NewsCard'
 
-const PAGE_SIZE = 9
+const FETCH_SIZE = 100
+const pageSize = 4
+
+const CAT_LABELS: Record<string, string> = {
+  'tin-tuc': 'TIN TỨC',
+  'su-kien': 'SỰ KIỆN',
+  'thong-bao': 'THÔNG BÁO',
+}
 
 export default function NewsListSection() {
-  const [page, setPage] = useState(1)
-  const { data, isLoading, isError } = useCmsNewsList(page, PAGE_SIZE)
+  const { data, isLoading, isError } = useCmsNewsList(1, FETCH_SIZE)
+  const [catPages, setCatPages] = useState<Record<string, number>>({})
 
-  const fallback = useMemo(() => {
-    const start = (page - 1) * PAGE_SIZE
-    return {
-      items: mockNews.slice(start, start + PAGE_SIZE),
-      totalPages: Math.max(1, Math.ceil(mockNews.length / PAGE_SIZE)),
-    }
-  }, [page])
-
-  const useFallback = isError || !data?.items?.length
-  const allItems = useFallback ? fallback.items : data!.items
-  const totalPages = useFallback ? fallback.totalPages : data!.meta.pageCount
+  const allItems = useMemo(() => {
+    if (isError || !data?.items?.length) return mockNews
+    return data.items
+  }, [data, isError])
 
   const grouped = useMemo(() => {
     const map = new Map<string, typeof allItems>()
@@ -34,8 +34,10 @@ export default function NewsListSection() {
     return Array.from(map.entries())
   }, [allItems])
 
-  const handlePageChange = (next: number) => {
-    setPage(next)
+  const getPage = (cat: string) => catPages[cat] ?? 1
+
+  const handlePageChange = (cat: string, next: number) => {
+    setCatPages(prev => ({ ...prev, [cat]: next }))
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -44,39 +46,41 @@ export default function NewsListSection() {
       <div className="mx-auto px-5 sm:px-10 md:px-20 lg:px-30 flex flex-col gap-14">
         {isLoading && !data ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {Array.from({ length: PAGE_SIZE }).map((_, i) => (
+            {Array.from({ length: 8 }).map((_, i) => (
               <NewsCardSkeleton key={i} />
             ))}
           </div>
         ) : (
-          <>
-            {grouped.map(([category, items], gi) => (
+          grouped.map(([category, items], gi) => {
+            const page = getPage(category)
+            const totalPages = Math.max(1, Math.ceil(items.length / pageSize))
+            const pageItems = items.slice((page - 1) * pageSize, page * pageSize)
+
+            return (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: gi * 0.05 }}
+                className="flex flex-col gap-6"
               >
-                <h2 className="text-center text-2xl font-semibold font-['Unbounded'] text-primary-500 mb-6">
-                  {category === "tin-tuc" ? "TIN TỨC" : category === "su-kien" ? "SỰ KIỆN" : "THÔNG BÁO"}
+                <h2 className="text-center text-2xl font-semibold font-['Unbounded'] text-primary-500">
+                  {CAT_LABELS[category] ?? category.toUpperCase()}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-                  {items.map((item) => (
-                    <NewsCard key={`${page}-${item.id}`} item={item} />
+                  {pageItems.map((item) => (
+                    <NewsCard key={`${category}-${page}-${item.id}`} item={item} />
                   ))}
                 </div>
+                <Pagination
+                  currentPage={page}
+                  totalPages={totalPages}
+                  onPageChange={(next) => handlePageChange(category, next)}
+                />
               </motion.div>
-            ))}
-
-            <div className="mt-4">
-              <Pagination
-                currentPage={page}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
-            </div>
-          </>
+            )
+          })
         )}
       </div>
     </section>

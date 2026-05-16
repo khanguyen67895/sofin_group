@@ -40,7 +40,7 @@ const staticItems: Item[] = [
     icon2x: imgHeSinhThai1x2,
     description:
       "Trung tâm nghiên cứu phát triển AI, machine learning, chuyển đổi số và các giải pháp công nghệ tiên tiến cho doanh nghiệp.",
-    tags: ["SOFIN AI", "Interlink", "AVIXO Trading", "SOAFF"],
+    tags: ["SOFIN AI", "SOAFF"],
   },
   {
     title: "SOFIN Academy",
@@ -138,10 +138,10 @@ export default function EcosystemSection() {
 
                 <div className={`relative z-10 flex flex-col md:flex-row items-stretch ${iconRight ? "md:flex-row" : "md:flex-row-reverse"}`}>
                   {/* Content */}
-                  <div className="flex flex-col justify-between max-w-2xl flex-1 px-6 md:px-10 pb-6 pt-4 md:pb-12 md:pt-16">
+                  <div className="flex flex-col justify-start max-w-2xl flex-1 px-6 md:px-10 pb-6 pt-4 md:pb-12 md:pt-16">
                     <div className="flex flex-col gap-4">
                       <h3
-                        className="self-stretch justify-center text-primary-500 text-4xl font-medium font-['Unbounded'] leading-12"
+                        className="self-stretch justify-center text-primary-500 text-2xl md:text-4xl font-medium font-['Unbounded'] leading-12"
                       >
                         {item.title}
                       </h3>
@@ -162,7 +162,7 @@ export default function EcosystemSection() {
 
                     {/* CTA */}
                     <button
-                      className="flex items-center gap-2 mt-4 w-fit group"
+                      className="flex items-center gap-2 mt-16 w-fit group"
                       onClick={() => navigate("/he-sinh-thai")}
                     >
                       <span className="text-primary-500 text-lg font-semibold font-heading tracking-widest uppercase group-hover:opacity-80 transition-opacity duration-200">
