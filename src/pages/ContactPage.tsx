@@ -131,7 +131,7 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <form onSubmit={handleSubmit} className="relative z-30 flex flex-col gap-5">
                   <div className="grid grid-cols-2 gap-5">
                     <input
                       type="text"
@@ -157,16 +157,14 @@ export default function ContactPage() {
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     className="bg-transparent border-b border-neutral-700 py-3 text-[13px] text-neutral-100 placeholder-neutral-600 outline-none focus:border-primary-500 transition-colors resize-none"
                   />
-                  <div className="pt-2">
                     <Button
                       type="submit"
                       variant="primary"
                       size="lg"
-                      rightIcon={<img src={icArrowDetail} alt="" className="w-3.5 h-3.5 filter-[brightness(0)_invert(1)]" />}
+                      rightIcon={<img src={icArrowDetail} alt="" className="w-full h-3.5 filter-[brightness(0)_invert(1)]" />}
                     >
                       GỬI YÊU CẦU
                     </Button>
-                  </div>
                 </form>
               )}
             </motion.div>
